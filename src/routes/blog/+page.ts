@@ -1,31 +1,18 @@
-import { createClient } from '$lib/prismicio';
+import { getCardsforUIDs, fetchUidsByType } from '$lib/fetchCardListContent';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async () => {
-  const client = createClient('kalvex-app');
-  
-  try {
-    // Step 1: Fetch the basic post list, which only returns UIDs
-    const basicBlogPosts = await client.getAllByType('blogpost');
+  // Fetch UIDs for blog posts where post_type is 'blog_post'
+  const blogPostUids = await fetchUidsByType('blogpost');
 
-    // Step 2: Fetch each blog post's full content by UID
-    const fullBlogPosts = await Promise.all(
-      basicBlogPosts.map(async (post) => {
-        const fullPost = await client.getByUID('blogpost', post.uid); // Fetch full post data by UID
-        console.log(fullPost)
-        return {
-          uid: fullPost.uid,
-          blogTitle: fullPost.data.slices[0]?.primary.blog_title || 'Untitled',
-          subheading: fullPost.data.slices[0]?.primary.subheading || 'No subtitle available',
-          articleImage: fullPost.data.slices[0]?.primary.articleimage?.url || '/default-image.png',
-          postContent: fullPost.data.postcontent?.value || [],
-        };
-      })
-    );
+  // Fetch the cards using the UIDs
+  const blogCards = await getCardsforUIDs(blogPostUids, 'blog_post');
 
-    return { posts: fullBlogPosts };
-  } catch (error) {
-    console.error('Failed to fetch blog posts:', error);
-    return { posts: [] };
-  }
+  // Handle link generation in the caller
+  const cardsWithLinks = blogCards.map(card => ({
+    ...card,
+    link: `/blog/${card.uid}`, // Set the link here based on the type
+  }));
+
+  return { cards: cardsWithLinks };
 };

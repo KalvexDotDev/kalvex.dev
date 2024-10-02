@@ -46,6 +46,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "trick",
 				"type": "Text"
+			},
+			"post_type": {
+				"__TYPE__": "FieldContent",
+				"value": "blog_post",
+				"type": "Select"
 			}
 		},
 		"items": []

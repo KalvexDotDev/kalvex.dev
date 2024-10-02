@@ -121,70 +121,6 @@ export type BlogpostDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-type CardlistviewDocumentDataSlicesSlice = CardListViewSlice;
-
-/**
- * Content for CardListView documents
- */
-interface CardlistviewDocumentData {
-	/**
-	 * Slice Zone field in *CardListView*
-	 *
-	 * - **Field Type**: Slice Zone
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cardlistview.slices[]
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#slices
-	 */
-	slices: prismic.SliceZone<CardlistviewDocumentDataSlicesSlice> /**
-	 * Meta Title field in *CardListView*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: cardlistview.meta_title
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */;
-	meta_title: prismic.KeyTextField;
-
-	/**
-	 * Meta Description field in *CardListView*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: cardlistview.meta_description
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	meta_description: prismic.KeyTextField;
-
-	/**
-	 * Meta Image field in *CardListView*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: cardlistview.meta_image
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#image
-	 */
-	meta_image: prismic.ImageField<never>;
-}
-
-/**
- * CardListView document from Prismic
- *
- * - **API ID**: `cardlistview`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type CardlistviewDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
-	Simplify<CardlistviewDocumentData>,
-	'cardlistview',
-	Lang
->;
-
 type HomepageDocumentDataSlicesSlice = AlternateGridSlice;
 
 /**
@@ -249,11 +185,7 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-export type AllDocumentTypes =
-	| BlogPostCardDocument
-	| BlogpostDocument
-	| CardlistviewDocument
-	| HomepageDocument;
+export type AllDocumentTypes = BlogPostCardDocument | BlogpostDocument | HomepageDocument;
 
 /**
  * Item in *AlternateGrid → Default → Primary → items*
@@ -498,6 +430,16 @@ export interface BlogPostSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	postcontent: prismic.RichTextField;
+
+	/**
+	 * post_type field in *BlogPost → Default → Primary*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.default.primary.post_type
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	post_type: prismic.SelectField<'blog_post' | 'case_study'>;
 }
 
 /**
@@ -605,9 +547,6 @@ declare module '@prismicio/client' {
 			BlogpostDocument,
 			BlogpostDocumentData,
 			BlogpostDocumentDataSlicesSlice,
-			CardlistviewDocument,
-			CardlistviewDocumentData,
-			CardlistviewDocumentDataSlicesSlice,
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
