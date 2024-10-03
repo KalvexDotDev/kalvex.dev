@@ -49,6 +49,15 @@
 	  class="es-bounded es-alternate-grid snap-section relative"
 	>
 	  <div class="hero-content relative z-10">
+		{#if isFilled.image(slice.primary.image)}
+		  <div class="logo-container">
+			<PrismicImage
+			  field={slice.primary.image}
+			  class="kalvex-logo"
+			  alt="Kalvex Logo"
+			/>
+		  </div>
+		{/if}
 		{#if isFilled.keyText(slice.primary.eyebrowHeadline)}
 		  <h4 class="text-white text-xl mb-2">{slice.primary.eyebrowHeadline}</h4>
 		{/if}
@@ -91,8 +100,13 @@
   </div>
   
   <style>
+	:global(html, body) {
+	  height: 100%;
+	  overflow: hidden;
+	}
+  
 	.alternate-grid-container {
-	  height: 100vh;
+	  height: 100%;
 	  overflow-y: auto;
 	  scroll-snap-type: y mandatory;
 	}
@@ -101,9 +115,9 @@
 	  scroll-snap-align: start;
 	  min-height: 100vh;
 	  display: flex;
-	  align-items: center;
+	  align-items: flex-start;
 	  justify-content: flex-start;
-	  padding: 0 5%;
+	  padding: 5% 5% 0;
 	}
   
 	.es-bounded {
@@ -120,6 +134,16 @@
   
 	.hero-content {
 	  max-width: 600px;
+	  padding-top: 2rem;
+	}
+  
+	.logo-container {
+	  margin-bottom: 1rem;
+	}
+  
+	.kalvex-logo {
+	  max-width: 150px;
+	  height: auto;
 	}
   
 	.hero-content :global(h1),
@@ -155,6 +179,9 @@
 	.cta-section {
 	  background-color: #030712;
 	  color: #ffffff;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
 	}
   
 	.cta-container {

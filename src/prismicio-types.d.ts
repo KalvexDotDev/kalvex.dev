@@ -188,6 +188,68 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 export type AllDocumentTypes = BlogPostCardDocument | BlogpostDocument | HomepageDocument;
 
 /**
+ * Primary content in *About → Default → Primary*
+ */
+export interface AboutSliceDefaultPrimary {
+	/**
+	 * Title field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+
+	/**
+	 * FounderImage field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.default.primary.founderimage
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	founderimage: prismic.ImageField<never>;
+
+	/**
+	 * About Kalvex field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.default.primary.about_kalvex
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	about_kalvex: prismic.RichTextField;
+}
+
+/**
+ * Default variation for About Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<AboutSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *About*
+ */
+type AboutSliceVariation = AboutSliceDefault;
+
+/**
+ * About Shared Slice
+ *
+ * - **API ID**: `about`
+ * - **Description**: About
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSlice = prismic.SharedSlice<'about', AboutSliceVariation>;
+
+/**
  * Item in *AlternateGrid → Default → Primary → items*
  */
 export interface AlternateGridSliceDefaultPrimaryItemsItem {
@@ -531,6 +593,33 @@ type CardListViewSliceVariation = CardListViewSliceDefault;
  */
 export type CardListViewSlice = prismic.SharedSlice<'card_list_view', CardListViewSliceVariation>;
 
+/**
+ * Default variation for Services Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Record<string, never>,
+	never
+>;
+
+/**
+ * Slice variation for *Services*
+ */
+type ServicesSliceVariation = ServicesSliceDefault;
+
+/**
+ * Services Shared Slice
+ *
+ * - **API ID**: `services`
+ * - **Description**: Services
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSlice = prismic.SharedSlice<'services', ServicesSliceVariation>;
+
 declare module '@prismicio/client' {
 	interface CreateClient {
 		(
@@ -561,6 +650,10 @@ declare module '@prismicio/client' {
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			AboutSlice,
+			AboutSliceDefaultPrimary,
+			AboutSliceVariation,
+			AboutSliceDefault,
 			AlternateGridSlice,
 			AlternateGridSliceDefaultPrimaryItemsItem,
 			AlternateGridSliceDefaultPrimary,
@@ -576,7 +669,10 @@ declare module '@prismicio/client' {
 			CardListViewSlice,
 			CardListViewSliceDefaultPrimary,
 			CardListViewSliceVariation,
-			CardListViewSliceDefault
+			CardListViewSliceDefault,
+			ServicesSlice,
+			ServicesSliceVariation,
+			ServicesSliceDefault
 		};
 	}
 }
