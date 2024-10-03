@@ -178,6 +178,17 @@
 						]
 					}
 				]
+			},
+			"main_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Velit sit cillum sunt consequat."
+						}
+					}
+				]
 			}
 		},
 		"items": []

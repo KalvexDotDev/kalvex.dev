@@ -290,6 +290,16 @@ export interface AlternateGridSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
 	items: prismic.GroupField<Simplify<AlternateGridSliceDefaultPrimaryItemsItem>>;
+
+	/**
+	 * Main Content field in *AlternateGrid → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Content Goes Here
+	 * - **API ID Path**: alternate_grid.default.primary.main_content
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	main_content: prismic.RichTextField;
 }
 
 /**

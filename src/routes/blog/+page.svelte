@@ -20,7 +20,6 @@
               <div class="p-0">
                 <img src={card.image} alt={card.title} class="w-full h-48 object-cover rounded-t-lg" />
               </div>
-  
               <!-- Card Content -->
               <div class="p-4">
                 <h2 class="text-xl font-bold text-black group-hover:text-blue-600 transition duration-300">
