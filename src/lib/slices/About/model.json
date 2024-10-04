@@ -13,31 +13,125 @@
       "imageUrl": "",
       "primary": {
         "title": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Title",
-            "placeholder": ""
+            "placeholder": "About Kalvex",
+            "allowTargetBlank": true,
+            "single": "heading1"
           }
         },
-        "founderimage": {
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "placeholder": "Brief description of Kalvex",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Main content about Kalvex",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "logo": {
           "type": "Image",
           "config": {
-            "label": "FounderImage",
+            "label": "Logo",
             "constraint": {},
             "thumbnails": []
           }
         },
-        "about_kalvex": {
+        "mission_title": {
           "type": "StructuredText",
           "config": {
-            "label": "About Kalvex",
-            "placeholder": "",
+            "label": "Mission Title",
+            "placeholder": "Our Mission",
             "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "single": "heading2"
+          }
+        },
+        "mission_statement": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Mission Statement",
+            "placeholder": "To empower businesses in regulated industries...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "cta_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA Title",
+            "placeholder": "Ready to Transform Your Business?",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "cta_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CTA Description",
+            "placeholder": "Let Kalvex help you streamline operations...",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "cta_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Button Text",
+            "placeholder": "Schedule a Consultation"
+          }
+        },
+        "cta_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Button Link",
+            "placeholder": "https://cal.com/kalvex-jaimie/30min",
+            "allowTargetBlank": true
           }
         }
       },
-      "items": {}
+      "items": {
+        "employee_name": {
+          "type": "Text",
+          "config": {
+            "label": "Employee Name",
+            "placeholder": "John Doe"
+          }
+        },
+        "employee_position": {
+          "type": "Text",
+          "config": {
+            "label": "Employee Position",
+            "placeholder": "CEO"
+          }
+        },
+        "employee_image": {
+          "type": "Image",
+          "config": {
+            "label": "Employee Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "employee_intro": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Employee Intro",
+            "placeholder": "Brief introduction about the employee",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        }
+      }
     }
   ]
 }

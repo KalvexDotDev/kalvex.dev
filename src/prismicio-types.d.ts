@@ -4,6 +4,70 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AboutPageDocumentDataSlicesSlice = AboutSlice;
+
+/**
+ * Content for About Page documents
+ */
+interface AboutPageDocumentData {
+	/**
+	 * Slice Zone field in *About Page*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_page.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<AboutPageDocumentDataSlicesSlice> /**
+	 * Meta Title field in *About Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: about_page.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *About Page*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: about_page.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *About Page*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about_page.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * About Page document from Prismic
+ *
+ * - **API ID**: `about_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutPageDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<AboutPageDocumentData>,
+	'about_page',
+	Lang
+>;
+
 /**
  * Content for blog_post_card documents
  */
@@ -185,14 +249,18 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-export type AllDocumentTypes = BlogPostCardDocument | BlogpostDocument | HomepageDocument;
+export type AllDocumentTypes =
+	| AboutPageDocument
+	| BlogPostCardDocument
+	| BlogpostDocument
+	| HomepageDocument;
 
 /**
  * Primary content in *About → Default → Primary*
  */
 export interface AboutSliceDefaultPrimary {
 	/**
-	 * Title field in *About → Default → Primary*
+	 * title field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -202,24 +270,64 @@ export interface AboutSliceDefaultPrimary {
 	title: prismic.KeyTextField;
 
 	/**
-	 * FounderImage field in *About → Default → Primary*
+	 * subtitle field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: subtitle
+	 * - **API ID Path**: about.default.primary.subtitle
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	subtitle: prismic.RichTextField;
+
+	/**
+	 * logo field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about.default.primary.founderimage
+	 * - **API ID Path**: about.default.primary.logo
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
-	founderimage: prismic.ImageField<never>;
+	logo: prismic.ImageField<never>;
 
 	/**
-	 * About Kalvex field in *About → Default → Primary*
+	 * employee_image field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.default.primary.employee_image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	employee_image: prismic.ImageField<never>;
+
+	/**
+	 * employee_name field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.default.primary.employee_name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	employee_name: prismic.KeyTextField;
+
+	/**
+	 * employee_position field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.default.primary.employee_position
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	employee_position: prismic.KeyTextField;
+
+	/**
+	 * content field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about.default.primary.about_kalvex
+	 * - **API ID Path**: about.default.primary.content
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	about_kalvex: prismic.RichTextField;
+	content: prismic.RichTextField;
 }
 
 /**
@@ -641,6 +749,9 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			AboutPageDocument,
+			AboutPageDocumentData,
+			AboutPageDocumentDataSlicesSlice,
 			BlogPostCardDocument,
 			BlogPostCardDocumentData,
 			BlogpostDocument,
