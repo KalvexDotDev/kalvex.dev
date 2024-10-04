@@ -17,7 +17,7 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.47.2",
-		"@slicemachine/adapter-sveltekit": "^0.3.49",
+		"@slicemachine/adapter-sveltekit": "^0.3.50",
 		"@sveltejs/adapter-auto": "^3.2.5",
 		"@sveltejs/kit": "^2.6.1",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
@@ -30,7 +30,7 @@
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.7",
 		"prettier-plugin-tailwindcss": "^0.6.8",
-		"slice-machine-ui": "^2.7.1",
+		"slice-machine-ui": "^2.8.0",
 		"svelte": "^4.2.19",
 		"svelte-check": "^4.0.4",
 		"tailwindcss": "^3.4.13",
