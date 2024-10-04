@@ -2,14 +2,14 @@
 
 import About from './About/index.svelte';
 import AlternateGrid from './AlternateGrid/index.svelte';
-import BlogPost from './BlogPost/index.svelte';
-import CardListView from './CardListView/index.svelte';
+import PostContent from './PostContent/index.svelte';
+import PostList from './PostList/index.svelte';
 import Services from './Services/index.svelte';
 
 export const components = {
 	about: About,
 	alternate_grid: AlternateGrid,
-	blog_post: BlogPost,
-	card_list_view: CardListView,
+	postcontent: PostContent,
+	postlist: PostList,
 	services: Services
 };

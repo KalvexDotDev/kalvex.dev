@@ -68,120 +68,290 @@ export type AboutPageDocument<Lang extends string = string> = prismic.PrismicDoc
 	Lang
 >;
 
-/**
- * Content for blog_post_card documents
- */
-interface BlogPostCardDocumentData {
-	/**
-	 * title field in *blog_post_card*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Title
-	 * - **API ID Path**: blog_post_card.title
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	title: prismic.KeyTextField;
-
-	/**
-	 * subtitle field in *blog_post_card*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Subtitle
-	 * - **API ID Path**: blog_post_card.subtitle
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	subtitle: prismic.KeyTextField;
-
-	/**
-	 * image field in *blog_post_card*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blog_post_card.image
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#image
-	 */
-	image: prismic.ImageField<never>;
-}
+type BlogListDocumentDataSlicesSlice = PostlistSlice;
 
 /**
- * blog_post_card document from Prismic
- *
- * - **API ID**: `blog_post_card`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
+ * Content for Blog List documents
  */
-export type BlogPostCardDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
-	Simplify<BlogPostCardDocumentData>,
-	'blog_post_card',
-	Lang
->;
-
-type BlogpostDocumentDataSlicesSlice = BlogPostSlice;
-
-/**
- * Content for BlogPost documents
- */
-interface BlogpostDocumentData {
+interface BlogListDocumentData {
 	/**
-	 * Slice Zone field in *BlogPost*
+	 * Title field in *Blog List*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Blog page title
+	 * - **API ID Path**: blog_list.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.TitleField;
+
+	/**
+	 * Description field in *Blog List*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Blog page description
+	 * - **API ID Path**: blog_list.description
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+
+	/**
+	 * Slice zone field in *Blog List*
 	 *
 	 * - **Field Type**: Slice Zone
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blogpost.slices[]
+	 * - **API ID Path**: blog_list.slices[]
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/field#slices
 	 */
-	slices: prismic.SliceZone<BlogpostDocumentDataSlicesSlice> /**
-	 * Meta Title field in *BlogPost*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: blogpost.meta_title
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */;
-	meta_title: prismic.KeyTextField;
-
-	/**
-	 * Meta Description field in *BlogPost*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: blogpost.meta_description
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
-	 */
-	meta_description: prismic.KeyTextField;
-
-	/**
-	 * Meta Image field in *BlogPost*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blogpost.meta_image
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/field#image
-	 */
-	meta_image: prismic.ImageField<never>;
+	slices: prismic.SliceZone<BlogListDocumentDataSlicesSlice>;
 }
 
 /**
- * BlogPost document from Prismic
+ * Blog List document from Prismic
  *
- * - **API ID**: `blogpost`
+ * - **API ID**: `blog_list`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogListDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<BlogListDocumentData>,
+	'blog_list',
+	Lang
+>;
+
+type BlogPostDocumentDataSlicesSlice = PostcontentSlice;
+
+/**
+ * Content for Blog Post documents
+ */
+interface BlogPostDocumentData {
+	/**
+	 * Title field in *Blog Post*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Blog post title
+	 * - **API ID Path**: blog_post.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.TitleField;
+
+	/**
+	 * Date field in *Blog Post*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: Publication date
+	 * - **API ID Path**: blog_post.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#date
+	 */
+	date: prismic.DateField;
+
+	/**
+	 * Author field in *Blog Post*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Author name
+	 * - **API ID Path**: blog_post.author
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	author: prismic.KeyTextField;
+
+	/**
+	 * Featured Image field in *Blog Post*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.featured_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	featured_image: prismic.ImageField<never>;
+
+	/**
+	 * Excerpt field in *Blog Post*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Short excerpt for blog list view
+	 * - **API ID Path**: blog_post.excerpt
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	excerpt: prismic.RichTextField;
+
+	/**
+	 * Slice zone field in *Blog Post*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: blog_post.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice>;
+}
+
+/**
+ * Blog Post document from Prismic
+ *
+ * - **API ID**: `blog_post`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type BlogpostDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
-	Simplify<BlogpostDocumentData>,
-	'blogpost',
+export type BlogPostDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<BlogPostDocumentData>,
+	'blog_post',
+	Lang
+>;
+
+type CaseStudiesListDocumentDataSlicesSlice = PostlistSlice;
+
+/**
+ * Content for Case Studies List documents
+ */
+interface CaseStudiesListDocumentData {
+	/**
+	 * Title field in *Case Studies List*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Case Studies page title
+	 * - **API ID Path**: case_studies_list.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.TitleField;
+
+	/**
+	 * Description field in *Case Studies List*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Case Studies page description
+	 * - **API ID Path**: case_studies_list.description
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+
+	/**
+	 * Slice zone field in *Case Studies List*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: case_studies_list.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<CaseStudiesListDocumentDataSlicesSlice>;
+}
+
+/**
+ * Case Studies List document from Prismic
+ *
+ * - **API ID**: `case_studies_list`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CaseStudiesListDocument<Lang extends string = string> =
+	prismic.PrismicDocumentWithoutUID<
+		Simplify<CaseStudiesListDocumentData>,
+		'case_studies_list',
+		Lang
+	>;
+
+type CaseStudyDocumentDataSlicesSlice = PostcontentSlice;
+
+/**
+ * Content for Case Study documents
+ */
+interface CaseStudyDocumentData {
+	/**
+	 * Title field in *Case Study*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Case study title
+	 * - **API ID Path**: case_study.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.TitleField;
+
+	/**
+	 * Date field in *Case Study*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: Publication date
+	 * - **API ID Path**: case_study.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#date
+	 */
+	date: prismic.DateField;
+
+	/**
+	 * Client field in *Case Study*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Client name
+	 * - **API ID Path**: case_study.client
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	client: prismic.KeyTextField;
+
+	/**
+	 * Featured Image field in *Case Study*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: case_study.featured_image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	featured_image: prismic.ImageField<never>;
+
+	/**
+	 * Excerpt field in *Case Study*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Short excerpt for case study list view
+	 * - **API ID Path**: case_study.excerpt
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	excerpt: prismic.RichTextField;
+
+	/**
+	 * Slice zone field in *Case Study*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: case_study.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<CaseStudyDocumentDataSlicesSlice>;
+}
+
+/**
+ * Case Study document from Prismic
+ *
+ * - **API ID**: `case_study`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CaseStudyDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<CaseStudyDocumentData>,
+	'case_study',
 	Lang
 >;
 
@@ -315,8 +485,10 @@ export type ServicesDocument<Lang extends string = string> = prismic.PrismicDocu
 
 export type AllDocumentTypes =
 	| AboutPageDocument
-	| BlogPostCardDocument
-	| BlogpostDocument
+	| BlogListDocument
+	| BlogPostDocument
+	| CaseStudiesListDocument
+	| CaseStudyDocument
 	| HomepageDocument
 	| ServicesDocument;
 
@@ -328,7 +500,7 @@ export interface AboutSliceDefaultPrimary {
 	 * Title field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Title
-	 * - **Placeholder**: About Kalvex
+	 * - **Placeholder**: Enter the main title
 	 * - **API ID Path**: about.default.primary.title
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
@@ -338,7 +510,7 @@ export interface AboutSliceDefaultPrimary {
 	 * Subtitle field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Brief description of Kalvex
+	 * - **Placeholder**: Enter the subtitle
 	 * - **API ID Path**: about.default.primary.subtitle
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
@@ -348,7 +520,7 @@ export interface AboutSliceDefaultPrimary {
 	 * Content field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Main content about Kalvex
+	 * - **Placeholder**: Enter the main content
 	 * - **API ID Path**: about.default.primary.content
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
@@ -365,30 +537,10 @@ export interface AboutSliceDefaultPrimary {
 	logo: prismic.ImageField<never>;
 
 	/**
-	 * Mission Title field in *About → Default → Primary*
-	 *
-	 * - **Field Type**: Title
-	 * - **Placeholder**: Our Mission
-	 * - **API ID Path**: about.default.primary.mission_title
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-	 */
-	mission_title: prismic.TitleField;
-
-	/**
-	 * Mission Statement field in *About → Default → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: To empower businesses in regulated industries...
-	 * - **API ID Path**: about.default.primary.mission_statement
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-	 */
-	mission_statement: prismic.RichTextField;
-
-	/**
 	 * CTA Title field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Title
-	 * - **Placeholder**: Ready to Transform Your Business?
+	 * - **Placeholder**: Enter the CTA title
 	 * - **API ID Path**: about.default.primary.cta_title
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
@@ -398,7 +550,7 @@ export interface AboutSliceDefaultPrimary {
 	 * CTA Description field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Let Kalvex help you streamline operations...
+	 * - **Placeholder**: Enter the CTA description
 	 * - **API ID Path**: about.default.primary.cta_description
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
@@ -408,7 +560,7 @@ export interface AboutSliceDefaultPrimary {
 	 * CTA Button Text field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: Schedule a Consultation
+	 * - **Placeholder**: Enter the CTA button text
 	 * - **API ID Path**: about.default.primary.cta_button_text
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
@@ -418,7 +570,7 @@ export interface AboutSliceDefaultPrimary {
 	 * CTA Button Link field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Link
-	 * - **Placeholder**: https://cal.com/kalvex-jaimie/30min
+	 * - **Placeholder**: Enter the CTA button link
 	 * - **API ID Path**: about.default.primary.cta_button_link
 	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
 	 */
@@ -433,7 +585,7 @@ export interface AboutSliceDefaultItem {
 	 * Employee Name field in *About → Items*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: John Doe
+	 * - **Placeholder**: Enter employee name
 	 * - **API ID Path**: about.items[].employee_name
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
@@ -443,7 +595,7 @@ export interface AboutSliceDefaultItem {
 	 * Employee Position field in *About → Items*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: CEO
+	 * - **Placeholder**: Enter employee position
 	 * - **API ID Path**: about.items[].employee_position
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
@@ -460,10 +612,10 @@ export interface AboutSliceDefaultItem {
 	employee_image: prismic.ImageField<never>;
 
 	/**
-	 * Employee Intro field in *About → Items*
+	 * Employee Introduction field in *About → Items*
 	 *
 	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Brief introduction about the employee
+	 * - **Placeholder**: Enter a brief introduction for the employee
 	 * - **API ID Path**: about.items[].employee_intro
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
@@ -474,7 +626,7 @@ export interface AboutSliceDefaultItem {
  * Default variation for About Slice
  *
  * - **API ID**: `default`
- * - **Description**: Default
+ * - **Description**: Default variation
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type AboutSliceDefault = prismic.SharedSliceVariation<
@@ -492,7 +644,7 @@ type AboutSliceVariation = AboutSliceDefault;
  * About Shared Slice
  *
  * - **API ID**: `about`
- * - **Description**: About
+ * - **Description**: About section for Kalvex
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type AboutSlice = prismic.SharedSlice<'about', AboutSliceVariation>;
@@ -708,138 +860,193 @@ type AlternateGridSliceVariation = AlternateGridSliceDefault | AlternateGridSlic
 export type AlternateGridSlice = prismic.SharedSlice<'alternate_grid', AlternateGridSliceVariation>;
 
 /**
- * Primary content in *BlogPost → Default → Primary*
+ * Primary content in *PostContent → Default → Primary*
  */
-export interface BlogPostSliceDefaultPrimary {
+export interface PostcontentSliceDefaultPrimary {
 	/**
-	 * Blog Title field in *BlogPost → Default → Primary*
+	 * Title field in *PostContent → Default → Primary*
 	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Enter the blog's title here
-	 * - **API ID Path**: blog_post.default.primary.blog_title
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Enter the post title
+	 * - **API ID Path**: postcontent.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	blog_title: prismic.KeyTextField;
+	title: prismic.TitleField;
 
 	/**
-	 * Subheading field in *BlogPost → Default → Primary*
+	 * Date field in *PostContent → Default → Primary*
 	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: Add the subheading of the article
-	 * - **API ID Path**: blog_post.default.primary.subheading
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Field Type**: Date
+	 * - **Placeholder**: Select the post date
+	 * - **API ID Path**: postcontent.default.primary.date
+	 * - **Documentation**: https://prismic.io/docs/field#date
 	 */
-	subheading: prismic.KeyTextField;
+	date: prismic.DateField;
 
 	/**
-	 * ArticleImage field in *BlogPost → Default → Primary*
+	 * Author field in *PostContent → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Enter the author's name
+	 * - **API ID Path**: postcontent.default.primary.author
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	author: prismic.KeyTextField;
+
+	/**
+	 * Featured Image field in *PostContent → Default → Primary*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blog_post.default.primary.articleimage
+	 * - **API ID Path**: postcontent.default.primary.featured_image
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
-	articleimage: prismic.ImageField<never>;
+	featured_image: prismic.ImageField<never>;
 
 	/**
-	 * PostContent field in *BlogPost → Default → Primary*
+	 * Content field in *PostContent → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: Enter your blog content here
-	 * - **API ID Path**: blog_post.default.primary.postcontent
+	 * - **Placeholder**: Enter the post content
+	 * - **API ID Path**: postcontent.default.primary.content
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	postcontent: prismic.RichTextField;
-
-	/**
-	 * post_type field in *BlogPost → Default → Primary*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: blog_post.default.primary.post_type
-	 * - **Documentation**: https://prismic.io/docs/field#select
-	 */
-	post_type: prismic.SelectField<'blog_post' | 'case_study'>;
+	content: prismic.RichTextField;
 }
 
 /**
- * Default variation for BlogPost Slice
+ * Default variation for PostContent Slice
  *
  * - **API ID**: `default`
- * - **Description**: Default
+ * - **Description**: Default variation
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type BlogPostSliceDefault = prismic.SharedSliceVariation<
+export type PostcontentSliceDefault = prismic.SharedSliceVariation<
 	'default',
-	Simplify<BlogPostSliceDefaultPrimary>,
+	Simplify<PostcontentSliceDefaultPrimary>,
 	never
 >;
 
 /**
- * Slice variation for *BlogPost*
+ * Slice variation for *PostContent*
  */
-type BlogPostSliceVariation = BlogPostSliceDefault;
+type PostcontentSliceVariation = PostcontentSliceDefault;
 
 /**
- * BlogPost Shared Slice
+ * PostContent Shared Slice
  *
- * - **API ID**: `blog_post`
- * - **Description**: BlogPost
+ * - **API ID**: `postcontent`
+ * - **Description**: Displays individual post content (blog post or case study)
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type BlogPostSlice = prismic.SharedSlice<'blog_post', BlogPostSliceVariation>;
+export type PostcontentSlice = prismic.SharedSlice<'postcontent', PostcontentSliceVariation>;
 
 /**
- * Primary content in *CardListView → Default → Primary*
+ * Primary content in *PostList → Default → Primary*
  */
-export interface CardListViewSliceDefaultPrimary {
+export interface PostlistSliceDefaultPrimary {
 	/**
-	 * Card List Title field in *CardListView → Default → Primary*
+	 * Title field in *PostList → Default → Primary*
 	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: What are the cards showing?
-	 * - **API ID Path**: card_list_view.default.primary.card_list_title
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Enter the section title
+	 * - **API ID Path**: postlist.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	card_list_title: prismic.KeyTextField;
+	title: prismic.TitleField;
 
 	/**
-	 * related_content field in *CardListView → Default → Primary*
+	 * Description field in *PostList → Default → Primary*
 	 *
-	 * - **Field Type**: Content Relationship
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Enter a brief description
+	 * - **API ID Path**: postlist.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *PostList → Items*
+ */
+export interface PostlistSliceDefaultItem {
+	/**
+	 * Post Title field in *PostList → Items*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Enter the post title
+	 * - **API ID Path**: postlist.items[].post_title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	post_title: prismic.TitleField;
+
+	/**
+	 * Post Excerpt field in *PostList → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Enter a brief excerpt
+	 * - **API ID Path**: postlist.items[].post_excerpt
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	post_excerpt: prismic.RichTextField;
+
+	/**
+	 * Post Date field in *PostList → Items*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: Select the post date
+	 * - **API ID Path**: postlist.items[].post_date
+	 * - **Documentation**: https://prismic.io/docs/field#date
+	 */
+	post_date: prismic.DateField;
+
+	/**
+	 * Post Image field in *PostList → Items*
+	 *
+	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: card_list_view.default.primary.related_content
+	 * - **API ID Path**: postlist.items[].post_image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	post_image: prismic.ImageField<never>;
+
+	/**
+	 * Post Link field in *PostList → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: Select the post link
+	 * - **API ID Path**: postlist.items[].post_link
 	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
 	 */
-	related_content: prismic.ContentRelationshipField<'blogpost'>;
+	post_link: prismic.LinkField;
 }
 
 /**
- * Default variation for CardListView Slice
+ * Default variation for PostList Slice
  *
  * - **API ID**: `default`
- * - **Description**: Default
+ * - **Description**: Default variation
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardListViewSliceDefault = prismic.SharedSliceVariation<
+export type PostlistSliceDefault = prismic.SharedSliceVariation<
 	'default',
-	Simplify<CardListViewSliceDefaultPrimary>,
-	never
+	Simplify<PostlistSliceDefaultPrimary>,
+	Simplify<PostlistSliceDefaultItem>
 >;
 
 /**
- * Slice variation for *CardListView*
+ * Slice variation for *PostList*
  */
-type CardListViewSliceVariation = CardListViewSliceDefault;
+type PostlistSliceVariation = PostlistSliceDefault;
 
 /**
- * CardListView Shared Slice
+ * PostList Shared Slice
  *
- * - **API ID**: `card_list_view`
- * - **Description**: CardListView
+ * - **API ID**: `postlist`
+ * - **Description**: Displays a list of posts (blog posts or case studies)
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardListViewSlice = prismic.SharedSlice<'card_list_view', CardListViewSliceVariation>;
+export type PostlistSlice = prismic.SharedSlice<'postlist', PostlistSliceVariation>;
 
 /**
  * Primary content in *Services → Default → Primary*
@@ -864,6 +1071,46 @@ export interface ServicesSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	description: prismic.RichTextField;
+
+	/**
+	 * CTA Title field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Enter the CTA title
+	 * - **API ID Path**: services.default.primary.cta_title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	cta_title: prismic.TitleField;
+
+	/**
+	 * CTA Description field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Enter the CTA description
+	 * - **API ID Path**: services.default.primary.cta_description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	cta_description: prismic.RichTextField;
+
+	/**
+	 * CTA Link field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: Select a link for the CTA button
+	 * - **API ID Path**: services.default.primary.cta_link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	cta_link: prismic.LinkField;
+
+	/**
+	 * CTA Button Text field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Enter the text for the CTA button
+	 * - **API ID Path**: services.default.primary.cta_text
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	cta_text: prismic.KeyTextField;
 }
 
 /**
@@ -962,11 +1209,18 @@ declare module '@prismicio/client' {
 			AboutPageDocument,
 			AboutPageDocumentData,
 			AboutPageDocumentDataSlicesSlice,
-			BlogPostCardDocument,
-			BlogPostCardDocumentData,
-			BlogpostDocument,
-			BlogpostDocumentData,
-			BlogpostDocumentDataSlicesSlice,
+			BlogListDocument,
+			BlogListDocumentData,
+			BlogListDocumentDataSlicesSlice,
+			BlogPostDocument,
+			BlogPostDocumentData,
+			BlogPostDocumentDataSlicesSlice,
+			CaseStudiesListDocument,
+			CaseStudiesListDocumentData,
+			CaseStudiesListDocumentDataSlicesSlice,
+			CaseStudyDocument,
+			CaseStudyDocumentData,
+			CaseStudyDocumentDataSlicesSlice,
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
@@ -987,14 +1241,15 @@ declare module '@prismicio/client' {
 			AlternateGridSliceVariation,
 			AlternateGridSliceDefault,
 			AlternateGridSliceImageRight,
-			BlogPostSlice,
-			BlogPostSliceDefaultPrimary,
-			BlogPostSliceVariation,
-			BlogPostSliceDefault,
-			CardListViewSlice,
-			CardListViewSliceDefaultPrimary,
-			CardListViewSliceVariation,
-			CardListViewSliceDefault,
+			PostcontentSlice,
+			PostcontentSliceDefaultPrimary,
+			PostcontentSliceVariation,
+			PostcontentSliceDefault,
+			PostlistSlice,
+			PostlistSliceDefaultPrimary,
+			PostlistSliceDefaultItem,
+			PostlistSliceVariation,
+			PostlistSliceDefault,
 			ServicesSlice,
 			ServicesSliceDefaultPrimary,
 			ServicesSliceDefaultItem,
