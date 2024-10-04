@@ -249,38 +249,113 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
+type ServicesDocumentDataSlicesSlice = ServicesSlice;
+
+/**
+ * Content for Services documents
+ */
+interface ServicesDocumentData {
+	/**
+	 * Slice Zone field in *Services*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<ServicesDocumentDataSlicesSlice> /**
+	 * Meta Title field in *Services*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: services.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *Services*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: services.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *Services*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Services document from Prismic
+ *
+ * - **API ID**: `services`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServicesDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<ServicesDocumentData>,
+	'services',
+	Lang
+>;
+
 export type AllDocumentTypes =
 	| AboutPageDocument
 	| BlogPostCardDocument
 	| BlogpostDocument
-	| HomepageDocument;
+	| HomepageDocument
+	| ServicesDocument;
 
 /**
  * Primary content in *About → Default → Primary*
  */
 export interface AboutSliceDefaultPrimary {
 	/**
-	 * title field in *About → Default → Primary*
+	 * Title field in *About → Default → Primary*
 	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
+	 * - **Field Type**: Title
+	 * - **Placeholder**: About Kalvex
 	 * - **API ID Path**: about.default.primary.title
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	title: prismic.KeyTextField;
+	title: prismic.TitleField;
 
 	/**
-	 * subtitle field in *About → Default → Primary*
+	 * Subtitle field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: subtitle
+	 * - **Placeholder**: Brief description of Kalvex
 	 * - **API ID Path**: about.default.primary.subtitle
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	subtitle: prismic.RichTextField;
 
 	/**
-	 * logo field in *About → Default → Primary*
+	 * Content field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Main content about Kalvex
+	 * - **API ID Path**: about.default.primary.content
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	content: prismic.RichTextField;
+
+	/**
+	 * Logo field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
@@ -290,44 +365,109 @@ export interface AboutSliceDefaultPrimary {
 	logo: prismic.ImageField<never>;
 
 	/**
-	 * employee_image field in *About → Default → Primary*
+	 * Mission Title field in *About → Default → Primary*
 	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about.default.primary.employee_image
-	 * - **Documentation**: https://prismic.io/docs/field#image
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Our Mission
+	 * - **API ID Path**: about.default.primary.mission_title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	employee_image: prismic.ImageField<never>;
+	mission_title: prismic.TitleField;
 
 	/**
-	 * employee_name field in *About → Default → Primary*
+	 * Mission Statement field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: To empower businesses in regulated industries...
+	 * - **API ID Path**: about.default.primary.mission_statement
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	mission_statement: prismic.RichTextField;
+
+	/**
+	 * CTA Title field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Ready to Transform Your Business?
+	 * - **API ID Path**: about.default.primary.cta_title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	cta_title: prismic.TitleField;
+
+	/**
+	 * CTA Description field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Let Kalvex help you streamline operations...
+	 * - **API ID Path**: about.default.primary.cta_description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	cta_description: prismic.RichTextField;
+
+	/**
+	 * CTA Button Text field in *About → Default → Primary*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about.default.primary.employee_name
+	 * - **Placeholder**: Schedule a Consultation
+	 * - **API ID Path**: about.default.primary.cta_button_text
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	cta_button_text: prismic.KeyTextField;
+
+	/**
+	 * CTA Button Link field in *About → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: https://cal.com/kalvex-jaimie/30min
+	 * - **API ID Path**: about.default.primary.cta_button_link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	cta_button_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *About → Items*
+ */
+export interface AboutSliceDefaultItem {
+	/**
+	 * Employee Name field in *About → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: John Doe
+	 * - **API ID Path**: about.items[].employee_name
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	employee_name: prismic.KeyTextField;
 
 	/**
-	 * employee_position field in *About → Default → Primary*
+	 * Employee Position field in *About → Items*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about.default.primary.employee_position
+	 * - **Placeholder**: CEO
+	 * - **API ID Path**: about.items[].employee_position
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	employee_position: prismic.KeyTextField;
 
 	/**
-	 * content field in *About → Default → Primary*
+	 * Employee Image field in *About → Items*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: about.items[].employee_image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	employee_image: prismic.ImageField<never>;
+
+	/**
+	 * Employee Intro field in *About → Items*
 	 *
 	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: about.default.primary.content
+	 * - **Placeholder**: Brief introduction about the employee
+	 * - **API ID Path**: about.items[].employee_intro
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
-	content: prismic.RichTextField;
+	employee_intro: prismic.RichTextField;
 }
 
 /**
@@ -340,7 +480,7 @@ export interface AboutSliceDefaultPrimary {
 export type AboutSliceDefault = prismic.SharedSliceVariation<
 	'default',
 	Simplify<AboutSliceDefaultPrimary>,
-	never
+	Simplify<AboutSliceDefaultItem>
 >;
 
 /**
@@ -702,16 +842,86 @@ type CardListViewSliceVariation = CardListViewSliceDefault;
 export type CardListViewSlice = prismic.SharedSlice<'card_list_view', CardListViewSliceVariation>;
 
 /**
+ * Primary content in *Services → Default → Primary*
+ */
+export interface ServicesSliceDefaultPrimary {
+	/**
+	 * Title field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: Enter the main title for the services section
+	 * - **API ID Path**: services.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.TitleField;
+
+	/**
+	 * Description field in *Services → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Enter a brief description of the services offered
+	 * - **API ID Path**: services.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Services → Items*
+ */
+export interface ServicesSliceDefaultItem {
+	/**
+	 * Service Name field in *Services → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Enter the name of the service
+	 * - **API ID Path**: services.items[].service_name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	service_name: prismic.KeyTextField;
+
+	/**
+	 * Service Icon field in *Services → Items*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: services.items[].service_icon
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	service_icon: prismic.ImageField<never>;
+
+	/**
+	 * Service Description field in *Services → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: Enter a brief description of the service
+	 * - **API ID Path**: services.items[].service_description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	service_description: prismic.RichTextField;
+
+	/**
+	 * Feature field in *Services → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: Enter a feature of the service
+	 * - **API ID Path**: services.items[].feature
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	feature: prismic.KeyTextField;
+}
+
+/**
  * Default variation for Services Slice
  *
  * - **API ID**: `default`
- * - **Description**: Default
+ * - **Description**: Default variation
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ServicesSliceDefault = prismic.SharedSliceVariation<
 	'default',
-	Record<string, never>,
-	never
+	Simplify<ServicesSliceDefaultPrimary>,
+	Simplify<ServicesSliceDefaultItem>
 >;
 
 /**
@@ -723,7 +933,7 @@ type ServicesSliceVariation = ServicesSliceDefault;
  * Services Shared Slice
  *
  * - **API ID**: `services`
- * - **Description**: Services
+ * - **Description**: A slice to showcase Kalvex's services including Management consulting and contracted engineering time
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ServicesSlice = prismic.SharedSlice<'services', ServicesSliceVariation>;
@@ -760,9 +970,13 @@ declare module '@prismicio/client' {
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
+			ServicesDocument,
+			ServicesDocumentData,
+			ServicesDocumentDataSlicesSlice,
 			AllDocumentTypes,
 			AboutSlice,
 			AboutSliceDefaultPrimary,
+			AboutSliceDefaultItem,
 			AboutSliceVariation,
 			AboutSliceDefault,
 			AlternateGridSlice,
@@ -782,6 +996,8 @@ declare module '@prismicio/client' {
 			CardListViewSliceVariation,
 			CardListViewSliceDefault,
 			ServicesSlice,
+			ServicesSliceDefaultPrimary,
+			ServicesSliceDefaultItem,
 			ServicesSliceVariation,
 			ServicesSliceDefault
 		};
