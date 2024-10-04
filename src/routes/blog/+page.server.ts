@@ -6,7 +6,6 @@ export async function load({ fetch }) {
 
   try {
     const blogList = await client.getSingle('blog_list')
-    console.log('Fetched blog list:', JSON.stringify(blogList, null, 2))
 
     return {
       blogList

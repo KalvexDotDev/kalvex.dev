@@ -1,10 +1,22 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
-	import { PrismicRichText, PrismicImage, PrismicLink } from '@prismicio/svelte';
+	import { PrismicRichText, PrismicImage } from '@prismicio/svelte';
 	import { isFilled } from '@prismicio/client';
 	import { Button } from "$lib/components/ui/button";
+	import linkResolver from '$lib/linkResolver';
 	
 	export let slice: Content.PostListSlice;
+	
+	function getUrl(link) {
+	  if (isFilled.link(link)) {
+		if (link.link_type === 'Web') {
+		  return link.url;
+		} else if (link.link_type === 'Document') {
+		  return linkResolver(link);
+		}
+	  }
+	  return '/';
+	}
 	</script>
 	
 	<div class="postlist-container bg-background">
@@ -46,9 +58,11 @@
 					</div>
 				  {/if}
 				  {#if post.post_link && isFilled.link(post.post_link)}
-					<PrismicLink field={post.post_link}>
-					  <Button variant="outline" size="sm">Read More</Button>
-					</PrismicLink>
+					<a href={getUrl(post.post_link)}>
+					  <Button variant="default" size="sm" class="bg-primary text-primary-foreground hover:bg-primary/90">
+						Read More
+					  </Button>
+					</a>
 				  {/if}
 				</div>
 			  </div>
