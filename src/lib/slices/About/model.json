@@ -2,21 +2,20 @@
   "id": "about",
   "type": "SharedSlice",
   "name": "About",
-  "description": "About",
+  "description": "About section for Kalvex",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
+      "description": "Default variation",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
-            "placeholder": "About Kalvex",
+            "placeholder": "Enter the main title",
             "allowTargetBlank": true,
             "single": "heading1"
           }
@@ -25,18 +24,18 @@
           "type": "StructuredText",
           "config": {
             "label": "Subtitle",
-            "placeholder": "Brief description of Kalvex",
+            "placeholder": "Enter the subtitle",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
+            "single": "paragraph"
           }
         },
         "content": {
           "type": "StructuredText",
           "config": {
             "label": "Content",
-            "placeholder": "Main content about Kalvex",
+            "placeholder": "Enter the main content",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
         "logo": {
@@ -47,29 +46,11 @@
             "thumbnails": []
           }
         },
-        "mission_title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Mission Title",
-            "placeholder": "Our Mission",
-            "allowTargetBlank": true,
-            "single": "heading2"
-          }
-        },
-        "mission_statement": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Mission Statement",
-            "placeholder": "To empower businesses in regulated industries...",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
-          }
-        },
         "cta_title": {
           "type": "StructuredText",
           "config": {
             "label": "CTA Title",
-            "placeholder": "Ready to Transform Your Business?",
+            "placeholder": "Enter the CTA title",
             "allowTargetBlank": true,
             "single": "heading2"
           }
@@ -78,23 +59,23 @@
           "type": "StructuredText",
           "config": {
             "label": "CTA Description",
-            "placeholder": "Let Kalvex help you streamline operations...",
+            "placeholder": "Enter the CTA description",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
+            "multi": "paragraph,strong,em,hyperlink"
           }
         },
         "cta_button_text": {
           "type": "Text",
           "config": {
             "label": "CTA Button Text",
-            "placeholder": "Schedule a Consultation"
+            "placeholder": "Enter the CTA button text"
           }
         },
         "cta_button_link": {
           "type": "Link",
           "config": {
             "label": "CTA Button Link",
-            "placeholder": "https://cal.com/kalvex-jaimie/30min",
+            "placeholder": "Enter the CTA button link",
             "allowTargetBlank": true
           }
         }
@@ -104,14 +85,14 @@
           "type": "Text",
           "config": {
             "label": "Employee Name",
-            "placeholder": "John Doe"
+            "placeholder": "Enter employee name"
           }
         },
         "employee_position": {
           "type": "Text",
           "config": {
             "label": "Employee Position",
-            "placeholder": "CEO"
+            "placeholder": "Enter employee position"
           }
         },
         "employee_image": {
@@ -125,10 +106,10 @@
         "employee_intro": {
           "type": "StructuredText",
           "config": {
-            "label": "Employee Intro",
-            "placeholder": "Brief introduction about the employee",
+            "label": "Employee Introduction",
+            "placeholder": "Enter a brief introduction for the employee",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em"
+            "multi": "paragraph,strong,em,hyperlink"
           }
         }
       }
