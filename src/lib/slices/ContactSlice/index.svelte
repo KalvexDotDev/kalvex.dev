@@ -7,6 +7,8 @@
 	import { Textarea } from '$lib/components/ui/textarea';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group';
 	import { Label } from '$lib/components/ui/label';
+	import HCaptcha from 'svelte-hcaptcha';
+	import { browser } from '$app/environment';
   
 	export let slice;
 	export let context: { form: SuperValidated<ContactFormSchema> };
@@ -15,6 +17,13 @@
 	  resetForm: false,
 	  clearOnSubmit: 'none'
 	});
+  
+	let captchaToken = '';
+  
+	function onCaptchaVerify(token: string) {
+	  captchaToken = token;
+	  $form.captcha = token;
+	}
   </script>
   
   <form method="POST" use:enhance>
@@ -76,6 +85,16 @@
 	  <Textarea id="message" name="message" bind:value={$form.message} />
 	  {#if $errors.message}<span class="error">{$errors.message}</span>{/if}
 	</div>
+  
+	{#if browser}
+	  <div>
+		<HCaptcha
+		  sitekey={import.meta.env.VITE_HCAPTCHA_SITE_KEY}
+		  on:verify={({ detail }) => onCaptchaVerify(detail)}
+		/>
+		{#if $errors.captcha}<span class="error">{$errors.captcha}</span>{/if}
+	  </div>
+	{/if}
   
 	{#if $message}
 	  <p class="text-green-600">{$message}</p>

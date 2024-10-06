@@ -2,13 +2,11 @@ import type { Actions, PageServerLoad } from './$types';
 import { superValidate, message } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { fail } from '@sveltejs/kit';
-import { contactFormSchema } from '$lib/schemas/contact-form-schema'
-;
-
+import { contactFormSchema } from '$lib/schemas/contact-form-schema';
 import { createClient } from '$lib/prismicio';
+import { verifyToken } from '$lib/captcha';
 
 export const prerender = false;
-
 
 export const load: PageServerLoad = async ({ fetch }) => {
   const client = createClient({ fetch });
@@ -34,6 +32,12 @@ export const actions: Actions = {
 
     if (!form.valid) {
       return fail(400, { form });
+    }
+
+    // Verify captcha
+    const captchaValid = await verifyToken(form.data.captcha);
+    if (!captchaValid) {
+      return message(form, 'Captcha verification failed. Please try again.', { status: 400 });
     }
 
     // TODO: Handle form submission (e.g., send email, save to database, etc.)
