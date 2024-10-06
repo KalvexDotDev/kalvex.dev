@@ -23,12 +23,12 @@
 	  <section class="hero-section bg-primary text-primary-foreground">
 		<div class="container mx-auto px-4 py-24">
 		  {#if slice.primary?.title && isFilled.richText(slice.primary.title)}
-			<div class="text-4xl text-white max-w-3xl">
+			<div class="text-4xl text-white">
 			  <PrismicRichText field={slice.primary.title} />
 			</div>
 		  {/if}
 		  {#if slice.primary?.description && isFilled.richText(slice.primary.description)}
-			<div class="text-xl text-white max-w-3xl">
+			<div class="text-xl text-white ">
 			  <PrismicRichText field={slice.primary.description} />
 			</div>
 		  {/if}

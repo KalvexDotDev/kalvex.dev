@@ -140,12 +140,7 @@
 	.logo-container {
 	  margin-bottom: 1rem;
 	}
-  
-	.kalvex-logo {
-	  max-width: 150px;
-	  height: auto;
-	}
-  
+
 	.hero-content :global(h1),
 	.hero-content :global(h2),
 	.hero-content :global(h3),

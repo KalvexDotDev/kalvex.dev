@@ -2,6 +2,7 @@
 
 import About from './About/index.svelte';
 import AlternateGrid from './AlternateGrid/index.svelte';
+import ContactSlice from './ContactSlice/index.svelte';
 import PostContent from './PostContent/index.svelte';
 import PostList from './PostList/index.svelte';
 import Services from './Services/index.svelte';
@@ -9,6 +10,7 @@ import Services from './Services/index.svelte';
 export const components = {
 	about: About,
 	alternate_grid: AlternateGrid,
+	contact_slice: ContactSlice,
 	postcontent: PostContent,
 	postlist: PostList,
 	services: Services

@@ -355,6 +355,70 @@ export type CaseStudyDocument<Lang extends string = string> = prismic.PrismicDoc
 	Lang
 >;
 
+type ContactsliceDocumentDataSlicesSlice = ContactSliceSlice;
+
+/**
+ * Content for ContactSlice documents
+ */
+interface ContactsliceDocumentData {
+	/**
+	 * Slice Zone field in *ContactSlice*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contactslice.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<ContactsliceDocumentDataSlicesSlice> /**
+	 * Meta Title field in *ContactSlice*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: contactslice.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *ContactSlice*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: contactslice.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *ContactSlice*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contactslice.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * ContactSlice document from Prismic
+ *
+ * - **API ID**: `contactslice`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactsliceDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<ContactsliceDocumentData>,
+	'contactslice',
+	Lang
+>;
+
 type HomepageDocumentDataSlicesSlice = AlternateGridSlice;
 
 /**
@@ -489,6 +553,7 @@ export type AllDocumentTypes =
 	| BlogPostDocument
 	| CaseStudiesListDocument
 	| CaseStudyDocument
+	| ContactsliceDocument
 	| HomepageDocument
 	| ServicesDocument;
 
@@ -860,6 +925,58 @@ type AlternateGridSliceVariation = AlternateGridSliceDefault | AlternateGridSlic
 export type AlternateGridSlice = prismic.SharedSlice<'alternate_grid', AlternateGridSliceVariation>;
 
 /**
+ * Primary content in *ContactSlice → Default → Primary*
+ */
+export interface ContactSliceSliceDefaultPrimary {
+	/**
+	 * Title field in *ContactSlice → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_slice.default.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
+	 * Description field in *ContactSlice → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_slice.default.primary.description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ContactSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ContactSliceSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ContactSlice*
+ */
+type ContactSliceSliceVariation = ContactSliceSliceDefault;
+
+/**
+ * ContactSlice Shared Slice
+ *
+ * - **API ID**: `contact_slice`
+ * - **Description**: ContactSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactSliceSlice = prismic.SharedSlice<'contact_slice', ContactSliceSliceVariation>;
+
+/**
  * Primary content in *PostContent → Default → Primary*
  */
 export interface PostcontentSliceDefaultPrimary {
@@ -1221,6 +1338,9 @@ declare module '@prismicio/client' {
 			CaseStudyDocument,
 			CaseStudyDocumentData,
 			CaseStudyDocumentDataSlicesSlice,
+			ContactsliceDocument,
+			ContactsliceDocumentData,
+			ContactsliceDocumentDataSlicesSlice,
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
@@ -1241,6 +1361,10 @@ declare module '@prismicio/client' {
 			AlternateGridSliceVariation,
 			AlternateGridSliceDefault,
 			AlternateGridSliceImageRight,
+			ContactSliceSlice,
+			ContactSliceSliceDefaultPrimary,
+			ContactSliceSliceVariation,
+			ContactSliceSliceDefault,
 			PostcontentSlice,
 			PostcontentSliceDefaultPrimary,
 			PostcontentSliceVariation,
