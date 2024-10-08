@@ -102,7 +102,7 @@
 			  <Linkedin class="h-5 w-5" />
 			</a>
 			<nav>
-				<a href="/privacy_policy" class="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+				<a href="/privacy-policy" class="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
 			  </nav>
 		  </div>
 		</div>
