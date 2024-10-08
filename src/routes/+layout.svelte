@@ -19,6 +19,11 @@
   $: buttonClass = isMenuOpen ? 'bg-secondary-color' : 'bg-transparent';
 </script>
 
+	
+<svelte:head>
+	<script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=kalvex-app"></script>
+</svelte:head>
+
 <div class="flex min-h-screen flex-col">
 	<header
 		class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
@@ -86,7 +91,7 @@
 			</p>
 			<nav>
 				<a
-					href="/privacy_policy"
+					href="/privacy-policy"
 					class="text-sm text-muted-foreground transition-colors hover:text-primary"
 					>Privacy Policy</a
 				>
