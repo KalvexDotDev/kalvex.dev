@@ -89,4 +89,29 @@ hr {
   body {
     @apply bg-background text-foreground;
   }
+
+  .bg-secondary-color {
+    background-color: var(--secondary-color);
+  }
+
+  .bg-transparent {
+    background-color: transparent;
+  }
+
+  button.bg-secondary-color:hover {
+    background-color: var(--secondary-color);
+    opacity: 0.9;
+  }
+
+  button.bg-transparent:hover {
+    background-color: var(--secondary-color);
+  }
+
+  button.bg-secondary-color svg {
+    color: var(--primary-font-color);
+  }
+
+  button.bg-transparent svg {
+    color: var(--secondary-color);
+  }
 }

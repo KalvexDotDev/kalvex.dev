@@ -11,7 +11,7 @@ const config = {
 		// Define the adapter for your environment. Adapter-auto will choose the best one, but you can change it based on your needs.
 		adapter: adapter({
 			runtime: 'nodejs20.x' // or 'nodejs18.x' if you prefer
-		  })
+		  }),
 		
 		// Path aliases
 		alias: {
