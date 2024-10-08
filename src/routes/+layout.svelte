@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { Button } from '$lib/components/ui/button';
 	import { Menu } from 'lucide-svelte';
+	import Linkedin from "lucide-svelte/icons/linkedin";
 
 	let isMenuOpen = false;
 
@@ -10,7 +11,7 @@
 		{ href: '/', label: 'Home' },
 		{ href: '/about', label: 'About' },
 		{ href: '/services', label: 'Services' },
-		{ href: '/case-studies', label: 'Case Studies' },
+		// { href: '/case-studies', label: 'Case Studies' },
 		{ href: '/blog', label: 'Blog' },
 		{ href: '/contact', label: 'Contact' }
 	];
@@ -83,21 +84,29 @@
 	</main>
 
 	<footer class="mt-auto bg-transparent">
-		<div
-			class="container mx-auto flex flex-col items-center justify-between px-4 py-4 md:h-16 md:flex-row md:px-8"
-		>
-			<p class="mb-2 text-sm leading-loose text-muted-foreground md:mb-0">
-				Built by Kalvex. All rights reserved.
-			</p>
+		<div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between py-4 md:h-16">
+		  <p class="text-sm leading-loose text-muted-foreground mb-2 md:mb-0">
+			Built by Kalvex. All rights reserved.
+		  </p>
+		  <div class="flex items-center space-x-4">
+			<a 
+			  href="https://www.linkedin.com/company/kalvex" 
+			  target="_blank" 
+			  rel="noopener noreferrer"
+			  class="text-muted-foreground hover:text-primary transition-colors"
+			  aria-label="Kalvex LinkedIn"
+			>			<strong>
+				LinkedIn:
+			</strong> 
+	
+			  <Linkedin class="h-5 w-5" />
+			</a>
 			<nav>
-				<a
-					href="/privacy-policy"
-					class="text-sm text-muted-foreground transition-colors hover:text-primary"
-					>Privacy Policy</a
-				>
-			</nav>
+				<a href="/privacy_policy" class="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+			  </nav>
+		  </div>
 		</div>
-	</footer>
+	  </footer>
 </div>
 
 <style>

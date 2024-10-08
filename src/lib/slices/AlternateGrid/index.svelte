@@ -75,7 +75,7 @@
 			<PrismicRichText field={slice.primary.items[0].description} />
 		  </p>
 		{/if}
-		<Button variant="outline" size="lg" class="text-white border-white hover:bg-white hover:text-purple-900">Learn More</Button>
+		<a href="/services"><Button variant="outline" size="lg" class="text-white border-white hover:bg-white hover:text-purple-900">Learn More</Button></a>
 	  </div>
 	</section>
   
