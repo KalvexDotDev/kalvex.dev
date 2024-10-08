@@ -2,7 +2,6 @@
 	import { PrismicImage, PrismicRichText } from '@prismicio/svelte';
 	import { type Content, isFilled } from '@prismicio/client';
 	import { onMount, onDestroy } from 'svelte';
-	import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "$lib/components/ui/card";
 	import { Button } from "$lib/components/ui/button";
   
 	export let slice: Content.AlternateGridSlice;

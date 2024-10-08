@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"legal_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Mollit cillum reprehenderit laborum deserunt nulla eu occaecat minim fugiat ex qui excepteur amet. Voluptate dolor est commodo eiusmod est duis aute commodo."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

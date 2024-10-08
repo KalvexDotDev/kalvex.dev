@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
-	import { PrismicRichText, PrismicImage, PrismicLink } from '@prismicio/svelte';
+	import { PrismicRichText, PrismicImage  } from '@prismicio/svelte';
 	import { isFilled } from '@prismicio/client';
 	import { Button } from "$lib/components/ui/button";
 	
@@ -43,14 +43,6 @@
 				  <p class="text-lg mb-4">{slice.primary.author}</p>
 				{/if}
 				<p class="text-muted-foreground">Expert in compliance automation and DevOps practices.</p>
-			  </div>
-			  <div class="bg-muted p-6 rounded-lg">
-				<h2 class="text-2xl font-bold mb-4">Related Posts</h2>
-				<ul class="space-y-4">
-				  <li><a href="#" class="text-blue-600 hover:underline">Automating Compliance: A Step-by-Step Guide</a></li>
-				  <li><a href="#" class="text-blue-600 hover:underline">The Future of DevOps in Regulated Industries</a></li>
-				  <li><a href="#" class="text-blue-600 hover:underline">Maximizing Efficiency with NAPE: Case Studies</a></li>
-				</ul>
 			  </div>
 			</div>
 		  </div>

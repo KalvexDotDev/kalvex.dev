@@ -483,6 +483,70 @@ export type HomepageDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
+type PrivacyPolicyDocumentDataSlicesSlice = LegalPageSlice;
+
+/**
+ * Content for PrivacyPolicy documents
+ */
+interface PrivacyPolicyDocumentData {
+	/**
+	 * Slice Zone field in *PrivacyPolicy*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: privacy_policy.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice> /**
+	 * Meta Title field in *PrivacyPolicy*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: privacy_policy.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_title: prismic.KeyTextField;
+
+	/**
+	 * Meta Description field in *PrivacyPolicy*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: privacy_policy.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *PrivacyPolicy*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: privacy_policy.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * PrivacyPolicy document from Prismic
+ *
+ * - **API ID**: `privacy_policy`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PrivacyPolicyDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<
+	Simplify<PrivacyPolicyDocumentData>,
+	'privacy_policy',
+	Lang
+>;
+
 type ServicesDocumentDataSlicesSlice = ServicesSlice;
 
 /**
@@ -555,6 +619,7 @@ export type AllDocumentTypes =
 	| CaseStudyDocument
 	| ContactsliceDocument
 	| HomepageDocument
+	| PrivacyPolicyDocument
 	| ServicesDocument;
 
 /**
@@ -977,6 +1042,48 @@ type ContactSliceSliceVariation = ContactSliceSliceDefault;
 export type ContactSliceSlice = prismic.SharedSlice<'contact_slice', ContactSliceSliceVariation>;
 
 /**
+ * Primary content in *LegalPage → Default → Primary*
+ */
+export interface LegalPageSliceDefaultPrimary {
+	/**
+	 * legal text field in *LegalPage → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: legal_page.default.primary.legal_text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	legal_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for LegalPage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LegalPageSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<LegalPageSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *LegalPage*
+ */
+type LegalPageSliceVariation = LegalPageSliceDefault;
+
+/**
+ * LegalPage Shared Slice
+ *
+ * - **API ID**: `legal_page`
+ * - **Description**: LegalPage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LegalPageSlice = prismic.SharedSlice<'legal_page', LegalPageSliceVariation>;
+
+/**
  * Primary content in *PostContent → Default → Primary*
  */
 export interface PostcontentSliceDefaultPrimary {
@@ -1344,6 +1451,9 @@ declare module '@prismicio/client' {
 			HomepageDocument,
 			HomepageDocumentData,
 			HomepageDocumentDataSlicesSlice,
+			PrivacyPolicyDocument,
+			PrivacyPolicyDocumentData,
+			PrivacyPolicyDocumentDataSlicesSlice,
 			ServicesDocument,
 			ServicesDocumentData,
 			ServicesDocumentDataSlicesSlice,
@@ -1365,6 +1475,10 @@ declare module '@prismicio/client' {
 			ContactSliceSliceDefaultPrimary,
 			ContactSliceSliceVariation,
 			ContactSliceSliceDefault,
+			LegalPageSlice,
+			LegalPageSliceDefaultPrimary,
+			LegalPageSliceVariation,
+			LegalPageSliceDefault,
 			PostcontentSlice,
 			PostcontentSliceDefaultPrimary,
 			PostcontentSliceVariation,

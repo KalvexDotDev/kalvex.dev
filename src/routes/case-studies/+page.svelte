@@ -3,7 +3,6 @@
   import { components } from '$lib/slices';
   
   export let data;
-  console.log('Case studies page data:', data);
   </script>
   
   {#if data.caseStudiesList && data.caseStudiesList.data && data.caseStudiesList.data.slices}

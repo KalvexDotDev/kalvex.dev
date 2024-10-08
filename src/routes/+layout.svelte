@@ -70,14 +70,13 @@
       <slot />
     </main>
   
-    <footer class="bg-muted mt-auto">
-      <div class="container mx-auto flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <p class="text-center text-sm leading-loose md:text-left text-muted-foreground">
+    <footer class="mt-auto bg-transparent">
+      <div class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between py-4 md:h-16">
+        <p class="text-sm leading-loose text-muted-foreground mb-2 md:mb-0">
           Built by Kalvex. All rights reserved.
         </p>
-        <nav class="flex items-center space-x-4">
-          <a href="/privacy-policy" class="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
-          <a href="/terms-of-service" class="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</a>
+        <nav>
+          <a href="/privacy_policy" class="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
         </nav>
       </div>
     </footer>
