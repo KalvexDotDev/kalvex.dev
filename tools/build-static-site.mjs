@@ -30,7 +30,7 @@ const nav = {
 const labels = {
   is: {
     skip: 'Fara beint í efni',
-    lang: 'English',
+    lang: 'Enska',
     langLabel: 'Skoða síðuna á ensku',
     book: 'Bóka ráðgjafafund',
     secondaryBook: 'Ræða næsta skref',
@@ -107,7 +107,7 @@ const pages = [
         <div>
           <p class="eyebrow">Sannprófun</p>
           <h2>Gervigreind getur búið til kóða hratt. Það er ekki það sama og að vita að hann virki.</h2>
-          <p>Stór mállíkön eru öflug við að búa til hugmyndir og kóða, en sannprófun flókins kerfis er oft erfiðari en myndunin sjálf. Þegar eldri kerfi, samhliða breytingar og óljósar kröfur blandast saman eykst flækjustigið hratt og enginn spjallagent sér heildarmyndina einn og sér.</p>
+          <p>Stór mállíkön eru öflug við að búa til hugmyndir og kóða, en sannprófun flókins kerfis er oft erfiðari en myndunin sjálf. Þegar eldri kerfi, samhliða breytingar og óljósar kröfur blandast saman eykst flækjustigið hratt og ekkert slíkt tól sér heildarmyndina eitt og sér.</p>
           <p>Kalvex brýr þetta bil með prófunararkitektúr, útgáfustýringu, mælanlegum samþykktarskilyrðum og skýrri verkefnastjórn. Markmiðið er ekki að hægja á teyminu. Markmiðið er að gera hraðann nothæfan.</p>
         </div>
         <div class="signal-panel" aria-label="Dæmi um gæðaviðmið Kalvex">
@@ -119,12 +119,12 @@ const pages = [
           <div class="signal-row">
             <span>02</span>
             <strong>Kóða prófanir</strong>
-            <em>API, UI, flæði, reglur</em>
+            <em>forritaskil, viðmót, flæði, reglur</em>
           </div>
           <div class="signal-row">
             <span>03</span>
             <strong>Setja útgáfuhlið</strong>
-            <em>CI, mælingar, samþykki</em>
+            <em>próf, mælingar, samþykki</em>
           </div>
           <div class="signal-row signal-row-live">
             <span>04</span>
@@ -169,10 +169,10 @@ const pages = [
           <h2>Þjónustur sem tengja gæði, hraða og ábyrgð</h2>
         </div>
         <div class="card-grid three">
-          ${service('Gæði í þróun með gervigreind', 'Prófunar- og útgáfuhlið fyrir teymi sem nota Copilot, stór mállíkön eða kóða sem verður til með aðstoð gervigreindar.', 'vottanir-og-vidbragd.html')}
-          ${service('Prófunarsjálfvirkni', 'Frá handvirkum reykprófum í sjálfvirka keðju sem keyrir á réttum stöðum: pull request, nightly, release og lærdóm úr framleiðslu.', 'umbreyttu-rekstrin.html')}
-          ${service('Prófunararkitektúr', 'Skýr prófunarstefna fyrir API, notendaflæði, gögn, samþættingar, aðgengi, öryggi og frammistöðu.', 'umbreyttu-rekstrin.html')}
-          ${service('Nútíma hugbúnaðarafhending', 'Flæði, endurgjöf og lærdómur í þróunarferlinu: CI/CD, útgáfuhlið og mælingar sem gera teymið hraðara án þess að missa áttavitann.', 'vottanir-og-vidbragd.html')}
+          ${service('Gæði í þróun með gervigreind', 'Prófunar- og útgáfuhlið fyrir teymi sem nota stór mállíkön, gervigreindartól eða kóða sem verður til með aðstoð gervigreindar.', 'vottanir-og-vidbragd.html')}
+          ${service('Prófunarsjálfvirkni', 'Frá handvirkum reykprófum í sjálfvirka keðju sem keyrir á réttum stöðum: við kóðabreytingar, reglulega, fyrir útgáfur og í lærdómi úr framleiðslu.', 'umbreyttu-rekstrin.html')}
+          ${service('Prófunararkitektúr', 'Skýr prófunarstefna fyrir forritaskil, notendaflæði, gögn, samþættingar, aðgengi, öryggi og frammistöðu.', 'umbreyttu-rekstrin.html')}
+          ${service('Nútíma hugbúnaðarafhending', 'Flæði, endurgjöf og lærdómur í þróunarferlinu: sjálfvirkar keyrslur, útgáfuhlið og mælingar sem gera teymið hraðara án þess að missa áttavitann.', 'vottanir-og-vidbragd.html')}
           ${service('Verkefnastjórnun', 'Áætlanir, forgangsröðun, áhættustýring og framkvæmd sem heldur tæknilegri vinnu tengdri viðskiptamarkmiðum.', 'verkefnastjorun.html')}
           ${service('Kröfugreining og skýr vinnulýsing', 'Óljósar kröfur eru þýddar yfir í samþykktarskilyrði, prófanleg flæði og skjöl sem bæði fólk og gervigreindartól geta fylgt.', 'med-ther-i-lidi.html')}
         </div>
@@ -237,7 +237,7 @@ const pages = [
             <li>Sömu villurnar koma aftur eftir lagfæringar.</li>
             <li>Þróunarteymið treystir ekki prófunarumhverfum.</li>
             <li>Kröfur eru ræddar aftur og aftur í stað þess að vera prófanlegar.</li>
-            <li>gervigreind eða hraðari kóðun hefur aukið breytingamagn án sambærilegra varna.</li>
+            <li>Gervigreind eða hraðari kóðun hefur aukið breytingamagn án sambærilegra varna.</li>
           </ul>
         </div>
       </section>
@@ -249,9 +249,9 @@ const pages = [
         </div>
         <div class="timeline">
           ${step('01', 'Kortleggja áhættu', 'Við finnum flæðin þar sem bilun kostar mest: tekjur, þjónusturof, gögn, samþættingar eða orðspor.')}
-          ${step('02', 'Hanna prófunargrunn', 'Við skilgreinum hvaða próf eiga heima í einingum, API, notendaflæði, samþættingum og framleiðsluvöktun.')}
-          ${step('03', 'Setja í CI/CD', 'Prófin verða hluti af vinnuflæðinu, ekki auka verkefni sem einhver man eftir í lokin.')}
-          ${step('04', 'Mæla og bæta', 'Við fylgjumst með flakiness, keyrslutíma, villumynstrum og áhrifum á útgáfuhraða.')}
+          ${step('02', 'Hanna prófunargrunn', 'Við skilgreinum hvaða próf eiga heima í einingum, forritaskilum, notendaflæði, samþættingum og framleiðsluvöktun.')}
+          ${step('03', 'Setja í vinnuflæðið', 'Prófin verða hluti af sjálfvirkri keyrslu, ekki auka verkefni sem einhver man eftir í lokin.')}
+          ${step('04', 'Mæla og bæta', 'Við fylgjumst með óstöðugleika, keyrslutíma, villumynstrum og áhrifum á útgáfuhraða.')}
         </div>
       </section>
 
@@ -289,7 +289,7 @@ const pages = [
         <div>
           <p class="eyebrow">Af hverju þetta skiptir máli</p>
           <h2>Þú getur ekki treyst einu gervigreindarflæði til að sannreyna annað gervigreindarflæði.</h2>
-          <p>LLM-verkfæri eru frábær í að búa til tillögur, en þau hafa ekki heildstæða ábyrgð á framleiðslukerfinu þínu. Þau þekkja ekki viðkvæmustu eldri samþættingarnar, óskrifuðu reglurnar eða rekstrarlegu afleiðingarnar þegar röng breyting fer út.</p>
+          <p>Stór mállíkön eru öflug í að búa til tillögur, en þau hafa ekki heildstæða ábyrgð á framleiðslukerfinu þínu. Þau þekkja ekki viðkvæmustu eldri samþættingarnar, óskrifuðu reglurnar eða rekstrarlegu afleiðingarnar þegar röng breyting fer út.</p>
           <p>Við setjum því upp varnir sem eru óháðar framleiðsluhraðanum: skilgreindar kröfur, keyranleg próf, útgáfuhlið, mælingar og viðbragð þegar eitthvað fer úrskeiðis.</p>
         </div>
         <div class="formula-panel">
@@ -316,7 +316,7 @@ const pages = [
         <div class="section-heading">
           <p class="eyebrow">Fyrir stjórnendur</p>
           <h2>Áhætta í vinnu með gervigreind verður sýnileg og stjórnunarhæf</h2>
-          <p>CEO vill hraða. CTO þarf stöðugleika. Kalvex býr til sameiginlegt tungumál: hvaða áhætta er til staðar, hvaða varnir eru virkar og hvað þarf að fjárfesta í næst.</p>
+          <p>Framkvæmdastjóri vill hraða. Tæknistjóri þarf stöðugleika. Kalvex býr til sameiginlegt tungumál: hvaða áhætta er til staðar, hvaða varnir eru virkar og hvað þarf að fjárfesta í næst.</p>
         </div>
         <div class="outcome-grid">
           ${outcome('Skýr mörk fyrir notkun gervigreindar')}
@@ -350,7 +350,7 @@ const pages = [
           <p class="eyebrow">Afhendingarstjórn</p>
           <h2>Góð verkefnastjórn í tækni snýst um að gera óvissu sýnilega nógu snemma.</h2>
           <p>Flest hugbúnaðarverkefni fara ekki úrskeiðis vegna þess að fólk vinnur ekki nóg. Þau fara úrskeiðis þegar kröfur eru óskýrar, áhætta er falin, gæðaviðmið vantar og ákvarðanir bíða of lengi.</p>
-          <p>Kalvex kemur með rólega, mælanlega og tæknilega læsa verkefnastjórn. Við sjáum um að halda samhengi milli roadmap, prófana, útgáfa, forgangsröðunar og ákvarðana stjórnenda.</p>
+          <p>Kalvex kemur með rólega, mælanlega og tæknilega læsa verkefnastjórn. Við sjáum um að halda samhengi milli áætlunar, prófana, útgáfa, forgangsröðunar og ákvarðana stjórnenda.</p>
         </div>
         <div class="note-panel">
           <h3>Við hjálpum þegar</h3>
@@ -383,9 +383,9 @@ const pages = [
         </div>
         <div class="outcome-grid">
           ${outcome('Raunhæf áætlun með áhættum')}
-          ${outcome('Skýrari backlog og ákvarðanir')}
+          ${outcome('Skýrari verklisti og ákvarðanir')}
           ${outcome('Gæðaviðmið tengd útgáfum')}
-          ${outcome('Betra samtal milli CEO, CTO og teymis')}
+          ${outcome('Betra samtal milli framkvæmdastjóra, tæknistjóra og teymis')}
           ${outcome('Minni endurvinna og færri óvænt stopp')}
           ${outcome('Regluleg stöðumynd sem má treysta')}
         </div>
@@ -434,7 +434,7 @@ const pages = [
 
       <section class="section section-tight">
         <div class="section-heading">
-          <p class="eyebrow">Anti-pitch</p>
+          <p class="eyebrow">Það sem við forðumst</p>
           <h2>Það sem Kalvex gerir ekki</h2>
         </div>
         <div class="card-grid three">
@@ -471,7 +471,7 @@ const pages = [
 
       <section class="section split-section">
         <div>
-          <p class="eyebrow">Manifesto</p>
+          <p class="eyebrow">Afstaða</p>
           <h2>Gæði eru ekki deild. Gæði eru rekstrarkerfi.</h2>
           <p>Í nútíma hugbúnaðarþróun er ekki nóg að hafa prófara í lok ferlis. Gæðin þurfa að birtast í því hvernig kröfur eru skrifaðar, hvernig kóði er samþykktur, hvernig umhverfi eru rekin, hvernig útgáfur eru stöðvaðar og hvernig stjórnendur sjá áhættu.</p>
         </div>
@@ -1153,14 +1153,14 @@ const pageVisuals = {
   home: {
     is: {
       image: 'assets/img/iceland-landscape.jpg',
-      alt: 'Icelandic countryside with mountains in the distance.',
+      alt: 'Íslenskt landslag með fjöllum í fjarska.',
       kicker: 'Íslensk tækniráðgjöf',
       title: 'Staðbundin ráðgjöf fyrir hugbúnað sem þarf að standast raunverulegt álag.',
       text:
         'Kalvex tengir gæðavinnu við daglega þróun, útgáfur og ákvarðanir. Markmiðið er einfalt: færri óvissar útgáfur, skýrari ábyrgð og betra flæði frá hugmynd til afhendingar.',
       caption: 'Kalvex vinnur með íslenskum fyrirtækjum þar sem traust, hraði og ábyrgð þurfa að fara saman.',
       points: [
-        ['AI og gæði', 'Sannprófun fyrir teymi sem nota gervigreind í þróun.'],
+        ['Gervigreind og gæði', 'Sannprófun fyrir teymi sem nota gervigreind í þróun.'],
         ['Sjálfvirkar prófanir', 'Handvirk þekking verður að keyrandi verndarlagi.'],
         ['Verkefnastjórnun', 'Áhætta, ábyrgð og næstu skref verða sýnileg.']
       ]
@@ -1183,7 +1183,7 @@ const pageVisuals = {
   services: {
     is: {
       image: 'assets/img/code-quality.jpg',
-      alt: 'Close-up of software code on a computer screen.',
+      alt: 'Nærmynd af hugbúnaðarkóða á tölvuskjá.',
       kicker: 'Þjónusta',
       title: 'Gæði þurfa að sjást í kröfum, kóða, prófunum og ákvörðunum.',
       text:
@@ -1213,7 +1213,7 @@ const pageVisuals = {
   automation: {
     is: {
       image: 'assets/img/server-rack.jpg',
-      alt: 'Server racks in a data center.',
+      alt: 'Netþjónaskápar í tæknirými.',
       kicker: 'Sjálfvirkni',
       title: 'Sjálfvirkni þarf að byrja þar sem áhættan er raunveruleg.',
       text:
@@ -1243,9 +1243,9 @@ const pageVisuals = {
   ai: {
     is: {
       image: 'assets/img/code-quality.jpg',
-      alt: 'Close-up of software code on a computer screen.',
-      kicker: 'AI og sannprófun',
-      title: 'AI getur hraðað vinnunni, en gæði þurfa enn ákveðinn ramma.',
+      alt: 'Nærmynd af hugbúnaðarkóða á tölvuskjá.',
+      kicker: 'Gervigreind og sannprófun',
+      title: 'Gervigreind getur hraðað vinnunni, en gæði þurfa enn ákveðinn ramma.',
       text:
         'Við hjálpum teymum að setja mörk, mælingar og prófanir utan um þróun með gervigreind svo hraðinn skili raunverulegum árangri en ekki nýrri óvissu.',
       caption: 'Gervigreind breytir hraðanum. Hún fjarlægir ekki þörfina fyrir sannprófun.',
@@ -1273,7 +1273,7 @@ const pageVisuals = {
   pm: {
     is: {
       image: 'assets/img/planning-board.jpg',
-      alt: 'A planning board with sticky notes arranged by workflow stage.',
+      alt: 'Skipulagstafla með miðum eftir stöðu verkefna.',
       kicker: 'Verkefnastjórnun',
       title: 'Betri verkefnastjórnun gerir óvissu sýnilega nógu snemma.',
       text:
@@ -1303,7 +1303,7 @@ const pageVisuals = {
   about: {
     is: {
       image: 'assets/img/iceland-landscape.jpg',
-      alt: 'Icelandic countryside with mountains in the distance.',
+      alt: 'Íslenskt landslag með fjöllum í fjarska.',
       kicker: 'Með þér í liði',
       title: 'Ráðgjöf sem vinnur inni í teyminu, ekki fyrir utan það.',
       text:
@@ -1333,14 +1333,14 @@ const pageVisuals = {
   insights: {
     is: {
       image: 'assets/img/code-quality.jpg',
-      alt: 'Close-up of software code on a computer screen.',
+      alt: 'Nærmynd af hugbúnaðarkóða á tölvuskjá.',
       kicker: 'Greinar',
       title: 'Hugmyndir um gæði, hraða og sannprófun þurfa að enda í framkvæmd.',
       text:
-        'Við skrifum um það sem við sjáum í raunverulegum teymum: AI, prófunarsjálfvirkni, verkefnastjórnun, útgáfur og leiðir til að læra hraðar án þess að missa stjórn.',
+        'Við skrifum um það sem við sjáum í raunverulegum teymum: gervigreind, prófunarsjálfvirkni, verkefnastjórnun, útgáfur og leiðir til að læra hraðar án þess að missa stjórn.',
       caption: 'Innsýn er aðeins gagnleg ef hún hjálpar teyminu að gera næsta skref skýrara.',
       points: [
-        ['AI', 'Hvernig nýr hraði breytir kröfum um sannprófun.'],
+        ['Gervigreind', 'Hvernig nýr hraði breytir kröfum um sannprófun.'],
         ['Prófanir', 'Hvar sjálfvirkni borgar sig fyrst.'],
         ['Afhending', 'Hvernig betri flæði skapa meiri ró.']
       ]
@@ -1363,7 +1363,7 @@ const pageVisuals = {
   next: {
     is: {
       image: 'assets/img/planning-board.jpg',
-      alt: 'A planning board with sticky notes arranged by workflow stage.',
+      alt: 'Skipulagstafla með miðum eftir stöðu verkefna.',
       kicker: 'Næsta skref',
       title: 'Fyrsti fundurinn á að finna raunhæfan fyrsta áfanga.',
       text:
@@ -1395,49 +1395,73 @@ const pageVisuals = {
 const mediaLibrary = {
   code: {
     image: 'assets/img/code-quality.jpg',
-    alt: 'Close-up of software code on a computer screen.',
-    is: ['Kóði sem þarf að standast', 'AI hraðar breytingum. Gæðakerfið þarf að sjá hvað breyttist og hvað má ekki brotna.'],
+    alt: {
+      is: 'Nærmynd af hugbúnaðarkóða á tölvuskjá.',
+      en: 'Close-up of software code on a computer screen.'
+    },
+    is: ['Kóði sem þarf að standast', 'Gervigreind hraðar breytingum. Gæðakerfið þarf að sjá hvað breyttist og hvað má ekki brotna.'],
     en: ['Code that has to hold up', 'AI accelerates change. The quality system has to see what changed and what must not break.']
   },
   performance: {
     image: 'assets/img/performance-dashboard.jpg',
-    alt: 'Performance analytics graphs on a laptop screen.',
+    alt: {
+      is: 'Mælaborð með frammistöðugögnum á fartölvuskjá.',
+      en: 'Performance analytics graphs on a laptop screen.'
+    },
     is: ['Mælingar sem nýtast', 'Ákvarðanir verða rólegri þegar teymið sér hraða, stöðu og áhættu í sama samhengi.'],
     en: ['Metrics that are useful', 'Decisions get calmer when the team sees speed, state and risk in the same context.']
   },
   monitoring: {
     image: 'assets/img/monitoring-dashboard.jpg',
-    alt: 'A monitoring dashboard with quality and performance metrics.',
-    is: ['Sýnilegt eftirlit', 'Góð útgáfa endar ekki við deploy. Hún heldur áfram í mælingum, viðbragði og lærdómi.'],
+    alt: {
+      is: 'Mælaborð með gæðamælingum og frammistöðumælingum.',
+      en: 'A monitoring dashboard with quality and performance metrics.'
+    },
+    is: ['Sýnilegt eftirlit', 'Góð útgáfa endar ekki við innleiðingu. Hún heldur áfram í mælingum, viðbragði og lærdómi.'],
     en: ['Visible control', 'A good release does not end at deploy. It continues through metrics, response and learning.']
   },
   network: {
     image: 'assets/img/network-cables.jpg',
-    alt: 'Network and server cables in a technical environment.',
+    alt: {
+      is: 'Netkaplar og tæknibúnaður í tæknirými.',
+      en: 'Network and server cables in a technical environment.'
+    },
     is: ['Raunverulegir innviðir', 'Sjálfvirkni þarf að styðja kerfin sem eru til staðar, ekki bara fallega mynd af ferli.'],
     en: ['Real infrastructure', 'Automation has to support the systems that exist, not just a tidy diagram of a process.']
   },
   servers: {
     image: 'assets/img/server-rack.jpg',
-    alt: 'Server racks in a data center.',
-    is: ['Stöðug afhending', 'Prófanir, CI og útgáfuhlið þurfa að virka saman þegar breytingar fara í framleiðslu.'],
+    alt: {
+      is: 'Netþjónaskápar í tæknirými.',
+      en: 'Server racks in a data center.'
+    },
+    is: ['Stöðug afhending', 'Prófanir, sjálfvirkar keyrslur og útgáfuhlið þurfa að virka saman þegar breytingar fara í framleiðslu.'],
     en: ['Stable delivery', 'Tests, CI and release gates need to work together when changes move to production.']
   },
   planning: {
     image: 'assets/img/planning-board.jpg',
-    alt: 'A planning board with sticky notes arranged by workflow stage.',
+    alt: {
+      is: 'Skipulagstafla með miðum eftir stöðu verkefna.',
+      en: 'A planning board with sticky notes arranged by workflow stage.'
+    },
     is: ['Taktur í vinnunni', 'Skýr vinna er sýnileg: hvað er næst, hver á það og hvað þarf að vera satt.'],
     en: ['Cadence in the work', 'Clear work is visible: what is next, who owns it and what needs to be true.']
   },
   checklist: {
     image: 'assets/img/delivery-checklist.jpg',
-    alt: 'A hand writing a checklist in a notebook.',
+    alt: {
+      is: 'Hönd skrifar gátlista í minnisbók.',
+      en: 'A hand writing a checklist in a notebook.'
+    },
     is: ['Skilyrði fyrir útgáfu', 'Áður en hraði skiptir máli þarf teymið að vita hvaða gæði eru nauðsynleg.'],
     en: ['Release conditions', 'Before speed matters, the team needs to know which quality signals are required.']
   },
   iceland: {
     image: 'assets/img/iceland-landscape.jpg',
-    alt: 'Icelandic countryside with mountains in the distance.',
+    alt: {
+      is: 'Íslenskt landslag með fjöllum í fjarska.',
+      en: 'Icelandic countryside with mountains in the distance.'
+    },
     is: ['Íslenskt samhengi', 'Ráðgjöfin þarf að passa við stærð teymisins, markaðinn og raunverulega ábyrgð.'],
     en: ['Icelandic context', 'The consulting has to fit the team size, the market and the real accountability around the work.']
   }
@@ -1523,7 +1547,7 @@ function mediaStrip(page) {
 
       return `
         <figure class="media-tile">
-          <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async">
+          <img src="${item.image}" alt="${item.alt[page.lang]}" loading="lazy" decoding="async">
           <figcaption>
             <strong>${title}</strong>
             <span>${text}</span>
@@ -1638,7 +1662,7 @@ function header(page) {
           <img src="static/kalvex-logo.svg" alt="" width="28" height="31">
           <span>Kalvex</span>
         </a>
-        <nav class="primary-nav" aria-label="Primary navigation">
+        <nav class="primary-nav" aria-label="${page.lang === 'is' ? 'Aðalvalmynd' : 'Primary navigation'}">
           ${activeNav}
         </nav>
         <div class="header-actions">
@@ -1667,7 +1691,7 @@ function hero(page) {
           ${button(page.secondaryHref, page.secondaryCta, 'secondary')}
         </div>
       </div>
-      <div class="hero-system" aria-label="Kalvex delivery system">
+      <div class="hero-system" aria-label="${page.lang === 'is' ? 'Afhendingarkerfi Kalvex' : 'Kalvex delivery system'}">
         <div class="system-topline">
           <span>Kalvex</span>
           <span>${page.lang === 'is' ? 'Gæðakerfi' : 'Quality system'}</span>
@@ -1738,8 +1762,8 @@ function footer(page) {
           <h2>${l.footerLanguage}</h2>
           <nav aria-label="${l.footerLanguage}">
             <a href="${page.alternate}">${l.lang}</a>
-            <a href="takta-naesta-skref.html">${page.lang === 'is' ? 'Bóka fund' : 'Icelandic booking page'}</a>
-            <a href="next-steps.html">${page.lang === 'is' ? 'English booking page' : 'Book a meeting'}</a>
+            <a href="takta-naesta-skref.html">${page.lang === 'is' ? 'Bóka fund á íslensku' : 'Icelandic booking page'}</a>
+            <a href="next-steps.html">${page.lang === 'is' ? 'Bóka fund á ensku' : 'Book a meeting'}</a>
           </nav>
         </div>
         <div>
