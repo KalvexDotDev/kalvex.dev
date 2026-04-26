@@ -1416,6 +1416,7 @@ function visualPrelude(page) {
     <section class="visual-prelude${page.active === 'home' ? ' visual-prelude-home' : ''}" aria-labelledby="${id}">
       <figure class="visual-frame">
         <img src="${visual.image}" alt="${visual.alt}" loading="${page.active === 'home' ? 'eager' : 'lazy'}" decoding="async">
+        <div class="visual-canvas-layer" data-quality-canvas aria-hidden="true"></div>
         <figcaption><span>${visual.kicker}</span>${visual.caption}</figcaption>
       </figure>
       <div class="visual-copy">
@@ -1690,7 +1691,7 @@ function template(page) {
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="https://kalvex.dev/static/kalvex-logo.svg">
   <link rel="stylesheet" href="assets/css/custom.css">
-  ${page.heroCanvas ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
+  ${page.heroCanvas || pageVisuals[page.active]?.[page.lang] ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
   <script defer src="assets/js/privacy-consent.js" data-lang="${page.lang}" data-hubspot-src="https://js-eu1.hs-scripts.com/148349979.js"></script>
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
