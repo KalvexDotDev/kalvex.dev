@@ -1149,6 +1149,287 @@ const pages = [
   }
 ];
 
+const pageVisuals = {
+  home: {
+    is: {
+      image: 'assets/img/iceland-landscape.jpg',
+      alt: 'Icelandic countryside with mountains in the distance.',
+      kicker: 'Íslensk tækniráðgjöf',
+      title: 'Staðbundin ráðgjöf fyrir hugbúnað sem þarf að standast raunverulegt álag.',
+      text:
+        'Kalvex tengir gæðavinnu við daglega þróun, útgáfur og ákvarðanir. Markmiðið er einfalt: færri óvissar útgáfur, skýrari ábyrgð og betra flæði frá hugmynd til afhendingar.',
+      caption: 'Kalvex vinnur með íslenskum fyrirtækjum þar sem traust, hraði og ábyrgð þurfa að fara saman.',
+      points: [
+        ['AI og gæði', 'Sannprófun fyrir teymi sem nota gervigreind í þróun.'],
+        ['Sjálfvirkar prófanir', 'Handvirk þekking verður að keyrandi verndarlagi.'],
+        ['Verkefnastjórnun', 'Áhætta, ábyrgð og næstu skref verða sýnileg.']
+      ]
+    },
+    en: {
+      image: 'assets/img/iceland-landscape.jpg',
+      alt: 'Icelandic countryside with mountains in the distance.',
+      kicker: 'Icelandic technology consultancy',
+      title: 'Local consulting for software that has to hold up under real pressure.',
+      text:
+        'Kalvex connects quality work to daily development, release decisions and leadership visibility. The outcome is fewer uncertain releases, clearer ownership and better flow from idea to delivery.',
+      caption: 'Kalvex works with Icelandic companies where trust, speed and accountability need to move together.',
+      points: [
+        ['AI quality', 'Verification for teams using AI in daily engineering.'],
+        ['Automated tests', 'Manual knowledge becomes executable guardrails.'],
+        ['Project delivery', 'Risk, ownership and next steps stay visible.']
+      ]
+    }
+  },
+  services: {
+    is: {
+      image: 'assets/img/code-quality.jpg',
+      alt: 'Close-up of software code on a computer screen.',
+      kicker: 'Þjónusta',
+      title: 'Gæði þurfa að sjást í kröfum, kóða, prófunum og ákvörðunum.',
+      text:
+        'Þjónusta Kalvex er hönnuð fyrir teymi sem þurfa að breyta óljósri áhættu í vinnandi kerfi: prófanir, útgáfuhlið, mælingar og skýrari verkefnastýringu.',
+      caption: 'Prófunarvinna á að vera hluti af þróunarflæðinu, ekki aðskilin lokaskoðun.',
+      points: [
+        ['Greina', 'Finna flæðin þar sem mistök kosta mest.'],
+        ['Byggja', 'Setja upp prófanir og útgáfuhlið sem teymið notar.'],
+        ['Festa', 'Gera mælingar, ábyrgð og lærdóm sýnileg.']
+      ]
+    },
+    en: {
+      image: 'assets/img/code-quality.jpg',
+      alt: 'Close-up of software code on a computer screen.',
+      kicker: 'Services',
+      title: 'Quality has to show up in requirements, code, tests and decisions.',
+      text:
+        'Kalvex services are designed for teams that need to turn unclear risk into a working system: tests, release gates, metrics and sharper project control.',
+      caption: 'Testing belongs inside the delivery flow, not as a separate final inspection.',
+      points: [
+        ['Diagnose', 'Find the flows where defects cost the most.'],
+        ['Build', 'Install tests and gates the team actually uses.'],
+        ['Anchor', 'Make metrics, ownership and learning visible.']
+      ]
+    }
+  },
+  automation: {
+    is: {
+      image: 'assets/img/server-rack.jpg',
+      alt: 'Server racks in a data center.',
+      kicker: 'Sjálfvirkni',
+      title: 'Sjálfvirkni þarf að byrja þar sem áhættan er raunveruleg.',
+      text:
+        'Við byrjum ekki á því að skrifa próf fyrir allt. Við finnum þau flæði sem skipta mestu máli og byggjum sjálfvirka endurgjöf sem styður þróun, útgáfur og rekstur.',
+      caption: 'Góð prófunarsjálfvirkni er innviður fyrir traustari afhendingu.',
+      points: [
+        ['Áhætta', 'Tekjur, gögn, samþættingar og mikilvæg notendaflæði.'],
+        ['Endurgjöf', 'Próf sem keyra á réttum stað í þróunarferlinu.'],
+        ['Útgáfur', 'Skýr merki um hvað má fara áfram og hvað þarf athygli.']
+      ]
+    },
+    en: {
+      image: 'assets/img/server-rack.jpg',
+      alt: 'Server racks in a data center.',
+      kicker: 'Automation',
+      title: 'Automation should begin where the risk is real.',
+      text:
+        'We do not start by trying to test everything. We identify the flows that matter most and build automated feedback that supports development, releases and operations.',
+      caption: 'Good test automation is infrastructure for calmer, more reliable delivery.',
+      points: [
+        ['Risk', 'Revenue, data, integrations and critical user flows.'],
+        ['Feedback', 'Tests that run at the right point in the delivery path.'],
+        ['Release', 'Clear signals for what can move and what needs attention.']
+      ]
+    }
+  },
+  ai: {
+    is: {
+      image: 'assets/img/code-quality.jpg',
+      alt: 'Close-up of software code on a computer screen.',
+      kicker: 'AI og sannprófun',
+      title: 'AI getur hraðað vinnunni, en gæði þurfa enn ákveðinn ramma.',
+      text:
+        'Við hjálpum teymum að setja mörk, mælingar og prófanir utan um þróun með gervigreind svo hraðinn skili raunverulegum árangri en ekki nýrri óvissu.',
+      caption: 'Gervigreind breytir hraðanum. Hún fjarlægir ekki þörfina fyrir sannprófun.',
+      points: [
+        ['Mörk', 'Hvaða kóði, gögn og ákvarðanir þurfa sérstaka vernd.'],
+        ['Próf', 'Keyrandi sannprófun fyrir breytingar sem verða til hratt.'],
+        ['Viðbragð', 'Skýr leið þegar útgáfa, villa eða áhætta kallar á ákvörðun.']
+      ]
+    },
+    en: {
+      image: 'assets/img/code-quality.jpg',
+      alt: 'Close-up of software code on a computer screen.',
+      kicker: 'AI and verification',
+      title: 'AI can accelerate the work, but quality still needs a firm frame.',
+      text:
+        'We help teams put boundaries, metrics and tests around AI-assisted development so speed becomes measurable progress instead of a new source of uncertainty.',
+      caption: 'AI changes the pace. It does not remove the need for verification.',
+      points: [
+        ['Boundaries', 'Which code, data and decisions need special protection.'],
+        ['Tests', 'Executable verification for changes produced at speed.'],
+        ['Response', 'A clear path when a release, defect or risk needs a decision.']
+      ]
+    }
+  },
+  pm: {
+    is: {
+      image: 'assets/img/planning-board.jpg',
+      alt: 'A planning board with sticky notes arranged by workflow stage.',
+      kicker: 'Verkefnastjórnun',
+      title: 'Betri verkefnastjórnun gerir óvissu sýnilega nógu snemma.',
+      text:
+        'Við tengjum viðskiptamarkmið, tæknilega áhættu, gæðakröfur og daglega framkvæmd svo verkefni hreyfist áfram án þess að missa áttina.',
+      caption: 'Skipulag þarf að hjálpa teyminu að taka ákvarðanir, ekki búa til meiri stjórnsýslu.',
+      points: [
+        ['Markmið', 'Skýr skilgreining á árangri og mælingum.'],
+        ['Áhætta', 'Tæknileg og viðskiptaleg óvissa sett fram í tíma.'],
+        ['Framkvæmd', 'Eigendur, næstu skref og lokun mála eru sýnileg.']
+      ]
+    },
+    en: {
+      image: 'assets/img/planning-board.jpg',
+      alt: 'A planning board with sticky notes arranged by workflow stage.',
+      kicker: 'Project management',
+      title: 'Better project management makes uncertainty visible early enough to act.',
+      text:
+        'We connect business goals, technical risk, quality standards and daily execution so the work keeps moving without losing direction.',
+      caption: 'Planning should help teams make decisions, not create more administration.',
+      points: [
+        ['Goals', 'A clear definition of success and how it is measured.'],
+        ['Risk', 'Technical and commercial uncertainty made visible in time.'],
+        ['Delivery', 'Owners, next steps and closure stay visible.']
+      ]
+    }
+  },
+  about: {
+    is: {
+      image: 'assets/img/iceland-landscape.jpg',
+      alt: 'Icelandic countryside with mountains in the distance.',
+      kicker: 'Með þér í liði',
+      title: 'Ráðgjöf sem vinnur inni í teyminu, ekki fyrir utan það.',
+      text:
+        'Kalvex kemur inn með tæknilega dýpt, skýra forgangsröðun og rólega framkvæmd. Við viljum skilja eftir kerfi sem teymið getur haldið áfram að nota.',
+      caption: 'Nálægð skiptir máli þegar þarf að breyta vinnubrögðum, trausti og afhendingarhraða.',
+      points: [
+        ['Heiðarleiki', 'Skýr greining á því sem er brýnt og því sem má bíða.'],
+        ['Samvinna', 'Vinna með vöru, þróun, gæðum og stjórnendum.'],
+        ['Árangur', 'Verkfæri, mælingar og vinnulag sem lifa áfram.']
+      ]
+    },
+    en: {
+      image: 'assets/img/iceland-landscape.jpg',
+      alt: 'Icelandic countryside with mountains in the distance.',
+      kicker: 'Working with you',
+      title: 'Consulting that works inside the team, not outside it.',
+      text:
+        'Kalvex brings technical depth, clear prioritization and calm execution. We want to leave behind systems the team can keep using after the engagement ends.',
+      caption: 'Proximity matters when the work is changing habits, trust and release speed.',
+      points: [
+        ['Candor', 'Clear diagnosis of what is urgent and what can wait.'],
+        ['Collaboration', 'Working with product, engineering, QA and leadership.'],
+        ['Results', 'Tools, metrics and practices that continue after us.']
+      ]
+    }
+  },
+  insights: {
+    is: {
+      image: 'assets/img/code-quality.jpg',
+      alt: 'Close-up of software code on a computer screen.',
+      kicker: 'Greinar',
+      title: 'Hugmyndir um gæði, hraða og sannprófun þurfa að enda í framkvæmd.',
+      text:
+        'Við skrifum um það sem við sjáum í raunverulegum teymum: AI, prófunarsjálfvirkni, verkefnastjórnun, útgáfur og leiðir til að læra hraðar án þess að missa stjórn.',
+      caption: 'Innsýn er aðeins gagnleg ef hún hjálpar teyminu að gera næsta skref skýrara.',
+      points: [
+        ['AI', 'Hvernig nýr hraði breytir kröfum um sannprófun.'],
+        ['Prófanir', 'Hvar sjálfvirkni borgar sig fyrst.'],
+        ['Afhending', 'Hvernig betri flæði skapa meiri ró.']
+      ]
+    },
+    en: {
+      image: 'assets/img/code-quality.jpg',
+      alt: 'Close-up of software code on a computer screen.',
+      kicker: 'Insights',
+      title: 'Ideas about quality, speed and verification have to end in practice.',
+      text:
+        'We write about what we see in real teams: AI, test automation, project management, releases and ways to learn faster without losing control.',
+      caption: 'Insight only matters when it makes the next move clearer for the team.',
+      points: [
+        ['AI', 'How new speed changes the need for verification.'],
+        ['Testing', 'Where automation pays back first.'],
+        ['Delivery', 'How better flow creates more calm.']
+      ]
+    }
+  },
+  next: {
+    is: {
+      image: 'assets/img/planning-board.jpg',
+      alt: 'A planning board with sticky notes arranged by workflow stage.',
+      kicker: 'Næsta skref',
+      title: 'Fyrsti fundurinn á að finna raunhæfan fyrsta áfanga.',
+      text:
+        'Við byrjum á einu raunverulegu afhendingarflæði, einni skýrri áhættu eða einu verkefni sem þarf meiri festu. Það gerir fundinn beittan og næstu skref gagnleg.',
+      caption: 'Gott samtal byrjar á samhengi, áhættu og því sem þarf að virka næst.',
+      points: [
+        ['Staða', 'Hvað er erfitt í dag og hvað hefur verið reynt.'],
+        ['Áhætta', 'Hvaða bil í gæðum eða framkvæmd skiptir mestu.'],
+        ['Áfangi', 'Hvað er raunhæft að bæta fyrst.']
+      ]
+    },
+    en: {
+      image: 'assets/img/planning-board.jpg',
+      alt: 'A planning board with sticky notes arranged by workflow stage.',
+      kicker: 'Next step',
+      title: 'The first meeting should find a realistic first stage.',
+      text:
+        'We start with one real delivery flow, one clear risk or one project that needs more structure. That keeps the meeting sharp and makes the next steps useful.',
+      caption: 'A good conversation starts with context, risk and what needs to work next.',
+      points: [
+        ['State', 'What is hard today and what has already been tried.'],
+        ['Risk', 'Which gap in quality or delivery matters most.'],
+        ['Stage', 'What is realistic to improve first.']
+      ]
+    }
+  }
+};
+
+function visualPrelude(page) {
+  const visual = pageVisuals[page.active]?.[page.lang];
+
+  if (!visual) {
+    return '';
+  }
+
+  const id = `visual-${page.file.replace(/[^a-z0-9]/gi, '-')}`;
+  const points = visual.points
+    .map(
+      ([title, text], index) => `
+        <article class="visual-point">
+          <span>${String(index + 1).padStart(2, '0')}</span>
+          <strong>${title}</strong>
+          <p>${text}</p>
+        </article>
+      `
+    )
+    .join('');
+
+  return `
+    <section class="visual-prelude${page.active === 'home' ? ' visual-prelude-home' : ''}" aria-labelledby="${id}">
+      <figure class="visual-frame">
+        <img src="${visual.image}" alt="${visual.alt}" loading="${page.active === 'home' ? 'eager' : 'lazy'}" decoding="async">
+        <figcaption><span>${visual.kicker}</span>${visual.caption}</figcaption>
+      </figure>
+      <div class="visual-copy">
+        <p class="eyebrow">${visual.kicker}</p>
+        <h2 id="${id}">${visual.title}</h2>
+        <p>${visual.text}</p>
+        <div class="visual-points">
+          ${points}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function card(title, text, href, label) {
   return `
     <article class="card">
@@ -1284,7 +1565,7 @@ function hero(page) {
             <span>${page.lang === 'is' ? 'Gæðaeftirlit og markmiðasetning' : 'guardrails'}</span>
           </div>
           <div>
-            <strong>${page.lang === 'is' ? 'Verkefnastjórnun' : 'PM'}</strong>
+            <strong>${page.lang === 'is' ? 'Verkefna<wbr>stjórnun' : 'PM'}</strong>
             <span>${page.lang === 'is' ? 'taktur og ábyrgð' : 'cadence and ownership'}</span>
           </div>
           <div>
@@ -1418,6 +1699,7 @@ function template(page) {
   <main id="main">
     ${hero(page)}
     <div class="shell">
+      ${visualPrelude(page)}
       ${page.body}
     </div>
   </main>
