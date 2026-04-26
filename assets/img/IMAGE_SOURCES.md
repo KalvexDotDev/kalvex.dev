@@ -10,5 +10,9 @@ Unsplash states that images can be used for commercial and non-commercial purpos
 | --- | --- | --- | --- |
 | `iceland-landscape.jpg` | https://unsplash.com/photos/a-field-with-bales-of-hay-and-mountains-in-the-background-cJt0Ls1ftZU | Martti Salmi | Icelandic location and trust context |
 | `code-quality.jpg` | https://unsplash.com/photos/colorful-software-or-web-code-on-a-computer-monitor-Skf7HxARcoc | Markus Spiske | Software quality and AI verification context |
+| `performance-dashboard.jpg` | https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-JKUTrJ4vK00 | Luke Chesser | Metrics, delivery flow and performance context |
+| `monitoring-dashboard.jpg` | https://unsplash.com/photos/turned-on-monitoring-screen-qwtCeJ5cLYs | Stephen Dawson | Monitoring, release confidence and quality visibility context |
+| `network-cables.jpg` | https://unsplash.com/photos/a-close-up-of-a-server-room-3Nwt6w-KU3E | Kier in Sight Archives | Infrastructure, automation and systems context |
+| `delivery-checklist.jpg` | https://unsplash.com/photos/person-writing-bucket-list-on-book-RLw-UC03Gwc | Glenn Carstens-Peters | Release criteria, planning and delivery checklist context |
 | `planning-board.jpg` | https://unsplash.com/photos/a-white-board-with-sticky-notes-attached-to-it-JXyY3jRV9oI | Paymo | Project management and delivery planning context |
 | `server-rack.jpg` | https://unsplash.com/photos/a-rack-of-servers-in-a-server-room-2JJ3wBHu4_0 | Kevin Ache | Automation, infrastructure and release confidence context |

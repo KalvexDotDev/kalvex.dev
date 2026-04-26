@@ -1392,6 +1392,83 @@ const pageVisuals = {
   }
 };
 
+const mediaLibrary = {
+  code: {
+    image: 'assets/img/code-quality.jpg',
+    alt: 'Close-up of software code on a computer screen.',
+    is: ['Kóði sem þarf að standast', 'AI hraðar breytingum. Gæðakerfið þarf að sjá hvað breyttist og hvað má ekki brotna.'],
+    en: ['Code that has to hold up', 'AI accelerates change. The quality system has to see what changed and what must not break.']
+  },
+  performance: {
+    image: 'assets/img/performance-dashboard.jpg',
+    alt: 'Performance analytics graphs on a laptop screen.',
+    is: ['Mælingar sem nýtast', 'Ákvarðanir verða rólegri þegar teymið sér hraða, stöðu og áhættu í sama samhengi.'],
+    en: ['Metrics that are useful', 'Decisions get calmer when the team sees speed, state and risk in the same context.']
+  },
+  monitoring: {
+    image: 'assets/img/monitoring-dashboard.jpg',
+    alt: 'A monitoring dashboard with quality and performance metrics.',
+    is: ['Sýnilegt eftirlit', 'Góð útgáfa endar ekki við deploy. Hún heldur áfram í mælingum, viðbragði og lærdómi.'],
+    en: ['Visible control', 'A good release does not end at deploy. It continues through metrics, response and learning.']
+  },
+  network: {
+    image: 'assets/img/network-cables.jpg',
+    alt: 'Network and server cables in a technical environment.',
+    is: ['Raunverulegir innviðir', 'Sjálfvirkni þarf að styðja kerfin sem eru til staðar, ekki bara fallega mynd af ferli.'],
+    en: ['Real infrastructure', 'Automation has to support the systems that exist, not just a tidy diagram of a process.']
+  },
+  servers: {
+    image: 'assets/img/server-rack.jpg',
+    alt: 'Server racks in a data center.',
+    is: ['Stöðug afhending', 'Prófanir, CI og útgáfuhlið þurfa að virka saman þegar breytingar fara í framleiðslu.'],
+    en: ['Stable delivery', 'Tests, CI and release gates need to work together when changes move to production.']
+  },
+  planning: {
+    image: 'assets/img/planning-board.jpg',
+    alt: 'A planning board with sticky notes arranged by workflow stage.',
+    is: ['Taktur í vinnunni', 'Skýr vinna er sýnileg: hvað er næst, hver á það og hvað þarf að vera satt.'],
+    en: ['Cadence in the work', 'Clear work is visible: what is next, who owns it and what needs to be true.']
+  },
+  checklist: {
+    image: 'assets/img/delivery-checklist.jpg',
+    alt: 'A hand writing a checklist in a notebook.',
+    is: ['Skilyrði fyrir útgáfu', 'Áður en hraði skiptir máli þarf teymið að vita hvaða gæði eru nauðsynleg.'],
+    en: ['Release conditions', 'Before speed matters, the team needs to know which quality signals are required.']
+  },
+  iceland: {
+    image: 'assets/img/iceland-landscape.jpg',
+    alt: 'Icelandic countryside with mountains in the distance.',
+    is: ['Íslenskt samhengi', 'Ráðgjöfin þarf að passa við stærð teymisins, markaðinn og raunverulega ábyrgð.'],
+    en: ['Icelandic context', 'The consulting has to fit the team size, the market and the real accountability around the work.']
+  }
+};
+
+const pageMediaStrips = {
+  home: ['performance', 'code', 'planning', 'checklist', 'iceland'],
+  services: ['code', 'performance', 'network', 'planning', 'monitoring'],
+  automation: ['network', 'servers', 'monitoring', 'checklist', 'performance'],
+  ai: ['code', 'performance', 'monitoring', 'checklist', 'network'],
+  pm: ['planning', 'checklist', 'performance', 'iceland', 'monitoring'],
+  about: ['iceland', 'planning', 'checklist', 'monitoring', 'code'],
+  insights: ['monitoring', 'code', 'performance', 'network', 'planning'],
+  next: ['checklist', 'planning', 'monitoring', 'iceland', 'performance']
+};
+
+const mediaStripText = {
+  is: {
+    kicker: 'Úr vinnunni',
+    title: 'Minna af hvítum pappír. Meira af kerfum sem sjást og virka.',
+    intro:
+      'Gæðavinna verður skiljanlegri þegar hún sést sem flæði: kóði, mælingar, innviðir, skipulag og útgáfuskilyrði sem styðja hvert annað.'
+  },
+  en: {
+    kicker: 'From the work',
+    title: 'Less white paper. More systems you can see and use.',
+    intro:
+      'Quality work becomes easier to understand when it is visible as a flow: code, metrics, infrastructure, planning and release conditions supporting each other.'
+  }
+};
+
 function visualPrelude(page) {
   const visual = pageVisuals[page.active]?.[page.lang];
 
@@ -1426,6 +1503,45 @@ function visualPrelude(page) {
         <div class="visual-points">
           ${points}
         </div>
+      </div>
+    </section>
+  `;
+}
+
+function mediaStrip(page) {
+  const media = pageMediaStrips[page.active];
+
+  if (!media) {
+    return '';
+  }
+
+  const copy = mediaStripText[page.lang];
+  const tiles = media
+    .map((key) => {
+      const item = mediaLibrary[key];
+      const [title, text] = item[page.lang];
+
+      return `
+        <figure class="media-tile">
+          <img src="${item.image}" alt="${item.alt}" loading="lazy" decoding="async">
+          <figcaption>
+            <strong>${title}</strong>
+            <span>${text}</span>
+          </figcaption>
+        </figure>
+      `;
+    })
+    .join('');
+
+  return `
+    <section class="media-strip" aria-labelledby="media-${page.file.replace(/[^a-z0-9]/gi, '-')}">
+      <div class="media-strip-heading">
+        <p class="eyebrow">${copy.kicker}</p>
+        <h2 id="media-${page.file.replace(/[^a-z0-9]/gi, '-')}">${copy.title}</h2>
+        <p>${copy.intro}</p>
+      </div>
+      <div class="media-strip-grid">
+        ${tiles}
       </div>
     </section>
   `;
@@ -1702,6 +1818,7 @@ function template(page) {
     <div class="shell">
       ${visualPrelude(page)}
       ${page.body}
+      ${mediaStrip(page)}
     </div>
   </main>
   ${footer(page)}
