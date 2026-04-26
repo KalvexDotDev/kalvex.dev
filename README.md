@@ -1,38 +1,51 @@
-# create-svelte
+# Kalvex HTML Website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Static bilingual website for Kalvex, an Icelandic technology consultancy focused on software quality assurance, AI quality guardrails, test automation and project management.
 
-## Creating a project
+## Project
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Default language: Icelandic (`index.html`)
+- English entry: `en.html`
+- Styling: standalone CSS in `assets/css/custom.css`
+- Homepage visual enhancement: subtle Vanta canvas in `assets/js/hero-vanta.js`
+- Assets: `static/kalvex-logo.svg`, `static/favicon.svg`, `static/favicon.png` and `favicon.ico`
+- No Svelte, Prismic, Tailwind, Vite or framework runtime
+- Vanta is loaded only on the two homepage files and falls back to the static hero if scripts do not load
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Commands
 
 ```bash
 npm run build
+npm run check
+npm run serve
 ```
 
-You can preview the production build with `npm run preview`.
+`npm run build` regenerates the static pages from `tools/build-static-site.mjs`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+`npm run check` validates local HTML links and asset references.
+
+`npm run serve` starts a small dependency-free static server at `http://localhost:4173`.
+
+## Pages
+
+Icelandic:
+
+- `index.html`
+- `jonusta.html`
+- `umbreyttu-rekstrin.html`
+- `vottanir-og-vidbragd.html`
+- `verkefnastjorun.html`
+- `med-ther-i-lidi.html`
+- `frettir-og-frasagnir.html`
+- `takta-naesta-skref.html`
+
+English:
+
+- `en.html`
+- `services.html`
+- `software-development.html`
+- `certifications-and-accreditations.html`
+- `project-management.html`
+- `with-you-on-your-side.html`
+- `news-and-stories.html`
+- `next-steps.html`

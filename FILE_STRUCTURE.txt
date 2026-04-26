@@ -1,0 +1,35 @@
+kalvex-html-site/
+|-- index.html
+|-- en.html
+|-- jonusta.html
+|-- umbreyttu-rekstrin.html
+|-- vottanir-og-vidbragd.html
+|-- verkefnastjorun.html
+|-- med-ther-i-lidi.html
+|-- frettir-og-frasagnir.html
+|-- takta-naesta-skref.html
+|-- services.html
+|-- software-development.html
+|-- certifications-and-accreditations.html
+|-- project-management.html
+|-- with-you-on-your-side.html
+|-- news-and-stories.html
+|-- next-steps.html
+|-- favicon.ico
+|-- favicon.svg
+|-- assets/
+|   |-- css/
+|   |   `-- custom.css
+|   `-- js/
+|       `-- hero-vanta.js
+|-- static/
+|   |-- kalvex-logo.svg
+|   |-- favicon.svg
+|   `-- favicon.png
+|-- tools/
+|   |-- build-static-site.mjs
+|   |-- check-static-site.mjs
+|   `-- serve-static.mjs
+|-- package.json
+|-- README.md
+`-- .gitignore
