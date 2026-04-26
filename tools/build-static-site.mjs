@@ -1268,4 +1268,11 @@ function prepareOutputDir() {
       cpSync(source, resolve(outputDir, item), { recursive: true });
     }
   }
+
+  writeFileSync(resolve(outputDir, '.nojekyll'), '', 'utf8');
+
+  const cname = resolve(root, 'CNAME');
+  if (existsSync(cname)) {
+    cpSync(cname, resolve(outputDir, 'CNAME'));
+  }
 }

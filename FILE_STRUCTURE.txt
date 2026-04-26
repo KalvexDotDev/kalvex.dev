@@ -17,6 +17,7 @@ kalvex-html-site/
 |-- next-steps.html
 |-- favicon.ico
 |-- favicon.svg
+|-- CNAME
 |-- lighthouserc.cjs
 |-- .github/
 |   `-- workflows/

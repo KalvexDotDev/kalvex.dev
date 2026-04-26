@@ -10,6 +10,7 @@ Static bilingual website for Kalvex, an Icelandic technology consultancy focused
 - Homepage visual enhancement: subtle Vanta canvas in `assets/js/hero-vanta.js`
 - Build output: generated static site in `output/`
 - Assets: `static/kalvex-logo.svg`, `static/favicon.svg`, `static/favicon.png` and `favicon.ico`
+- Custom domain for GitHub Pages: `CNAME`
 - No Svelte, Prismic, Tailwind, Vite or framework runtime
 - Vanta is loaded only on the two homepage files and falls back to the static hero if scripts do not load
 
@@ -42,6 +43,9 @@ GitHub Actions builds and validates the static site without a hosting-provider d
 - Pull requests and pushes to `master` run `.github/workflows/static-site.yml`
 - The workflow builds `output/`, validates internal links and assets, and uploads the static site as an artifact
 - Lighthouse CI audits a local server started from `output/`
+- Pushes to `master` deploy `output/` to GitHub Pages
+
+For production deployment, configure the repository's Pages source to **GitHub Actions**. The generated `output/` directory includes `CNAME` for `kalvex.dev` and a `.nojekyll` marker.
 
 ## Pages
 
