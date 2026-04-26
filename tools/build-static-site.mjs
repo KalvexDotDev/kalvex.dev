@@ -43,6 +43,10 @@ const labels = {
     footerNextText:
       'Besti fyrsti fundurinn er stuttur, beinskeyttur og bundinn við raunverulegt afhendingarflæði hjá þínu teymi.',
     footerLanguage: 'Tungumál',
+    footerLegal: 'Persónuvernd',
+    privacy: 'Persónuverndarstefna',
+    cookies: 'Vefkökur',
+    cookieSettings: 'Stilla vefkökur',
     copyright: 'Öll réttindi áskilin.'
   },
   en: {
@@ -60,6 +64,10 @@ const labels = {
     footerNextText:
       'The best first meeting is short, direct, and grounded in a real delivery flow from your team.',
     footerLanguage: 'Language',
+    footerLegal: 'Privacy',
+    privacy: 'Privacy policy',
+    cookies: 'Cookies',
+    cookieSettings: 'Cookie settings',
     copyright: 'All rights reserved.'
   }
 };
@@ -69,7 +77,7 @@ const pages = [
     file: 'index.html',
     lang: 'is',
     active: 'home',
-    vanta: true,
+    heroCanvas: true,
     alternate: 'en.html',
     title: 'Kalvex | Hugbúnaðarprófanir og sjálfvirkni fyrir íslensk fyrirtæki',
     description:
@@ -526,7 +534,7 @@ const pages = [
     file: 'en.html',
     lang: 'en',
     active: 'home',
-    vanta: true,
+    heroCanvas: true,
     alternate: 'index.html',
     title: 'Kalvex | QA and automation for Icelandic companies',
     description:
@@ -978,6 +986,166 @@ const pages = [
         </div>
       </section>
     `
+  },
+  {
+    file: 'personuverndarstefna.html',
+    lang: 'is',
+    active: 'legal',
+    alternate: 'privacy-policy.html',
+    title: 'Persónuverndarstefna | Kalvex',
+    description:
+      'Persónuverndarstefna Kalvex útskýrir hvaða persónuupplýsingar eru unnar á kalvex.dev, í hvaða tilgangi og hvaða réttindi einstaklingar hafa.',
+    eyebrow: 'Persónuvernd',
+    h1: 'Persónuverndarstefna Kalvex.',
+    lead:
+      'Hér er útskýrt með skýrum hætti hvaða upplýsingar Kalvex vinnur þegar fólk heimsækir vefinn, bókar fund eða hefur samband.',
+    primaryCta: 'Bóka ráðgjafafund',
+    secondaryCta: 'Skoða vefkökur',
+    secondaryHref: 'vefkokur.html',
+    body: `
+      <section class="section legal-content">
+        <p><strong>Síðast uppfært:</strong> 26. apríl 2026.</p>
+        <h2>Ábyrgðaraðili</h2>
+        <p>Kalvex er ábyrgðaraðili þeirrar vinnslu persónuupplýsinga sem fer fram á þessum vef. Fyrir fyrirspurnir um persónuvernd má hafa samband við okkur á <a href="mailto:jaimie@kalvex.dev">jaimie@kalvex.dev</a>.</p>
+
+        <h2>Hvaða upplýsingar við vinnum</h2>
+        <p>Við vinnum aðeins þær upplýsingar sem þarf til að reka vefinn, svara erindum og undirbúa mögulegt samstarf. Það getur falið í sér tæknilegar upplýsingar um heimsókn á vefinn, upplýsingar sem þú gefur upp þegar þú bókar fund, og samskipti sem þú sendir okkur.</p>
+        <div class="card-grid three">
+          ${plainCard('Rekstur vefs', 'Hýsingar- og öryggiskerfi geta unnið IP-tölu, tæki, vafra, tíma heimsóknar og hvaða síður eru sóttar. Tilgangurinn er rekstur, öryggi og bilanagreining.')}
+          ${plainCard('Fundabókanir', 'Þegar þú bókar fund í gegnum Cal.com vinnast upplýsingar á borð við nafn, netfang, tíma fundar og skilaboð sem þú velur að senda.')}
+          ${plainCard('Markaðs- og vefmælingar', 'HubSpot er aðeins hlaðið eftir samþykki fyrir valkvæðum vefkökum. Þá geta vefkökur og auðkenni tengst heimsókn og samskiptum við vefinn.')}
+        </div>
+
+        <h2>Lagagrundvöllur</h2>
+        <p>Rekstur, öryggi og grunnmælingar sem nauðsynlegar eru fyrir vefinn byggja á lögmætum hagsmunum Kalvex af því að reka öruggan og virkan vef. Fundabókanir og samskipti byggja á því að gera ráðstafanir að beiðni þinni áður en mögulegt samningssamband hefst. Valkvæðar vefmælingar og HubSpot byggja á samþykki þínu.</p>
+
+        <h2>Þjónustuaðilar</h2>
+        <p>Við notum þjónustuaðila til að hýsa vefinn, birta efni, bóka fundi og greina samþykktar vefmælingar. Slíkir aðilar vinna upplýsingar samkvæmt eigin skilmálum eða sem vinnsluaðilar eftir því sem við á. Dæmi eru GitHub Pages, Cal.com og HubSpot.</p>
+
+        <h2>Varðveisla</h2>
+        <p>Við varðveitum upplýsingar ekki lengur en nauðsynlegt er fyrir tilgang vinnslunnar, nema lög eða málefnalegir hagsmunir krefjist lengri varðveislu. Samþykki fyrir vefkökum er geymt í vafranum þínum þar til þú breytir vali eða hreinsar vafragögn.</p>
+
+        <h2>Réttindi þín</h2>
+        <p>Þú getur óskað eftir aðgangi að upplýsingum um þig, leiðréttingu, eyðingu, takmörkun vinnslu, flutningi gagna eða andmælt vinnslu eftir því sem lög leyfa. Þú getur afturkallað samþykki fyrir valkvæðum vefkökum hvenær sem er með stillingum vefkaka.</p>
+        <p>Ef þú telur að vinnsla persónuupplýsinga brjóti gegn lögum getur þú sent kvörtun til Persónuverndar, íslensku persónuverndarstofnunarinnar.</p>
+      </section>
+    `
+  },
+  {
+    file: 'vefkokur.html',
+    lang: 'is',
+    active: 'legal',
+    alternate: 'cookies.html',
+    title: 'Vefkökur | Kalvex',
+    description:
+      'Upplýsingar um vefkökur, samþykki og valkvæðar vefmælingar á kalvex.dev.',
+    eyebrow: 'Vefkökur',
+    h1: 'Vefkökur og samþykki.',
+    lead:
+      'Kalvex notar aðeins nauðsynlega vistun sjálfkrafa. HubSpot og valkvæðar vefmælingar eru ekki hlaðnar nema þú samþykkir þær.',
+    primaryCta: 'Bóka ráðgjafafund',
+    secondaryCta: 'Persónuverndarstefna',
+    secondaryHref: 'personuverndarstefna.html',
+    body: `
+      <section class="section legal-content">
+        <p><strong>Síðast uppfært:</strong> 26. apríl 2026.</p>
+        <h2>Hvernig við notum vefkökur</h2>
+        <p>Vefurinn notar staðbundna vistun í vafranum til að muna hvort þú hefur samþykkt eða hafnað valkvæðum vefmælingum. Þessi vistun er nauðsynleg til að virða valið þitt.</p>
+
+        <div class="card-grid three">
+          ${plainCard('Nauðsynlegt', 'Notað til að muna val þitt um vefkökur og halda vefnum virkum. Þetta er ekki notað til markaðssetningar.')}
+          ${plainCard('Valkvætt', 'HubSpot getur aðeins hlaðist ef þú samþykkir valkvæðar vefkökur. Þá geta vefmælingar, auðkenni og samskiptasaga tengst heimsókninni.')}
+          ${plainCard('Engin fyrirfram samþykkt', 'Við notum ekki fyrirfram hakaða reiti og þögn eða áframhaldandi notkun vefsins er ekki túlkuð sem samþykki.')}
+        </div>
+
+        <h2>HubSpot</h2>
+        <p>Ef þú samþykkir valkvæðar vefkökur hleður vefurinn HubSpot-skriftu frá <code>js-eu1.hs-scripts.com</code>. HubSpot getur sett vefkökur á borð við <code>hubspotutk</code>, <code>__hstc</code>, <code>__hssc</code> og <code>__hssrc</code>. Heiti og endingartími geta breyst eftir stillingum HubSpot.</p>
+
+        <h2>Breyta vali</h2>
+        <p>Þú getur breytt vali þínu hvenær sem er. Ef þú afturkallar samþykki hleður vefurinn ekki HubSpot aftur. Vefkökur sem þegar hafa verið settar má einnig hreinsa í stillingum vafrans.</p>
+        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings>Stilla vefkökur</button></p>
+      </section>
+    `
+  },
+  {
+    file: 'privacy-policy.html',
+    lang: 'en',
+    active: 'legal',
+    alternate: 'personuverndarstefna.html',
+    title: 'Privacy policy | Kalvex',
+    description:
+      'Kalvex privacy policy explains what personal data is processed on kalvex.dev, why it is processed and which rights individuals have.',
+    eyebrow: 'Privacy',
+    h1: 'Kalvex privacy policy.',
+    lead:
+      'This page explains, in plain language, how Kalvex processes personal data when someone visits the website, books a meeting or contacts us.',
+    primaryCta: 'Book a sales meeting',
+    secondaryCta: 'View cookies',
+    secondaryHref: 'cookies.html',
+    body: `
+      <section class="section legal-content">
+        <p><strong>Last updated:</strong> 26 April 2026.</p>
+        <h2>Controller</h2>
+        <p>Kalvex is the controller for personal data processed on this website. For privacy questions, contact us at <a href="mailto:jaimie@kalvex.dev">jaimie@kalvex.dev</a>.</p>
+
+        <h2>What we process</h2>
+        <p>We process only what is needed to run the site, respond to enquiries and prepare a potential commercial relationship. This can include technical website data, meeting-booking details and communications you choose to send us.</p>
+        <div class="card-grid three">
+          ${plainCard('Website operation', 'Hosting and security systems may process IP address, device, browser, request time and pages requested for operations, security and troubleshooting.')}
+          ${plainCard('Meeting bookings', 'When you book through Cal.com, details such as name, email address, meeting time and any message you provide may be processed.')}
+          ${plainCard('Marketing analytics', 'HubSpot loads only after optional cookie consent. If accepted, cookies and identifiers may be connected to website visits and interactions.')}
+        </div>
+
+        <h2>Legal basis</h2>
+        <p>Website operation and security rely on Kalvex's legitimate interests in running a secure and functioning website. Meeting bookings and direct communications rely on steps taken at your request before a possible contract. Optional analytics and HubSpot rely on your consent.</p>
+
+        <h2>Service providers</h2>
+        <p>We use providers to host the site, publish content, arrange meetings and run consented analytics. These providers process data under their own terms or as processors where applicable. Examples include GitHub Pages, Cal.com and HubSpot.</p>
+
+        <h2>Retention</h2>
+        <p>We do not keep personal data longer than needed for the purpose, unless legal duties or legitimate reasons require longer retention. Cookie consent is stored in your browser until you change your choice or clear browser data.</p>
+
+        <h2>Your rights</h2>
+        <p>You can request access, rectification, erasure, restriction, portability or object to processing where the law gives you that right. You can withdraw optional cookie consent at any time through cookie settings.</p>
+        <p>If you believe personal data has been processed unlawfully, you can complain to Persónuvernd, the Icelandic Data Protection Authority.</p>
+      </section>
+    `
+  },
+  {
+    file: 'cookies.html',
+    lang: 'en',
+    active: 'legal',
+    alternate: 'vefkokur.html',
+    title: 'Cookies | Kalvex',
+    description:
+      'Information about cookies, consent and optional website analytics on kalvex.dev.',
+    eyebrow: 'Cookies',
+    h1: 'Cookies and consent.',
+    lead:
+      'Kalvex only uses necessary browser storage by default. HubSpot and optional analytics do not load unless you accept them.',
+    primaryCta: 'Book a sales meeting',
+    secondaryCta: 'Privacy policy',
+    secondaryHref: 'privacy-policy.html',
+    body: `
+      <section class="section legal-content">
+        <p><strong>Last updated:</strong> 26 April 2026.</p>
+        <h2>How we use cookies</h2>
+        <p>The site uses local browser storage to remember whether you accepted or rejected optional analytics. This is necessary to respect your choice.</p>
+
+        <div class="card-grid three">
+          ${plainCard('Necessary', 'Used to remember your cookie preference and keep the site working. It is not used for marketing.')}
+          ${plainCard('Optional', 'HubSpot can load only if you accept optional cookies. It may then use analytics cookies, identifiers and interaction history.')}
+          ${plainCard('No implied consent', 'We do not use pre-ticked boxes, and silence or continued website use is not treated as consent.')}
+        </div>
+
+        <h2>HubSpot</h2>
+        <p>If you accept optional cookies, the website loads the HubSpot script from <code>js-eu1.hs-scripts.com</code>. HubSpot may set cookies such as <code>hubspotutk</code>, <code>__hstc</code>, <code>__hssc</code> and <code>__hssrc</code>. Names and lifetimes may change depending on HubSpot configuration.</p>
+
+        <h2>Change your choice</h2>
+        <p>You can change your choice at any time. If you withdraw consent, the site will not load HubSpot again. Cookies already set can also be cleared in your browser settings.</p>
+        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings>Cookie settings</button></p>
+      </section>
+    `
   }
 ];
 
@@ -1085,13 +1253,13 @@ function header(page) {
 }
 
 function hero(page) {
-  const vantaLayer = page.vanta
-    ? '<div class="hero-vanta-layer" data-vanta-hero aria-hidden="true"></div>'
+  const canvasLayer = page.heroCanvas
+    ? '<div class="hero-canvas-layer" data-hero-canvas aria-hidden="true"></div>'
     : '';
 
   return `
-    <section class="hero shell${page.vanta ? ' hero-with-vanta' : ''}">
-      ${vantaLayer}
+    <section class="hero shell${page.heroCanvas ? ' hero-with-canvas' : ''}">
+      ${canvasLayer}
       <div class="hero-copy">
         <p class="eyebrow">${page.eyebrow}</p>
         <h1>${page.h1}</h1>
@@ -1176,6 +1344,14 @@ function footer(page) {
             <a href="next-steps.html">${page.lang === 'is' ? 'English booking page' : 'Book a meeting'}</a>
           </nav>
         </div>
+        <div>
+          <h2>${l.footerLegal}</h2>
+          <nav aria-label="${l.footerLegal}">
+            <a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${l.privacy}</a>
+            <a href="${page.lang === 'is' ? 'vefkokur.html' : 'cookies.html'}">${l.cookies}</a>
+            <button type="button" class="footer-consent-link" data-consent-settings>${l.cookieSettings}</button>
+          </nav>
+        </div>
       </div>
       <div class="shell footer-bottom">
         <span>© <span id="year"></span> Kalvex.</span>
@@ -1233,7 +1409,8 @@ function template(page) {
   <meta name="twitter:description" content="${page.description}">
   <meta name="twitter:image" content="https://kalvex.dev/static/kalvex-logo.svg">
   <link rel="stylesheet" href="assets/css/custom.css">
-  ${page.vanta ? '<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>\n  <script defer src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>\n  <script defer src="assets/js/hero-vanta.js"></script>' : ''}
+  ${page.heroCanvas ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
+  <script defer src="assets/js/privacy-consent.js" data-lang="${page.lang}" data-hubspot-src="https://js-eu1.hs-scripts.com/148349979.js"></script>
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
 <body>

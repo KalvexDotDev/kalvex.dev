@@ -7,12 +7,14 @@ Static bilingual website for Kalvex, an Icelandic technology consultancy focused
 - Default language: Icelandic (`index.html`)
 - English entry: `en.html`
 - Styling: standalone CSS in `assets/css/custom.css`
-- Homepage visual enhancement: subtle Vanta canvas in `assets/js/hero-vanta.js`
+- Homepage visual enhancement: subtle local canvas in `assets/js/hero-canvas.js`
+- Consent management: `assets/js/privacy-consent.js`
 - Build output: generated static site in `output/`
 - Assets: `static/kalvex-logo.svg`, `static/favicon.svg`, `static/favicon.png` and `favicon.ico`
 - Custom domain for GitHub Pages: `CNAME`
 - No Svelte, Prismic, Tailwind, Vite or framework runtime
-- Vanta is loaded only on the two homepage files and falls back to the static hero if scripts do not load
+- HubSpot loads only after optional analytics consent
+- The homepage canvas is local and does not use third-party CDN scripts
 
 ## Commands
 
@@ -59,6 +61,8 @@ Icelandic:
 - `med-ther-i-lidi.html`
 - `frettir-og-frasagnir.html`
 - `takta-naesta-skref.html`
+- `personuverndarstefna.html`
+- `vefkokur.html`
 
 English:
 
@@ -70,3 +74,5 @@ English:
 - `with-you-on-your-side.html`
 - `news-and-stories.html`
 - `next-steps.html`
+- `privacy-policy.html`
+- `cookies.html`

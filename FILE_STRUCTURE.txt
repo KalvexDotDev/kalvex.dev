@@ -8,6 +8,8 @@ kalvex-html-site/
 |-- med-ther-i-lidi.html
 |-- frettir-og-frasagnir.html
 |-- takta-naesta-skref.html
+|-- personuverndarstefna.html
+|-- vefkokur.html
 |-- services.html
 |-- software-development.html
 |-- certifications-and-accreditations.html
@@ -15,6 +17,8 @@ kalvex-html-site/
 |-- with-you-on-your-side.html
 |-- news-and-stories.html
 |-- next-steps.html
+|-- privacy-policy.html
+|-- cookies.html
 |-- favicon.ico
 |-- favicon.svg
 |-- CNAME
@@ -26,7 +30,8 @@ kalvex-html-site/
 |   |-- css/
 |   |   `-- custom.css
 |   `-- js/
-|       `-- hero-vanta.js
+|       |-- hero-canvas.js
+|       `-- privacy-consent.js
 |-- static/
 |   |-- kalvex-logo.svg
 |   |-- favicon.svg
