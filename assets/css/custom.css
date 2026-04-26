@@ -311,6 +311,7 @@ p {
   line-height: 1.05;
   min-height: 2.1em;
   margin-bottom: 18px;
+  overflow-wrap: anywhere;
 }
 
 .system-grid span {

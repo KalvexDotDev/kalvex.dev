@@ -83,7 +83,7 @@ const pages = [
     description:
       'Kalvex er íslensk tækniráðgjöf sem vinnur með hugbúnaðarprófanir, prófunarsjálfvirkni og verkefnastjórnun fyrir fyrirtæki sem nýta gervigreind eða þurfa sterkari sjálfvirkni.',
     eyebrow: 'Hugbúnaðarprófanir fyrir teymi sem nýta gervigreind og fyrirtæki sem þurfa meiri sjálfvirkni',
-    h1: 'Hættu að bæta gæðum við í lokin. Byrjaðu að afhenda með vissu.',
+    h1: 'Byrjaðu að gefa út lausnir með öryggi með því að hafa gæðaeftirlit með frá byrjun.',
     lead:
       'Kalvex hjálpar íslenskum tækniteymum að setja skýr gæðaviðmið, sjálfvirkar prófanir og markvissa verkefnastjórn utan um þróun með gervigreind, handvirkar prófanir og flókin afhendingarverkefni.',
     primaryCta: 'Bóka ráðgjafafund',
@@ -1277,14 +1277,14 @@ function hero(page) {
         <div class="system-grid">
           <div>
             <strong>${page.lang === 'is' ? 'Gæði' : 'QA'}</strong>
-            <span>${page.lang === 'is' ? 'sjálfvirk próf' : 'automated tests'}</span>
+            <span>${page.lang === 'is' ? 'Sjálfvirkar prófanir' : 'automated tests'}</span>
           </div>
           <div>
             <strong>${page.lang === 'is' ? 'Gervigreind' : 'AI'}</strong>
-            <span>${page.lang === 'is' ? 'gæði og mörk' : 'guardrails'}</span>
+            <span>${page.lang === 'is' ? 'Gæðaeftirlit og markmiðasetning' : 'guardrails'}</span>
           </div>
           <div>
-            <strong>PM</strong>
+            <strong>${page.lang === 'is' ? 'Verkefnastjórnun' : 'PM'}</strong>
             <span>${page.lang === 'is' ? 'taktur og ábyrgð' : 'cadence and ownership'}</span>
           </div>
           <div>
