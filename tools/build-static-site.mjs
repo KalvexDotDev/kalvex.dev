@@ -1,8 +1,9 @@
-import { writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const outputDir = resolve(root, 'output');
 const bookingUrl = 'https://cal.com/kalvex-jaimie/30min';
 
 const nav = {
@@ -1249,8 +1250,22 @@ function template(page) {
 `;
 }
 
+prepareOutputDir();
+
 for (const page of pages) {
-  writeFileSync(resolve(root, page.file), template(page), 'utf8');
+  writeFileSync(resolve(outputDir, page.file), template(page), 'utf8');
 }
 
-console.log(`Generated ${pages.length} static HTML pages.`);
+console.log(`Generated ${pages.length} static HTML pages in output/.`);
+
+function prepareOutputDir() {
+  rmSync(outputDir, { recursive: true, force: true });
+  mkdirSync(outputDir, { recursive: true });
+
+  for (const item of ['assets', 'static', 'favicon.ico', 'favicon.svg']) {
+    const source = resolve(root, item);
+    if (existsSync(source)) {
+      cpSync(source, resolve(outputDir, item), { recursive: true });
+    }
+  }
+}

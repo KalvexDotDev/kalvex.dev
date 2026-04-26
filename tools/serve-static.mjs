@@ -4,6 +4,7 @@ import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const siteRoot = resolve(root, 'output');
 const port = Number(process.env.PORT || 4173);
 
 const mime = {
@@ -20,9 +21,9 @@ const mime = {
 createServer((request, response) => {
   const requestUrl = new URL(request.url || '/', `http://${request.headers.host || 'localhost'}`);
   const cleanPath = requestUrl.pathname === '/' ? 'index.html' : requestUrl.pathname.slice(1);
-  const resolved = resolve(root, normalize(cleanPath));
+  const resolved = resolve(siteRoot, normalize(cleanPath));
 
-  if (!resolved.startsWith(root) || !existsSync(resolved) || !statSync(resolved).isFile()) {
+  if (!resolved.startsWith(siteRoot) || !existsSync(resolved) || !statSync(resolved).isFile()) {
     response.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
     response.end('Not found');
     return;
@@ -33,5 +34,8 @@ createServer((request, response) => {
   });
   createReadStream(resolved).pipe(response);
 }).listen(port, () => {
-  console.log(`Kalvex static site running at http://localhost:${port}`);
+  if (!existsSync(siteRoot)) {
+    console.warn('Missing output directory. Run `npm run build` before serving the site.');
+  }
+  console.log(`Kalvex static site running from output/ at http://localhost:${port}`);
 });

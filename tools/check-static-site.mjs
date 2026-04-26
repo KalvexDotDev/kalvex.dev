@@ -1,13 +1,20 @@
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const htmlFiles = readdirSync(root).filter((file) => file.endsWith('.html'));
+const siteRoot = resolve(root, 'output');
 const errors = [];
 
+if (!existsSync(siteRoot)) {
+  console.error('Missing output directory. Run `npm run build` before `npm run check`.');
+  process.exit(1);
+}
+
+const htmlFiles = readdirSync(siteRoot).filter((file) => file.endsWith('.html'));
+
 for (const file of htmlFiles) {
-  const fullPath = join(root, file);
+  const fullPath = join(siteRoot, file);
   const html = readFileSync(fullPath, 'utf8');
   const attributes = [...html.matchAll(/\s(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
 
@@ -27,8 +34,8 @@ for (const file of htmlFiles) {
     const cleanTarget = targetPath || file;
     const resolved = resolve(dirname(fullPath), normalize(cleanTarget));
 
-    if (!resolved.startsWith(root)) {
-      errors.push(`${file}: link escapes project root: ${value}`);
+    if (!resolved.startsWith(siteRoot)) {
+      errors.push(`${file}: link escapes output directory: ${value}`);
       continue;
     }
 

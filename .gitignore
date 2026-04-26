@@ -3,6 +3,7 @@ node_modules
 # Local output and logs
 dist
 build
+output
 lhci-results
 *.log
 

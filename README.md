@@ -8,6 +8,7 @@ Static bilingual website for Kalvex, an Icelandic technology consultancy focused
 - English entry: `en.html`
 - Styling: standalone CSS in `assets/css/custom.css`
 - Homepage visual enhancement: subtle Vanta canvas in `assets/js/hero-vanta.js`
+- Build output: generated static site in `output/`
 - Assets: `static/kalvex-logo.svg`, `static/favicon.svg`, `static/favicon.png` and `favicon.ico`
 - No Svelte, Prismic, Tailwind, Vite or framework runtime
 - Vanta is loaded only on the two homepage files and falls back to the static hero if scripts do not load
@@ -20,26 +21,27 @@ npm run check
 npm run serve
 ```
 
-`npm run build` regenerates the static pages from `tools/build-static-site.mjs`.
+`npm run build` regenerates the static pages from `tools/build-static-site.mjs` and copies all deployable assets into `output/`.
 
-`npm run check` validates local HTML links and asset references.
+`npm run check` validates local HTML links and asset references inside `output/`.
 
-`npm run serve` starts a small dependency-free static server at `http://localhost:4173`.
+`npm run serve` starts a small dependency-free static server from `output/` at `http://localhost:4173`.
+
+## Deployment
+
+The site is portable static HTML. Use these settings with any static host:
+
+- Build command: `npm run build`
+- Output directory: `output`
+- Install command: none required
 
 ## CI/CD
 
-GitHub Actions provides Vercel review-app style deployments:
+GitHub Actions builds and validates the static site without a hosting-provider dependency:
 
-- Pull requests run `.github/workflows/vercel-preview.yml`
-- Pushes to `master` run `.github/workflows/vercel-production.yml`
-- Lighthouse CI audits the deployed URL plus key Icelandic and English pages
-- Preview workflows post or update a pull request comment with the Vercel URL and Lighthouse summary
-
-Required repository secrets:
-
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
+- Pull requests and pushes to `master` run `.github/workflows/static-site.yml`
+- The workflow builds `output/`, validates internal links and assets, and uploads the static site as an artifact
+- Lighthouse CI audits a local server started from `output/`
 
 ## Pages
 

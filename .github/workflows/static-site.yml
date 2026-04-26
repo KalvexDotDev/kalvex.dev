@@ -1,0 +1,74 @@
+name: Static Site CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: static-site-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build, validate and audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Validate static links
+        run: npm run check
+
+      - name: Upload static output
+        uses: actions/upload-artifact@v4
+        with:
+          name: kalvex-static-output
+          path: output
+          if-no-files-found: error
+
+      - name: Start static server
+        run: |
+          npm run serve > server.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat server.log
+          exit 1
+
+      - name: Run Lighthouse CI locally
+        env:
+          LHCI_URLS: http://127.0.0.1:4173/,http://127.0.0.1:4173/en.html,http://127.0.0.1:4173/jonusta.html,http://127.0.0.1:4173/services.html
+        run: npx --yes @lhci/cli@0.14.x autorun --config=./lighthouserc.cjs
+
+      - name: Summarize Lighthouse results
+        if: always()
+        run: node tools/summarize-lighthouse.mjs
+
+      - name: Add Lighthouse summary to workflow
+        if: always()
+        run: cat lhci-results/summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Lighthouse reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-results
+          path: lhci-results
+          if-no-files-found: ignore
