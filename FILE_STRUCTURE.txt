@@ -17,6 +17,11 @@ kalvex-html-site/
 |-- next-steps.html
 |-- favicon.ico
 |-- favicon.svg
+|-- lighthouserc.cjs
+|-- .github/
+|   `-- workflows/
+|       |-- vercel-preview.yml
+|       `-- vercel-production.yml
 |-- assets/
 |   |-- css/
 |   |   `-- custom.css
@@ -29,6 +34,7 @@ kalvex-html-site/
 |-- tools/
 |   |-- build-static-site.mjs
 |   |-- check-static-site.mjs
+|   |-- summarize-lighthouse.mjs
 |   `-- serve-static.mjs
 |-- package.json
 |-- README.md

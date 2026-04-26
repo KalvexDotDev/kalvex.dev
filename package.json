@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node tools/build-static-site.mjs",
     "check": "node tools/check-static-site.mjs",
+    "lighthouse:summary": "node tools/summarize-lighthouse.mjs",
     "serve": "node tools/serve-static.mjs"
   }
 }

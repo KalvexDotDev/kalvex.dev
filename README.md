@@ -26,6 +26,21 @@ npm run serve
 
 `npm run serve` starts a small dependency-free static server at `http://localhost:4173`.
 
+## CI/CD
+
+GitHub Actions provides Vercel review-app style deployments:
+
+- Pull requests run `.github/workflows/vercel-preview.yml`
+- Pushes to `master` run `.github/workflows/vercel-production.yml`
+- Lighthouse CI audits the deployed URL plus key Icelandic and English pages
+- Preview workflows post or update a pull request comment with the Vercel URL and Lighthouse summary
+
+Required repository secrets:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
 ## Pages
 
 Icelandic:

@@ -1,0 +1,86 @@
+name: Vercel Production
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-production
+  cancel-in-progress: false
+
+jobs:
+  production:
+    name: Deploy production and run Lighthouse
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Validate static links
+        run: npm run check
+
+      - name: Deploy Vercel production
+        id: deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${VERCEL_TOKEN}" ] || [ -z "${VERCEL_ORG_ID}" ] || [ -z "${VERCEL_PROJECT_ID}" ]; then
+            echo "::error::Missing one or more required secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID"
+            exit 1
+          fi
+
+          mkdir -p .vercel
+          cat > .vercel/project.json <<EOF
+          {"orgId":"${VERCEL_ORG_ID}","projectId":"${VERCEL_PROJECT_ID}"}
+          EOF
+
+          deploy_output="$(npx --yes vercel@latest deploy --prod --yes --token "${VERCEL_TOKEN}" 2>&1)"
+          echo "${deploy_output}"
+
+          deployment_url="$(echo "${deploy_output}" | grep -Eo 'https://[^ ]+\.vercel\.app|https://[^ ]+kalvex[^ ]*' | tail -n 1)"
+          if [ -z "${deployment_url}" ]; then
+            echo "::error::Could not find a Vercel deployment URL in CLI output"
+            exit 1
+          fi
+
+          echo "url=${deployment_url}" >> "${GITHUB_OUTPUT}"
+          echo "VERCEL_DEPLOYMENT_URL=${deployment_url}" >> "${GITHUB_ENV}"
+
+      - name: Run Lighthouse CI against production
+        env:
+          LHCI_URLS: ${{ steps.deploy.outputs.url }},${{ steps.deploy.outputs.url }}/en.html,${{ steps.deploy.outputs.url }}/jonusta.html,${{ steps.deploy.outputs.url }}/services.html
+        run: npx --yes @lhci/cli@0.14.x autorun --config=./lighthouserc.cjs
+
+      - name: Summarize Lighthouse results
+        run: node tools/summarize-lighthouse.mjs
+
+      - name: Add Lighthouse summary to workflow
+        run: cat lhci-results/summary.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Lighthouse reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-production
+          path: lhci-results
+          if-no-files-found: ignore
