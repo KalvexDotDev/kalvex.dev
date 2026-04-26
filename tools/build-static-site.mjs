@@ -30,7 +30,7 @@ const nav = {
 const labels = {
   is: {
     skip: 'Fara beint í efni',
-    lang: 'Enska',
+    lang: 'English',
     langLabel: 'Skoða síðuna á ensku',
     book: 'Bóka ráðgjafafund',
     secondaryBook: 'Ræða næsta skref',
