@@ -40,6 +40,12 @@ jobs:
           path: output
           if-no-files-found: error
 
+      - name: Upload GitHub Pages artifact
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+
       - name: Start static server
         run: |
           npm run serve > server.log 2>&1 &
@@ -74,41 +80,18 @@ jobs:
           if-no-files-found: ignore
 
   deploy:
-    name: Deploy production to Vercel
+    name: Deploy production
     runs-on: ubuntu-latest
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    permissions:
+      pages: write
+      id-token: write
     environment:
-      name: production
-      url: https://www.kalvex.dev/
-    env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Link Vercel project
-        run: |
-          mkdir -p .vercel
-          printf '{"orgId":"%s","projectId":"%s"}\n' "$VERCEL_ORG_ID" "$VERCEL_PROJECT_ID" > .vercel/project.json
-
-      - name: Pull Vercel environment
-        run: npx --yes vercel@37.6.2 pull --yes --environment=production --token="$VERCEL_TOKEN"
-
-      - name: Build Vercel output
-        run: npx --yes vercel@37.6.2 build --prod --token="$VERCEL_TOKEN"
-
-      - name: Deploy to Vercel
+      - name: Deploy to GitHub Pages
         id: deployment
-        run: |
-          url=$(npx --yes vercel@37.6.2 deploy --prebuilt --prod --token="$VERCEL_TOKEN")
-          echo "url=$url" >> "$GITHUB_OUTPUT"
-          echo "Deployed $url"
+        uses: actions/deploy-pages@v4
