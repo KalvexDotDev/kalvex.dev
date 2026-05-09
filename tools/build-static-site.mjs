@@ -454,15 +454,15 @@ const pages = [
         <p>Við vinnum aðeins þær upplýsingar sem þarf til að reka vefinn, svara erindum og undirbúa mögulegt samstarf. Það getur falið í sér tæknilegar upplýsingar um heimsókn á vefinn, upplýsingar sem þú gefur upp þegar þú bókar fund, og samskipti sem þú sendir okkur.</p>
         <div class="card-grid three">
           ${plainCard('Rekstur vefs', 'Hýsingar- og öryggiskerfi geta unnið IP-tölu, tæki, vafra, tíma heimsóknar og hvaða síður eru sóttar. Tilgangurinn er rekstur, öryggi og bilanagreining.')}
-          ${plainCard('Fundabókanir', 'Þegar þú bókar fund í gegnum HubSpot vinnast upplýsingar á borð við nafn, netfang, tíma fundar og skilaboð sem þú velur að senda.')}
-          ${plainCard('Markaðs- og vefmælingar', 'HubSpot er aðeins hlaðið eftir samþykki fyrir valkvæðum vefkökum. Þá geta vefkökur og auðkenni tengst heimsókn og samskiptum við vefinn.')}
+          ${plainCard('Fundabókanir', 'Þegar þú bókar fund í gegnum cal.com vinnast upplýsingar á borð við nafn, netfang, tíma fundar og skilaboð sem þú velur að senda.')}
+          ${plainCard('Vefmælingar', 'Umami mælir heimsóknir án þess að nota vefkökur eða safna persónugreinanlegum upplýsingum. Engin samþykki þarf.')}
         </div>
 
         <h2>Lagagrundvöllur</h2>
-        <p>Rekstur, öryggi og grunnmælingar sem nauðsynlegar eru fyrir vefinn byggja á lögmætum hagsmunum Kalvex af því að reka öruggan og virkan vef. Fundabókanir og samskipti byggja á því að gera ráðstafanir að beiðni þinni áður en mögulegt samningssamband hefst. Valkvæðar vefmælingar og HubSpot byggja á samþykki þínu.</p>
+        <p>Rekstur, öryggi og grunnmælingar sem nauðsynlegar eru fyrir vefinn byggja á lögmætum hagsmunum Kalvex af því að reka öruggan og virkan vef. Fundabókanir og samskipti byggja á því að gera ráðstafanir að beiðni þinni áður en mögulegt samningssamband hefst. Vefmælingar með Umami byggja á lögmætum hagsmunum og safna ekki persónugreinanlegum gögnum.</p>
 
         <h2>Þjónustuaðilar</h2>
-        <p>Við notum þjónustuaðila til að hýsa vefinn, birta efni, bóka fundi og greina samþykktar vefmælingar. Slíkir aðilar vinna upplýsingar samkvæmt eigin skilmálum eða sem vinnsluaðilar eftir því sem við á. Dæmi eru GitHub Pages, HubSpot og Cloudflare.</p>
+        <p>Við notum þjónustuaðila til að hýsa vefinn, birta efni, bóka fundi og greina umferð. Slíkir aðilar vinna upplýsingar samkvæmt eigin skilmálum eða sem vinnsluaðilar eftir því sem við á. Dæmi eru GitHub Pages, Umami, cal.com og Cloudflare.</p>
 
         <h2>Varðveisla</h2>
         <p>Við varðveitum upplýsingar ekki lengur en nauðsynlegt er fyrir tilgang vinnslunnar, nema lög eða málefnalegir hagsmunir krefjist lengri varðveislu. Samþykki fyrir vefkökum er geymt í vafranum þínum þar til þú breytir vali eða hreinsar vafragögn.</p>
@@ -484,7 +484,7 @@ const pages = [
     eyebrow: 'Vefkökur',
     h1: 'Vefkökur og samþykki.',
     lead:
-      'Kalvex notar aðeins nauðsynlega vistun sjálfkrafa. HubSpot og valkvæðar vefmælingar eru ekki hlaðnar nema þú samþykkir þær.',
+      'Kalvex notar Umami til að mæla heimsóknir án vefkaka. Engar persónugreinanlegar upplýsingar eru safnað.',
     primaryCta: 'Bóka ráðgjafafund',
     secondaryCta: 'Persónuverndarstefna',
     secondaryHref: 'personuverndarstefna.html',
@@ -496,16 +496,15 @@ const pages = [
 
         <div class="card-grid three">
           ${plainCard('Nauðsynlegt', 'Notað til að muna val þitt um vefkökur og halda vefnum virkum. Þetta er ekki notað til markaðssetningar.')}
-          ${plainCard('Valkvætt', 'HubSpot getur aðeins hlaðist ef þú samþykkir valkvæðar vefkökur. Þá geta vefmælingar, auðkenni og samskiptasaga tengst heimsókninni.')}
-          ${plainCard('Engin fyrirfram samþykkt', 'Við notum ekki fyrirfram hakaða reiti og þögn eða áframhaldandi notkun vefsins er ekki túlkuð sem samþykki.')}
+          ${plainCard('Umami', 'Umami mælir heimsóknir án þess að setja vefkökur eða safna persónugreinanlegum upplýsingum. Gögnin eru geymd á eigin þjóni Kalvex.')}
+          ${plainCard('Engin vefkökusamþykki þörf', 'Umami notar ekki vefkökur og krefst því ekki samþykkis. Þú getur skoðað mælingarnar á umami.kalvex.dev.')}
         </div>
 
-        <h2>HubSpot</h2>
-        <p>Ef þú samþykkir valkvæðar vefkökur hleður vefurinn HubSpot-skriftu frá <code>js-eu1.hs-scripts.com</code>. HubSpot getur sett vefkökur á borð við <code>hubspotutk</code>, <code>__hstc</code>, <code>__hssc</code> og <code>__hssrc</code>. Heiti og endingartími geta breyst eftir stillingum HubSpot.</p>
+        <h2>Umami</h2>
+        <p>Kalvex rekur eigin Umami-þjón á umami.kalvex.dev. Umami safnar síðuflettingum, tilvísunum, tækjagerð og landi — engar persónugreinanlegar upplýsingar, engar vefkökur, engin samþykkisskylda.</p>
 
         <h2>Breyta vali</h2>
-        <p>Þú getur breytt vali þínu hvenær sem er. Ef þú afturkallar samþykki hleður vefurinn ekki HubSpot aftur. Vefkökur sem þegar hafa verið settar má einnig hreinsa í stillingum vafrans.</p>
-        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings onclick="showConsentBanner();return false">Stilla vefkökur</button></p>
+        <p>Þar sem Umami notar ekki vefkökur er ekkert val að breyta. Þú getur skoðað opnar mælingar á umami.kalvex.dev.</p>
       </section>
     `
   },
@@ -534,15 +533,15 @@ const pages = [
         <p>We process only what is needed to run the site, respond to enquiries and prepare a potential commercial relationship. This can include technical website data, meeting-booking details and communications you choose to send us.</p>
         <div class="card-grid three">
           ${plainCard('Website operation', 'Hosting and security systems may process IP address, device, browser, request time and pages requested for operations, security and troubleshooting.')}
-          ${plainCard('Meeting bookings', 'When you book through HubSpot, details such as name, email address, meeting time and any message you provide may be processed.')}
-          ${plainCard('Marketing analytics', 'HubSpot loads only after optional cookie consent. If accepted, cookies and identifiers may be connected to website visits and interactions.')}
+          ${plainCard('Meeting bookings', 'When you book through cal.com, details such as name, email address, meeting time and any message you provide may be processed.')}
+          ${plainCard('Web analytics', 'Umami measures visits without using cookies or collecting personally identifiable information. No consent is required.')}
         </div>
 
         <h2>Legal basis</h2>
-        <p>Website operation and security rely on Kalvex's legitimate interests in running a secure and functioning website. Meeting bookings and direct communications rely on steps taken at your request before a possible contract. Optional analytics and HubSpot rely on your consent.</p>
+        <p>Website operation and security rely on Kalvex's legitimate interests in running a secure and functioning website. Meeting bookings and direct communications rely on steps taken at your request before a possible contract. Web analytics via Umami rely on legitimate interests and do not collect personally identifiable data.</p>
 
         <h2>Service providers</h2>
-        <p>We use providers to host the site, publish content, arrange meetings and run consented analytics. These providers process data under their own terms or as processors where applicable. Examples include GitHub Pages, HubSpot and Cloudflare.</p>
+        <p>We use providers to host the site, publish content, arrange meetings and run analytics. These providers process data under their own terms or as processors where applicable. Examples include GitHub Pages, Umami, cal.com and Cloudflare.</p>
 
         <h2>Retention</h2>
         <p>We do not keep personal data longer than needed for the purpose, unless legal duties or legitimate reasons require longer retention. Cookie consent is stored in your browser until you change your choice or clear browser data.</p>
@@ -564,7 +563,7 @@ const pages = [
     eyebrow: 'Cookies',
     h1: 'Cookies and consent.',
     lead:
-      'Kalvex only uses necessary browser storage by default. HubSpot and optional analytics do not load unless you accept them.',
+      'Kalvex uses Umami to measure visits without cookies. No personally identifiable information is collected.',
     primaryCta: 'Book a sales meeting',
     secondaryCta: 'Privacy policy',
     secondaryHref: 'privacy-policy.html',
@@ -576,16 +575,15 @@ const pages = [
 
         <div class="card-grid three">
           ${plainCard('Necessary', 'Used to remember your cookie preference and keep the site working. It is not used for marketing.')}
-          ${plainCard('Optional', 'HubSpot can load only if you accept optional cookies. It may then use analytics cookies, identifiers and interaction history.')}
-          ${plainCard('No implied consent', 'We do not use pre-ticked boxes, and silence or continued website use is not treated as consent.')}
+          ${plainCard('Umami', 'Umami measures visits without cookies or personally identifiable data. All data is stored on Kalvex-owned servers.')}
+          ${plainCard('No consent needed', 'Umami uses no cookies and requires no consent. You can view our public analytics at umami.kalvex.dev.')}
         </div>
 
-        <h2>HubSpot</h2>
-        <p>If you accept optional cookies, the website loads the HubSpot script from <code>js-eu1.hs-scripts.com</code>. HubSpot may set cookies such as <code>hubspotutk</code>, <code>__hstc</code>, <code>__hssc</code> and <code>__hssrc</code>. Names and lifetimes may change depending on HubSpot configuration.</p>
+        <h2>Umami</h2>
+        <p>Kalvex self-hosts Umami at umami.kalvex.dev. Umami collects page views, referrers, device type and country — no personally identifiable information, no cookies, no consent required.</p>
 
         <h2>Change your choice</h2>
-        <p>You can change your choice at any time. If you withdraw consent, the site will not load HubSpot again. Cookies already set can also be cleared in your browser settings.</p>
-        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings onclick="showConsentBanner();return false">Cookie settings</button></p>
+        <p>Since Umami does not use cookies, there is no choice to change. You can view our open analytics at umami.kalvex.dev.</p>
       </section>
     `
   }
@@ -1058,8 +1056,7 @@ function footer(page) {
           <nav aria-label="${l.footerLegal}">
             <a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${l.privacy}</a>
             <a href="${page.lang === 'is' ? 'vefkokur.html' : 'cookies.html'}">${l.cookies}</a>
-            <button type="button" class="footer-consent-link" onclick="showConsentBanner()">${l.cookieSettings}</button>
-            <a href="https://eu1.hs-data-privacy.com/request/3oJ-RfMw8uzgkxDnwqMb0Q" target="_blank" rel="noopener noreferrer">${page.lang === 'is' ? 'Gagna aðgangsbeiðni' : 'Data request'}</a>
+
           </nav>
         </div>
       </div>
@@ -1121,6 +1118,7 @@ function template(page) {
   <link rel="stylesheet" href="assets/css/custom.css">
   ${page.heroCanvas || pageVisuals[page.active]?.[page.lang] ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
+  <script async src="https://umami.kalvex.dev/script.js" data-website-id="6b09f082-3a32-4605-9abe-8cf6e794cc0a"></script>
 </head>
 <body>
   ${header(page)}
@@ -1133,29 +1131,6 @@ function template(page) {
     </div>
   </main>
   ${footer(page)}
-  <script>!function(){
-    var k='kalvex_consent', hs='https://js-eu1.hs-scripts.com/148349979.js', b=null;
-    try{var c=JSON.parse(localStorage.getItem(k))}catch(e){}
-    if(!c){show()} else if(c.ok) loadHS();
-    window.showConsentBanner=show;
-    function show(){
-      if(b) return;
-      b=document.createElement('section');
-      b.className='cookie-consent'; b.setAttribute('role','dialog');
-      b.innerHTML='<div class="cookie-consent-inner"><div class="cookie-consent-copy"><h2>${page.lang === 'is' ? 'Vefkökur og persónuvernd' : 'Cookies and privacy'}</h2><p>${page.lang === 'is' ? 'HubSpot er aðeins hlaðið ef þú samþykkir. Nauðsynleg vistun man valið þitt.' : 'HubSpot loads only if you accept. Necessary storage remembers your choice.'}</p><div class="cookie-consent-links"><a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${page.lang === 'is' ? 'Persónuvernd' : 'Privacy'}</a></div></div><div class="cookie-consent-actions"><button class="button button-secondary" id="cw-reject">${page.lang === 'is' ? 'Hafna' : 'Reject'}</button><button class="button button-primary" id="cw-accept">${page.lang === 'is' ? 'Samþykkja' : 'Accept'}</button></div></div>';
-      document.body.appendChild(b);
-      document.getElementById('cw-accept').onclick=function(){resolve(true)};
-      document.getElementById('cw-reject').onclick=function(){resolve(false)};
-    }
-    function resolve(ok){
-      try{localStorage.setItem(k,JSON.stringify({ok:ok,t:Date.now()}))}catch(e){}
-      b.remove(); b=null; if(ok) loadHS();
-    }
-    function loadHS(){
-      if(document.getElementById('hs-script-loader')) return;
-      var s=document.createElement('script'); s.id='hs-script-loader'; s.async=true; s.defer=true; s.src=hs; document.head.appendChild(s);
-    }
-  }();</script>
 </body>
 </html>
 `;
