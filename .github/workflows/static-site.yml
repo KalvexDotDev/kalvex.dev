@@ -58,6 +58,12 @@ jobs:
           cat server.log
           exit 1
 
+      - name: Playwright consent banner check
+        run: |
+          npm install playwright
+          npx playwright install chromium --with-deps
+          node tools/check-consent.cjs
+
       - name: Run Lighthouse CI locally
         env:
           LHCI_URLS: http://127.0.0.1:4173/,http://127.0.0.1:4173/is.html,http://127.0.0.1:4173/with-you-on-your-side.html,http://127.0.0.1:4173/next-steps.html
