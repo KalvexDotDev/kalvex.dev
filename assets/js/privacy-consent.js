@@ -1,7 +1,8 @@
 (function () {
-  const script = document.currentScript;
-  const lang = script?.dataset.lang === 'en' ? 'en' : 'is';
-  const hubspotSrc = script?.dataset.hubspotSrc;
+  // Use data attributes from the loader script directly — more reliable than document.currentScript with defer
+  const loaderScript = document.querySelector('script[data-hubspot-src]');
+  const lang = loaderScript?.dataset.lang === 'en' ? 'en' : 'is';
+  const hubspotSrc = loaderScript?.dataset.hubspotSrc;
   const storageKey = 'kalvex_cookie_consent_v1';
 
   const text = {
@@ -41,9 +42,13 @@
     }
   }[lang];
 
-  let banner;
+  let banner = null;
+  let initialized = false;
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function init() {
+    if (initialized) return;
+    initialized = true;
+
     const consent = getConsent();
     if (consent?.marketing) loadHubSpot();
     if (!consent) showBanner(false);
@@ -55,7 +60,7 @@
         showBanner(true);
       }
     });
-  });
+  }
 
   function getConsent() {
     try {
@@ -148,5 +153,12 @@
       marketingInput.focus();
     });
     saveButton.addEventListener('click', () => setConsent(marketingInput.checked));
+  }
+
+  // Run on DOMContentLoaded, or immediately if already loaded (safeguard against defer quirks)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();

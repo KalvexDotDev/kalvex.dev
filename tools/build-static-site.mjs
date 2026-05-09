@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const outputDir = resolve(root, 'output');
-const bookingUrl = 'https://cal.com/kalvex-jaimie/30min';
+const bookingUrl = 'https://meetings-eu1.hubspot.com/jaimie-fryer';
 
 const nav = {
   is: [
@@ -206,7 +206,7 @@ const pages = [
       'Við byrjum á stuttu samtali um raunverulegt afhendingarflæði hjá þínu fyrirtæki. Engin skuldbinding, engin sölusýning sem hentar öllum. Bara heiðarleg stöðumynd og tillaga að næsta skrefi.',
     primaryCta: 'Bóka ráðgjafafund',
     secondaryCta: 'Bóka ráðgjafafund',
-    secondaryHref: 'https://cal.com/kalvex-jaimie/30min',
+    secondaryHref: 'https://meetings-eu1.hubspot.com/jaimie-fryer',
     body: `
       <section class="section">
         <div class="section-heading">
@@ -398,7 +398,7 @@ const pages = [
       'We start with a short conversation about a real delivery flow in your company. No commitment, no generic sales show. Just an honest state view and a suggested next step.',
     primaryCta: 'Book a sales meeting',
     secondaryCta: 'Book a sales meeting',
-    secondaryHref: 'https://cal.com/kalvex-jaimie/30min',
+    secondaryHref: 'https://meetings-eu1.hubspot.com/jaimie-fryer',
     body: `
       <section class="section">
         <div class="section-heading">
@@ -456,7 +456,7 @@ const pages = [
         <p>Við vinnum aðeins þær upplýsingar sem þarf til að reka vefinn, svara erindum og undirbúa mögulegt samstarf. Það getur falið í sér tæknilegar upplýsingar um heimsókn á vefinn, upplýsingar sem þú gefur upp þegar þú bókar fund, og samskipti sem þú sendir okkur.</p>
         <div class="card-grid three">
           ${plainCard('Rekstur vefs', 'Hýsingar- og öryggiskerfi geta unnið IP-tölu, tæki, vafra, tíma heimsóknar og hvaða síður eru sóttar. Tilgangurinn er rekstur, öryggi og bilanagreining.')}
-          ${plainCard('Fundabókanir', 'Þegar þú bókar fund í gegnum Cal.com vinnast upplýsingar á borð við nafn, netfang, tíma fundar og skilaboð sem þú velur að senda.')}
+          ${plainCard('Fundabókanir', 'Þegar þú bókar fund í gegnum HubSpot vinnast upplýsingar á borð við nafn, netfang, tíma fundar og skilaboð sem þú velur að senda.')}
           ${plainCard('Markaðs- og vefmælingar', 'HubSpot er aðeins hlaðið eftir samþykki fyrir valkvæðum vefkökum. Þá geta vefkökur og auðkenni tengst heimsókn og samskiptum við vefinn.')}
         </div>
 
@@ -464,7 +464,7 @@ const pages = [
         <p>Rekstur, öryggi og grunnmælingar sem nauðsynlegar eru fyrir vefinn byggja á lögmætum hagsmunum Kalvex af því að reka öruggan og virkan vef. Fundabókanir og samskipti byggja á því að gera ráðstafanir að beiðni þinni áður en mögulegt samningssamband hefst. Valkvæðar vefmælingar og HubSpot byggja á samþykki þínu.</p>
 
         <h2>Þjónustuaðilar</h2>
-        <p>Við notum þjónustuaðila til að hýsa vefinn, birta efni, bóka fundi og greina samþykktar vefmælingar. Slíkir aðilar vinna upplýsingar samkvæmt eigin skilmálum eða sem vinnsluaðilar eftir því sem við á. Dæmi eru GitHub Pages, Cal.com og HubSpot.</p>
+        <p>Við notum þjónustuaðila til að hýsa vefinn, birta efni, bóka fundi og greina samþykktar vefmælingar. Slíkir aðilar vinna upplýsingar samkvæmt eigin skilmálum eða sem vinnsluaðilar eftir því sem við á. Dæmi eru GitHub Pages, HubSpot og Cloudflare.</p>
 
         <h2>Varðveisla</h2>
         <p>Við varðveitum upplýsingar ekki lengur en nauðsynlegt er fyrir tilgang vinnslunnar, nema lög eða málefnalegir hagsmunir krefjist lengri varðveislu. Samþykki fyrir vefkökum er geymt í vafranum þínum þar til þú breytir vali eða hreinsar vafragögn.</p>
@@ -536,7 +536,7 @@ const pages = [
         <p>We process only what is needed to run the site, respond to enquiries and prepare a potential commercial relationship. This can include technical website data, meeting-booking details and communications you choose to send us.</p>
         <div class="card-grid three">
           ${plainCard('Website operation', 'Hosting and security systems may process IP address, device, browser, request time and pages requested for operations, security and troubleshooting.')}
-          ${plainCard('Meeting bookings', 'When you book through Cal.com, details such as name, email address, meeting time and any message you provide may be processed.')}
+          ${plainCard('Meeting bookings', 'When you book through HubSpot, details such as name, email address, meeting time and any message you provide may be processed.')}
           ${plainCard('Marketing analytics', 'HubSpot loads only after optional cookie consent. If accepted, cookies and identifiers may be connected to website visits and interactions.')}
         </div>
 
@@ -544,7 +544,7 @@ const pages = [
         <p>Website operation and security rely on Kalvex's legitimate interests in running a secure and functioning website. Meeting bookings and direct communications rely on steps taken at your request before a possible contract. Optional analytics and HubSpot rely on your consent.</p>
 
         <h2>Service providers</h2>
-        <p>We use providers to host the site, publish content, arrange meetings and run consented analytics. These providers process data under their own terms or as processors where applicable. Examples include GitHub Pages, Cal.com and HubSpot.</p>
+        <p>We use providers to host the site, publish content, arrange meetings and run consented analytics. These providers process data under their own terms or as processors where applicable. Examples include GitHub Pages, HubSpot and Cloudflare.</p>
 
         <h2>Retention</h2>
         <p>We do not keep personal data longer than needed for the purpose, unless legal duties or legitimate reasons require longer retention. Cookie consent is stored in your browser until you change your choice or clear browser data.</p>
@@ -1060,7 +1060,8 @@ function footer(page) {
           <nav aria-label="${l.footerLegal}">
             <a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${l.privacy}</a>
             <a href="${page.lang === 'is' ? 'vefkokur.html' : 'cookies.html'}">${l.cookies}</a>
-            <button type="button" class="footer-consent-link" data-consent-settings>${l.cookieSettings}</button>
+            <button type="button" id="hs_show_banner_button" class="footer-consent-link">${l.cookieSettings}</button>
+            <a href="https://eu1.hs-data-privacy.com/request/3oJ-RfMw8uzgkxDnwqMb0Q" target="_blank" rel="noopener noreferrer">${page.lang === 'is' ? 'Gagna aðgangsbeiðni' : 'Data request'}</a>
           </nav>
         </div>
       </div>
@@ -1121,7 +1122,7 @@ function template(page) {
   <meta name="twitter:image" content="https://kalvex.dev/static/kalvex-logo.svg">
   <link rel="stylesheet" href="assets/css/custom.css">
   ${page.heroCanvas || pageVisuals[page.active]?.[page.lang] ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
-  <script defer src="assets/js/privacy-consent.js" data-lang="${page.lang}" data-hubspot-src="https://js-eu1.hs-scripts.com/6421.js"></script>
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148349979.js"></script>
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
 <body>
