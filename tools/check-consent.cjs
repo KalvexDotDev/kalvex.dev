@@ -1,4 +1,4 @@
-// CI Playwright test: verify consent banner renders correctly
+// CI Playwright test: verify site works correctly
 // Runs against local server on port 4173
 const { chromium } = require("playwright");
 
@@ -17,36 +17,7 @@ let exitCode = 0;
     await page.goto(URL, { waitUntil: "load", timeout: 15000 });
     await page.waitForTimeout(1000);
 
-    // Check 1: showConsentBanner function exists
-    const fnType = await page.evaluate(() => typeof window.showConsentBanner);
-    if (fnType !== "function") {
-      console.error("FAIL: showConsentBanner not a function, got:", fnType);
-      exitCode = 1;
-    } else {
-      console.log("PASS: showConsentBanner is a function");
-    }
-
-    // Check 2: Consent banner is in DOM and visible
-    const banner = await page.evaluate(() => {
-      const el = document.querySelector(".cookie-consent");
-      if (!el) return { visible: false, reason: "not in DOM" };
-      const s = getComputedStyle(el);
-      return {
-        visible: s.display !== "none" && s.visibility !== "hidden" && s.opacity !== "0",
-        display: s.display,
-        position: s.position,
-        zIndex: s.zIndex
-      };
-    });
-
-    if (!banner.visible) {
-      console.error("FAIL: Cookie banner not visible:", JSON.stringify(banner));
-      exitCode = 1;
-    } else {
-      console.log("PASS: Cookie banner visible —", banner.display, banner.position, "z-index:", banner.zIndex);
-    }
-
-    // Check 3: CSS loaded
+    // Check 1: CSS loaded
     const cssLoaded = await page.evaluate(() => {
       const link = document.querySelector('link[rel="stylesheet"]');
       return link && !!link.sheet;
@@ -58,7 +29,7 @@ let exitCode = 0;
       console.log("PASS: CSS loaded");
     }
 
-    // Check 4: No JS errors
+    // Check 2: No JS errors
     if (errors.length) {
       console.error("FAIL: JS errors:", errors);
       exitCode = 1;
@@ -66,40 +37,70 @@ let exitCode = 0;
       console.log("PASS: No JS errors");
     }
 
-    // Check 5: No cal.com links
+    // Check 3: cal.com booking links present
     const calLinks = await page.evaluate(() => {
-      const links = document.querySelectorAll('a[href*="cal.com"]');
-      return links.length;
+      return document.querySelectorAll('a[href*="cal.com/kalvex-jaimie/30min"]').length;
     });
-    if (calLinks > 0) {
-      console.error(`FAIL: ${calLinks} cal.com links found`);
+    if (calLinks < 1) {
+      console.error("FAIL: No cal.com booking links found");
       exitCode = 1;
     } else {
-      console.log("PASS: No cal.com links");
+      console.log(`PASS: ${calLinks} cal.com booking links`);
     }
 
-    // Check 6: HubSpot meeting links present
+    // Check 4: No HubSpot meeting links
     const hsMeetings = await page.evaluate(() => {
-      const links = document.querySelectorAll('a[href*="meetings-eu1.hubspot.com"]');
-      return links.length;
+      return document.querySelectorAll('a[href*="meetings-eu1.hubspot.com"]').length;
     });
-    if (hsMeetings < 1) {
-      console.error("FAIL: No HubSpot meeting links found");
+    if (hsMeetings > 0) {
+      console.error(`FAIL: ${hsMeetings} HubSpot meeting links (should be 0)`);
       exitCode = 1;
     } else {
-      console.log(`PASS: ${hsMeetings} HubSpot meeting links`);
+      console.log("PASS: No HubSpot meeting links");
     }
 
-    // Check 7: Data privacy link
-    const privacyLink = await page.evaluate(() => {
-      const links = document.querySelectorAll('a[href*="hs-data-privacy"]');
-      return links.length;
+    // Check 5: No HubSpot consent banner
+    const hsBanner = await page.evaluate(() => {
+      return !!document.querySelector(".cookie-consent");
     });
-    if (privacyLink < 1) {
-      console.error("FAIL: No data privacy link found");
+    if (hsBanner) {
+      console.error("FAIL: HubSpot cookie consent banner still present");
       exitCode = 1;
     } else {
-      console.log("PASS: Data privacy link present");
+      console.log("PASS: No HubSpot consent banner");
+    }
+
+    // Check 6: Umami tracking script present
+    const umamiScript = await page.evaluate(() => {
+      return !!document.querySelector('script[data-website-id="6b09f082-3a32-4605-9abe-8cf6e794cc0a"]');
+    });
+    if (!umamiScript) {
+      console.error("FAIL: Umami tracking script not found");
+      exitCode = 1;
+    } else {
+      console.log("PASS: Umami tracking script present");
+    }
+
+    // Check 7: No HubSpot tracking scripts
+    const hsScripts = await page.evaluate(() => {
+      return document.querySelectorAll('script[src*="hubspot"], script[src*="hs-script"], script[data-hubspot-src]').length;
+    });
+    if (hsScripts > 0) {
+      console.error(`FAIL: ${hsScripts} HubSpot scripts found (should be 0)`);
+      exitCode = 1;
+    } else {
+      console.log("PASS: No HubSpot tracking scripts");
+    }
+
+    // Check 8: No HubSpot data privacy links
+    const privacyLink = await page.evaluate(() => {
+      return document.querySelectorAll('a[href*="hs-data-privacy"]').length;
+    });
+    if (privacyLink > 0) {
+      console.error(`FAIL: ${privacyLink} HubSpot data privacy links (should be 0)`);
+      exitCode = 1;
+    } else {
+      console.log("PASS: No HubSpot data privacy links");
     }
 
   } catch (e) {
