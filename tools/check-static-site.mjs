@@ -59,7 +59,7 @@ if (errors.length) {
 console.log(`Checked ${htmlFiles.length} HTML files. All internal links and assets resolve.`);
 
 function isExternal(value) {
-  return /^(https?:|mailto:|tel:|data:|javascript:)/i.test(value);
+  return /^(https?:|mailto:|tel:|data:|javascript:|\/\/)/i.test(value);
 }
 
 function hasId(html, id) {

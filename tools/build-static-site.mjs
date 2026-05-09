@@ -507,7 +507,7 @@ const pages = [
 
         <h2>Breyta vali</h2>
         <p>Þú getur breytt vali þínu hvenær sem er. Ef þú afturkallar samþykki hleður vefurinn ekki HubSpot aftur. Vefkökur sem þegar hafa verið settar má einnig hreinsa í stillingum vafrans.</p>
-        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings>Stilla vefkökur</button></p>
+        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings onclick="showConsentBanner();return false">Stilla vefkökur</button></p>
       </section>
     `
   },
@@ -587,7 +587,7 @@ const pages = [
 
         <h2>Change your choice</h2>
         <p>You can change your choice at any time. If you withdraw consent, the site will not load HubSpot again. Cookies already set can also be cleared in your browser settings.</p>
-        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings>Cookie settings</button></p>
+        <p><button type="button" class="button button-secondary inline-consent-button" data-consent-settings onclick="showConsentBanner();return false">Cookie settings</button></p>
       </section>
     `
   }
@@ -1060,7 +1060,7 @@ function footer(page) {
           <nav aria-label="${l.footerLegal}">
             <a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${l.privacy}</a>
             <a href="${page.lang === 'is' ? 'vefkokur.html' : 'cookies.html'}">${l.cookies}</a>
-            <button type="button" id="hs_show_banner_button" class="footer-consent-link">${l.cookieSettings}</button>
+            <button type="button" class="footer-consent-link" onclick="showConsentBanner()">${l.cookieSettings}</button>
             <a href="https://eu1.hs-data-privacy.com/request/3oJ-RfMw8uzgkxDnwqMb0Q" target="_blank" rel="noopener noreferrer">${page.lang === 'is' ? 'Gagna aðgangsbeiðni' : 'Data request'}</a>
           </nav>
         </div>
@@ -1122,7 +1122,6 @@ function template(page) {
   <meta name="twitter:image" content="https://kalvex.dev/static/kalvex-logo.svg">
   <link rel="stylesheet" href="assets/css/custom.css">
   ${page.heroCanvas || pageVisuals[page.active]?.[page.lang] ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148349979.js"></script>
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
 </head>
 <body>
@@ -1136,6 +1135,29 @@ function template(page) {
     </div>
   </main>
   ${footer(page)}
+  <script>!function(){
+    var k='kalvex_consent', hs='https://js-eu1.hs-scripts.com/148349979.js', b=null;
+    try{var c=JSON.parse(localStorage.getItem(k))}catch(e){}
+    if(!c){show()} else if(c.ok) loadHS();
+    window.showConsentBanner=show;
+    function show(){
+      if(b) return;
+      b=document.createElement('section');
+      b.className='cookie-consent'; b.setAttribute('role','dialog');
+      b.innerHTML='<div class="cookie-consent-copy"><h2>${page.lang === 'is' ? 'Vefkökur og persónuvernd' : 'Cookies and privacy'}</h2><p>${page.lang === 'is' ? 'HubSpot er aðeins hlaðið ef þú samþykkir. Nauðsynleg vistun man valið þitt.' : 'HubSpot loads only if you accept. Necessary storage remembers your choice.'}</p><div class="cookie-consent-links"><a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${page.lang === 'is' ? 'Persónuvernd' : 'Privacy'}</a></div></div><div class="cookie-consent-actions"><button class="button button-secondary" id="cw-reject">${page.lang === 'is' ? 'Hafna' : 'Reject'}</button><button class="button button-primary" id="cw-accept">${page.lang === 'is' ? 'Samþykkja' : 'Accept'}</button></div>';
+      document.body.appendChild(b);
+      document.getElementById('cw-accept').onclick=function(){resolve(true)};
+      document.getElementById('cw-reject').onclick=function(){resolve(false)};
+    }
+    function resolve(ok){
+      try{localStorage.setItem(k,JSON.stringify({ok:ok,t:Date.now()}))}catch(e){}
+      b.remove(); b=null; if(ok) loadHS();
+    }
+    function loadHS(){
+      if(document.getElementById('hs-script-loader')) return;
+      var s=document.createElement('script'); s.id='hs-script-loader'; s.async=true; s.defer=true; s.src=hs; document.head.appendChild(s);
+    }
+  }();</script>
 </body>
 </html>
 `;
