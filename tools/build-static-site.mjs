@@ -79,8 +79,8 @@ const pages = [
     lead:
       'Kalvex hjálpar íslenskum tækniteymum að setja skýr gæðaviðmið, sjálfvirkar prófanir og markvissa verkefnastjórn utan um þróun með gervigreind, handvirkar prófanir og flókin afhendingarverkefni.',
     primaryCta: 'Bóka ráðgjafafund',
-    secondaryCta: 'Skoða þjónustu',
-    secondaryHref: 'jonusta.html',
+    secondaryCta: 'Bóka fund',
+    secondaryHref: 'takta-naesta-skref.html',
     body: `
       <section class="section section-tight">
         <div class="section-heading">
@@ -89,9 +89,9 @@ const pages = [
           <p>Fyrirtæki þurfa ekki fleiri skýrslur sem enda í möppu. Þau þurfa skýr vinnubrögð, sjálfvirkar prófanir og mælingar sem nýtast í daglegri þróun, útgáfum og ákvörðunum.</p>
         </div>
         <div class="card-grid three">
-          ${card('Þróun með gervigreind', 'Gervigreindartól geta hraðað kóðun, en þau sannreyna ekki eigin niðurstöður. Kalvex setur upp kröfur, próf, mælingar og útgáfuhlið sem halda vinnunni innan öruggra marka.', 'vottanir-og-vidbragd.html', 'Skoða gervigreind og gæði')}
-          ${card('Lítil eða engin sjálfvirkni', 'Ef prófanir eru enn að mestu handvirkar verður hver útgáfa dýrari en hún þarf að vera. Við byggjum sjálfvirka gæðakeðju sem byrjar á mikilvægustu áhættunni.', 'umbreyttu-rekstrin.html', 'Skoða sjálfvirkni')}
-          ${card('Verkefni sem missa taktinn', 'Gæði snúast ekki bara um próf. Þau snúast líka um forgangsröðun, skýrar kröfur, ábyrgð og taktfasta framkvæmd.', 'verkefnastjorun.html', 'Skoða verkefnastjórnun')}
+          ${plainCard('Þróun með gervigreind', 'Gervigreindartól geta hraðað kóðun, en þau sannreyna ekki eigin niðurstöður. Kalvex setur upp kröfur, próf, mælingar og útgáfuhlið sem halda vinnunni innan öruggra marka.')}
+          ${plainCard('Lítil eða engin sjálfvirkni', 'Ef prófanir eru enn að mestu handvirkar verður hver útgáfa dýrari en hún þarf að vera. Við byggjum sjálfvirka gæðakeðju sem byrjar á mikilvægustu áhættunni.')}
+          ${plainCard('Verkefni sem missa taktinn', 'Gæði snúast ekki bara um próf. Þau snúast líka um forgangsröðun, skýrar kröfur, ábyrgð og taktfasta framkvæmd.')}
         </div>
       </section>
 
@@ -205,8 +205,8 @@ const pages = [
     lead:
       'Við byrjum á stuttu samtali um raunverulegt afhendingarflæði hjá þínu fyrirtæki. Engin skuldbinding, engin sölusýning sem hentar öllum. Bara heiðarleg stöðumynd og tillaga að næsta skrefi.',
     primaryCta: 'Bóka ráðgjafafund',
-    secondaryCta: 'Skoða þjónustu',
-    secondaryHref: 'jonusta.html',
+    secondaryCta: 'Bóka ráðgjafafund',
+    secondaryHref: 'https://cal.com/kalvex-jaimie/30min',
     body: `
       <section class="section">
         <div class="section-heading">
@@ -397,8 +397,8 @@ const pages = [
     lead:
       'We start with a short conversation about a real delivery flow in your company. No commitment, no generic sales show. Just an honest state view and a suggested next step.',
     primaryCta: 'Book a sales meeting',
-    secondaryCta: 'View services',
-    secondaryHref: 'services.html',
+    secondaryCta: 'Book a sales meeting',
+    secondaryHref: 'https://cal.com/kalvex-jaimie/30min',
     body: `
       <section class="section">
         <div class="section-heading">
