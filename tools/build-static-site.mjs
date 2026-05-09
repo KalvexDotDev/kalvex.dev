@@ -8,12 +8,12 @@ const bookingUrl = 'https://cal.com/kalvex-jaimie/30min';
 
 const nav = {
   is: [
-    ['home', 'index.html', 'Heim'],
+    ['home', 'is.html', 'Heim'],
     ['about', 'med-ther-i-lidi.html', 'Með þér'],
     ['book', 'takta-naesta-skref.html', 'Bóka fund']
   ],
   en: [
-    ['home', 'en.html', 'Home'],
+    ['home', 'index.html', 'Home'],
     ['about', 'with-you-on-your-side.html', 'About'],
     ['book', 'next-steps.html', 'Book']
   ]
@@ -66,11 +66,11 @@ const labels = {
 
 const pages = [
   {
-    file: 'index.html',
+    file: 'is.html',
     lang: 'is',
     active: 'home',
     heroCanvas: true,
-    alternate: 'en.html',
+    alternate: 'index.html',
     title: 'Kalvex | Hugbúnaðarprófanir og sjálfvirkni fyrir íslensk fyrirtæki',
     description:
       'Kalvex er íslensk tækniráðgjöf sem vinnur með hugbúnaðarprófanir, prófunarsjálfvirkni og verkefnastjórnun fyrir fyrirtæki sem nýta gervigreind eða þurfa sterkari sjálfvirkni.',
@@ -240,11 +240,11 @@ const pages = [
     `
   },
   {
-    file: 'en.html',
+    file: 'index.html',
     lang: 'en',
     active: 'home',
     heroCanvas: true,
-    alternate: 'index.html',
+    alternate: 'is.html',
     title: 'Kalvex | QA and automation for Icelandic companies',
     description:
       'Kalvex is an Icelandic technology consultancy building QA, test automation and project delivery systems for AI-forward teams and companies without enough automation.',
@@ -935,7 +935,7 @@ function button(href, label, variant = 'primary', external = false) {
 
 function header(page) {
   const l = labels[page.lang];
-  const homeHref = page.lang === 'is' ? 'index.html' : 'en.html';
+  const homeHref = page.lang === 'is' ? 'is.html' : 'index.html';
   const activeNav = nav[page.lang]
     .map(([key, href, label]) => {
       const current = key === page.active ? ' aria-current="page"' : '';
@@ -1019,7 +1019,7 @@ function footer(page) {
     .filter(([key]) => key !== 'home')
     .map(([, href, label]) => `<a href="${href}">${label}</a>`)
     .join('\n');
-  const homeHref = page.lang === 'is' ? 'index.html' : 'en.html';
+  const homeHref = page.lang === 'is' ? 'is.html' : 'index.html';
 
   return `
     <section class="final-cta">
