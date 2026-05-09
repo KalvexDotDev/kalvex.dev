@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const outputDir = resolve(root, 'output');
-const bookingUrl = 'https://meetings-eu1.hubspot.com/jaimie-fryer';
+const bookingUrl = 'https://cal.com/kalvex-jaimie/30min';
 
 const nav = {
   is: [
@@ -205,8 +205,7 @@ const pages = [
     lead:
       'Við byrjum á stuttu samtali um raunverulegt afhendingarflæði hjá þínu fyrirtæki. Engin skuldbinding, engin sölusýning sem hentar öllum. Bara heiðarleg stöðumynd og tillaga að næsta skrefi.',
     primaryCta: 'Bóka ráðgjafafund',
-    secondaryCta: 'Bóka ráðgjafafund',
-    secondaryHref: 'https://meetings-eu1.hubspot.com/jaimie-fryer',
+    secondaryHref: 'https://cal.com/kalvex-jaimie/30min',
     body: `
       <section class="section">
         <div class="section-heading">
@@ -397,8 +396,7 @@ const pages = [
     lead:
       'We start with a short conversation about a real delivery flow in your company. No commitment, no generic sales show. Just an honest state view and a suggested next step.',
     primaryCta: 'Book a sales meeting',
-    secondaryCta: 'Book a sales meeting',
-    secondaryHref: 'https://meetings-eu1.hubspot.com/jaimie-fryer',
+    secondaryHref: 'https://cal.com/kalvex-jaimie/30min',
     body: `
       <section class="section">
         <div class="section-heading">
