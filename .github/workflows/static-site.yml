@@ -60,7 +60,7 @@ jobs:
 
       - name: Run Lighthouse CI locally
         env:
-          LHCI_URLS: http://127.0.0.1:4173/,http://127.0.0.1:4173/en.html,http://127.0.0.1:4173/with-you-on-your-side.html,http://127.0.0.1:4173/next-steps.html
+          LHCI_URLS: http://127.0.0.1:4173/,http://127.0.0.1:4173/is.html,http://127.0.0.1:4173/with-you-on-your-side.html,http://127.0.0.1:4173/next-steps.html
         run: npx --yes @lhci/cli@0.14.x autorun --config=./lighthouserc.cjs
 
       - name: Summarize Lighthouse results
