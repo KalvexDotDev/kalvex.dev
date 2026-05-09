@@ -1144,14 +1144,15 @@ function template(page) {
       if(b) return;
       b=document.createElement('section');
       b.className='cookie-consent'; b.setAttribute('role','dialog');
-      b.innerHTML='<div class="cookie-consent-copy"><h2>${page.lang === 'is' ? 'Vefkökur og persónuvernd' : 'Cookies and privacy'}</h2><p>${page.lang === 'is' ? 'HubSpot er aðeins hlaðið ef þú samþykkir. Nauðsynleg vistun man valið þitt.' : 'HubSpot loads only if you accept. Necessary storage remembers your choice.'}</p><div class="cookie-consent-links"><a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${page.lang === 'is' ? 'Persónuvernd' : 'Privacy'}</a></div></div><div class="cookie-consent-actions"><button class="button button-secondary" id="cw-reject">${page.lang === 'is' ? 'Hafna' : 'Reject'}</button><button class="button button-primary" id="cw-accept">${page.lang === 'is' ? 'Samþykkja' : 'Accept'}</button></div>';
+      b.innerHTML='<div class="cookie-consent-inner"><div class="cookie-consent-copy"><h2>${page.lang === 'is' ? 'Vefkökur og persónuvernd' : 'Cookies and privacy'}</h2><p>${page.lang === 'is' ? 'HubSpot er aðeins hlaðið ef þú samþykkir. Nauðsynleg vistun man valið þitt.' : 'HubSpot loads only if you accept. Necessary storage remembers your choice.'}</p><div class="cookie-consent-links"><a href="${page.lang === 'is' ? 'personuverndarstefna.html' : 'privacy-policy.html'}">${page.lang === 'is' ? 'Persónuvernd' : 'Privacy'}</a></div></div><div class="cookie-consent-actions"><button class="button button-secondary" id="cw-reject">${page.lang === 'is' ? 'Hafna' : 'Reject'}</button><button class="button button-primary" id="cw-accept">${page.lang === 'is' ? 'Samþykkja' : 'Accept'}</button></div></div>';
       document.body.appendChild(b);
+      document.body.style.overflow='hidden';
       document.getElementById('cw-accept').onclick=function(){resolve(true)};
       document.getElementById('cw-reject').onclick=function(){resolve(false)};
     }
     function resolve(ok){
       try{localStorage.setItem(k,JSON.stringify({ok:ok,t:Date.now()}))}catch(e){}
-      b.remove(); b=null; if(ok) loadHS();
+      b.remove(); b=null; document.body.style.overflow=''; if(ok) loadHS();
     }
     function loadHS(){
       if(document.getElementById('hs-script-loader')) return;
