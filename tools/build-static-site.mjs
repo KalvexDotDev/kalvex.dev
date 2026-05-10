@@ -497,14 +497,14 @@ const pages = [
         <div class="card-grid three">
           ${plainCard('Nauðsynlegt', 'Notað til að muna val þitt um vefkökur og halda vefnum virkum. Þetta er ekki notað til markaðssetningar.')}
           ${plainCard('Umami', 'Umami mælir heimsóknir án þess að setja vefkökur eða safna persónugreinanlegum upplýsingum. Gögnin eru geymd á eigin þjóni Kalvex.')}
-          ${plainCard('Engin vefkökusamþykki þörf', 'Umami notar ekki vefkökur og krefst því ekki samþykkis. Þú getur skoðað mælingarnar á umami.kalvex.dev.')}
+          ${plainCard('Engin vefkökusamþykki þörf', 'Umami notar ekki vefkökur og krefst því ekki samþykkis. Þú getur skoðað mælingarnar á web.kalvex.dev.')}
         </div>
 
         <h2>Umami</h2>
-        <p>Kalvex rekur eigin Umami-þjón á umami.kalvex.dev. Umami safnar síðuflettingum, tilvísunum, tækjagerð og landi — engar persónugreinanlegar upplýsingar, engar vefkökur, engin samþykkisskylda.</p>
+        <p>Kalvex rekur eigin Umami-þjón á web.kalvex.dev. Umami safnar síðuflettingum, tilvísunum, tækjagerð og landi — engar persónugreinanlegar upplýsingar, engar vefkökur, engin samþykkisskylda.</p>
 
         <h2>Breyta vali</h2>
-        <p>Þar sem Umami notar ekki vefkökur er ekkert val að breyta. Þú getur skoðað opnar mælingar á umami.kalvex.dev.</p>
+        <p>Þar sem Umami notar ekki vefkökur er ekkert val að breyta. Þú getur skoðað opnar mælingar á web.kalvex.dev.</p>
       </section>
     `
   },
@@ -576,14 +576,14 @@ const pages = [
         <div class="card-grid three">
           ${plainCard('Necessary', 'Used to remember your cookie preference and keep the site working. It is not used for marketing.')}
           ${plainCard('Umami', 'Umami measures visits without cookies or personally identifiable data. All data is stored on Kalvex-owned servers.')}
-          ${plainCard('No consent needed', 'Umami uses no cookies and requires no consent. You can view our public analytics at umami.kalvex.dev.')}
+          ${plainCard('No consent needed', 'Umami uses no cookies and requires no consent. You can view our public analytics at web.kalvex.dev.')}
         </div>
 
         <h2>Umami</h2>
-        <p>Kalvex self-hosts Umami at umami.kalvex.dev. Umami collects page views, referrers, device type and country — no personally identifiable information, no cookies, no consent required.</p>
+        <p>Kalvex self-hosts Umami at web.kalvex.dev. Umami collects page views, referrers, device type and country — no personally identifiable information, no cookies, no consent required.</p>
 
         <h2>Change your choice</h2>
-        <p>Since Umami does not use cookies, there is no choice to change. You can view our open analytics at umami.kalvex.dev.</p>
+        <p>Since Umami does not use cookies, there is no choice to change. You can view our open analytics at web.kalvex.dev.</p>
       </section>
     `
   }
@@ -1118,7 +1118,7 @@ function template(page) {
   <link rel="stylesheet" href="assets/css/custom.css">
   ${page.heroCanvas || pageVisuals[page.active]?.[page.lang] ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
-  <script async src="https://umami.kalvex.dev/script.js" data-website-id="6b09f082-3a32-4605-9abe-8cf6e794cc0a"></script>
+  <script async src="https://web.kalvex.dev/script.js" data-website-id="6b09f082-3a32-4605-9abe-8cf6e794cc0a"></script>
 </head>
 <body>
   ${header(page)}
