@@ -145,6 +145,7 @@ const pages = [
     file: 'med-ther-i-lidi.html',
     lang: 'is',
     active: 'about',
+    heroBg: 'assets/img/about-hero.jpg',
     alternate: 'with-you-on-your-side.html',
     title: 'Með þér í liði | Kalvex',
     description:
@@ -336,6 +337,7 @@ const pages = [
     file: 'with-you-on-your-side.html',
     lang: 'en',
     active: 'about',
+    heroBg: 'assets/img/about-hero.jpg',
     alternate: 'med-ther-i-lidi.html',
     title: 'Working With Kalvex | Local Icelandic QA consultancy',
     description:
@@ -966,9 +968,10 @@ function hero(page) {
   const canvasLayer = page.heroCanvas
     ? '<div class="hero-canvas-layer" data-hero-canvas aria-hidden="true"></div>'
     : '';
+  const bgStyle = page.heroBg ? ` style="background-image: url('${page.heroBg}');"` : '';
 
   return `
-    <section class="hero shell${page.heroCanvas ? ' hero-with-canvas' : ''}">
+    <section class="hero shell${page.heroCanvas ? ' hero-with-canvas' : ''}${page.heroBg ? ' hero-with-bg' : ''}"${bgStyle}>
       ${canvasLayer}
       <div class="hero-copy">
         <p class="eyebrow">${page.eyebrow}</p>
