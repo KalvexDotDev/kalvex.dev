@@ -10,12 +10,14 @@ const nav = {
   is: [
     ['home', 'is.html', 'Heim'],
     ['about', 'med-ther-i-lidi.html', 'Með þér'],
-    ['book', 'takta-naesta-skref.html', 'Bóka fund']
+    ['book', 'takta-naesta-skref.html', 'Bóka fund'],
+    ['dora', 'dora-evidence.html', 'DORA']
   ],
   en: [
     ['home', 'index.html', 'Home'],
     ['about', 'with-you-on-your-side.html', 'About'],
-    ['book', 'next-steps.html', 'Book']
+    ['book', 'next-steps.html', 'Book'],
+    ['dora', 'dora-evidence.html', 'DORA']
   ]
 };
 
@@ -24,7 +26,7 @@ const labels = {
     skip: 'Fara beint í efni',
     lang: 'English',
     langLabel: 'Skoða síðuna á ensku',
-    book: 'Bóka ráðgjafafund',
+    book: 'Sjáðu hvernig Kalvex hjálpar',
     secondaryBook: 'Ræða næsta skref',
     services: 'Skoða þjónustu',
     homeTag: 'Íslensk tækniráðgjöf fyrir hugbúnaðarprófanir, sjálfvirkni og verkefnastjórnun',
@@ -45,7 +47,7 @@ const labels = {
     skip: 'Skip to content',
     lang: 'Íslenska',
     langLabel: 'View the site in Icelandic',
-    book: 'Book a sales meeting',
+    book: 'See how Kalvex helps',
     secondaryBook: 'Discuss next steps',
     services: 'Book a meeting',
     homeTag: 'Icelandic technology consultancy for QA, automation and project delivery',
@@ -251,7 +253,7 @@ const pages = [
     h1: 'You shipped fast. We make sure it holds.',
     lead:
       'AI writes code faster than any human. It also breaks things faster. Kalvex installs automated quality guardrails so your team can move fast without the production fires. QA automation and strategic delivery — built in Iceland, for Icelandic engineering teams.',
-    primaryCta: 'Book a sales meeting',
+    primaryCta: 'See how Kalvex helps',
     secondaryCta: 'Book a meeting',
     secondaryHref: 'next-steps.html',
     body: `
@@ -395,7 +397,7 @@ const pages = [
     h1: 'Book a 30-minute conversation about quality, speed and risk.',
     lead:
       'We start with a short conversation about a real delivery flow in your company. No commitment, no generic sales show. Just an honest state view and a suggested next step.',
-    primaryCta: 'Book a sales meeting',
+    primaryCta: 'See how Kalvex helps',
     secondaryHref: 'https://cal.com/kalvex-jaimie/30min',
     body: `
       <section class="section">
@@ -520,7 +522,7 @@ const pages = [
     h1: 'Kalvex privacy policy.',
     lead:
       'This page explains, in plain language, how Kalvex processes personal data when someone visits the website, books a meeting or contacts us.',
-    primaryCta: 'Book a sales meeting',
+    primaryCta: 'See how Kalvex helps',
     secondaryCta: 'View cookies',
     secondaryHref: 'cookies.html',
     body: `
@@ -564,7 +566,7 @@ const pages = [
     h1: 'Cookies and consent.',
     lead:
       'Kalvex uses Umami to measure visits without cookies. No personally identifiable information is collected.',
-    primaryCta: 'Book a sales meeting',
+    primaryCta: 'See how Kalvex helps',
     secondaryCta: 'Privacy policy',
     secondaryHref: 'privacy-policy.html',
     body: `
@@ -924,9 +926,10 @@ function article(type, title, text) {
   `;
 }
 
-function button(href, label, variant = 'primary', external = false) {
+function button(href, label, variant = 'primary', external = false, eventName = '') {
   const externalAttrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
-  return `<a class="button button-${variant}" href="${href}"${externalAttrs}>${label}</a>`;
+  const eventAttr = eventName ? ` data-umami-event="${eventName}"` : '';
+  return `<a class="button button-${variant}" href="${href}"${externalAttrs}${eventAttr}>${label}</a>`;
 }
 
 function header(page) {
@@ -952,7 +955,7 @@ function header(page) {
         </nav>
         <div class="header-actions">
           <a class="language-link" href="${page.alternate}" aria-label="${l.langLabel}">${l.lang}</a>
-          ${button(bookingUrl, l.book, 'primary small', true)}
+          ${button(bookingUrl, l.book, 'primary small', true, 'book_header')}
         </div>
       </div>
     </header>
@@ -972,10 +975,11 @@ function hero(page) {
         <h1>${page.h1}</h1>
         <p class="hero-lead">${page.lead}</p>
         <div class="hero-actions">
-          ${button(bookingUrl, page.primaryCta, 'primary', true)}
-          ${button(page.secondaryHref, page.secondaryCta, 'secondary')}
+          ${button(bookingUrl, page.primaryCta, 'primary', true, 'book_hero')}
+          ${page.secondaryCta ? button(page.secondaryHref, page.secondaryCta, 'secondary') : ''}
         </div>
       </div>
+      ${page.active === 'home' ? `
       <div class="hero-system" aria-label="${page.lang === 'is' ? 'Afhendingarkerfi Kalvex' : 'Kalvex delivery system'}">
         <div class="system-topline">
           <span>Kalvex</span>
@@ -1005,6 +1009,7 @@ function hero(page) {
           <span>${page.lang === 'is' ? 'Afhent' : 'Shipped'}</span>
         </div>
       </div>
+      ` : ''}
     </section>
   `;
 }
@@ -1025,7 +1030,7 @@ function footer(page) {
           <h2>${page.lang === 'is' ? 'Við skulum finna fyrsta áfangann sem lækkar áhættu strax.' : 'Let us find the first stage that lowers risk immediately.'}</h2>
           <p>${l.footerNextText}</p>
         </div>
-        ${button(bookingUrl, l.book, 'light', true)}
+        ${button(bookingUrl, l.book, 'light', true, 'book_footer')}
       </div>
     </section>
     <footer class="site-footer">
@@ -1077,18 +1082,33 @@ function template(page) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
+    '@id': absoluteUrl + '#organization',
     name: 'Kalvex',
     url: absoluteUrl,
     logo: 'https://kalvex.dev/static/kalvex-logo.svg',
     image: 'https://kalvex.dev/static/kalvex-logo.svg',
-    areaServed: 'Iceland',
+    areaServed: ['Iceland','Nordic countries','European Union','United Kingdom'],
     description: page.description,
     sameAs: ['https://www.linkedin.com/company/kalvex/'],
-    makesOffer: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Software quality assurance' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Test automation' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Project management' } }
-    ]
+    foundingDate: '2024',
+    founder: { '@type': 'Person', name: 'Jaimie' },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      availableLanguage: ['English','Icelandic'],
+      url: bookingUrl
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Kalvex services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Software quality assurance', description: 'QA strategy, test architecture, and quality guardrails for critical systems.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Test automation', description: 'Automated test pipelines, CI integration, and regression coverage for fast teams.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Project management', description: 'Delivery leadership, risk tracking, and execution cadence for complex projects.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI quality guardrails', description: 'Verification systems for teams using AI-assisted development around critical systems.' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Critical Systems QA Readiness Sprint', description: '5-day fixed-scope QA review for fintech and regulated software teams.' } }
+      ]
+    }
   };
 
   return `<!DOCTYPE html>
@@ -1153,6 +1173,11 @@ function prepareOutputDir() {
     if (existsSync(source)) {
       cpSync(source, resolve(outputDir, item), { recursive: true });
     }
+  }
+
+  const doraPage = resolve(root, 'dora-evidence.html');
+  if (existsSync(doraPage)) {
+    cpSync(doraPage, resolve(outputDir, 'dora-evidence.html'));
   }
 
   writeFileSync(resolve(outputDir, '.nojekyll'), '', 'utf8');

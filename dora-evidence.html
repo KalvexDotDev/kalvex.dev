@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Critical Systems QA Readiness Sprint | Kalvex</title>
+  <meta name="description" content="Kalvex finds the regression, release, and test coverage gaps around your critical systems. A 5-day fixed-scope QA sprint for fintech, payments, and regulated software teams.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="canonical" href="https://kalvex.dev/dora-evidence.html">
+  <link rel="alternate" hreflang="en" href="https://kalvex.dev/dora-evidence.html">
+  <link rel="alternate" hreflang="is" href="https://kalvex.dev/">
+  <link rel="alternate" hreflang="x-default" href="https://kalvex.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kalvex.dev/dora-evidence.html">
+  <meta property="og:title" content="Critical Systems QA Readiness Sprint | Kalvex">
+  <meta property="og:description" content="Kalvex finds the regression, release, and test coverage gaps around your critical systems. A 5-day fixed-scope QA sprint for fintech, payments, and regulated software teams.">
+  <meta property="og:image" content="https://kalvex.dev/static/kalvex-logo.svg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Critical Systems QA Readiness Sprint | Kalvex">
+  <meta name="twitter:description" content="5-day fixed-scope QA sprint for fintech, payments, and regulated software teams. Find the gaps before the change goes live.">
+  <meta name="twitter:image" content="https://kalvex.dev/static/kalvex-logo.svg">
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <script async src="https://web.kalvex.dev/script.js" data-website-id="6b09f082-3a32-4605-9abe-8cf6e794cc0a"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://kalvex.dev/dora-evidence.html#organization","name":"Kalvex","url":"https://kalvex.dev/dora-evidence.html","logo":"https://kalvex.dev/static/kalvex-logo.svg","image":"https://kalvex.dev/static/kalvex-logo.svg","areaServed":["Iceland","Nordic countries","European Union","United Kingdom"],"description":"Kalvex finds the regression, release, and test coverage gaps around your critical systems. A 5-day fixed-scope QA sprint for fintech, payments, and regulated software teams.","sameAs":["https://www.linkedin.com/company/kalvex/"],"foundingDate":"2024","founder":{"@type":"Person","name":"Jaimie"},"contactPoint":{"@type":"ContactPoint","contactType":"sales","availableLanguage":["English","Icelandic"],"url":"https://cal.com/kalvex-jaimie/30min"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Kalvex services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Software quality assurance","description":"QA strategy, test architecture, and quality guardrails for critical systems."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Test automation","description":"Automated test pipelines, CI integration, and regression coverage for fast teams."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Project management","description":"Delivery leadership, risk tracking, and execution cadence for complex projects."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI quality guardrails","description":"Verification systems for teams using AI-assisted development around critical systems."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Critical Systems QA Readiness Sprint","description":"5-day fixed-scope QA review for fintech and regulated software teams."}}]}}</script>
+  <style>
+    .subhead {
+      font-size: 1.22rem;
+      color: var(--ink-soft);
+      max-width: 680px;
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+    .symptom-list {
+      display: grid;
+      gap: var(--space-md);
+      list-style: none;
+      margin: 0 0 32px;
+      padding: 0;
+    }
+    .symptom-list li {
+      border: 1.5px solid var(--line-card);
+      border-radius: var(--radius-md);
+      background: var(--surface-card);
+      padding: 14px 18px;
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+      line-height: 1.5;
+      box-shadow: var(--shadow-sm);
+    }
+    .does-box { }
+    .does-box h3 { margin-bottom: 16px; }
+    .does-box ul { display: grid; gap: 8px; list-style: none; margin: 0; padding: 0; }
+    .does-box li { color: var(--ink-soft); font-size: 0.98rem; line-height: 1.5; padding-left: 16px; position: relative; }
+    .does-box li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; background: var(--green); }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="Kalvex">
+        <img src="static/kalvex-logo.svg" alt="" width="28" height="31">
+        <span>Kalvex</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+<a href="with-you-on-your-side.html">About</a>
+<a href="next-steps.html">Book</a>
+<a href="dora-evidence.html" aria-current="page">DORA</a>
+      </nav>
+      <div class="header-actions">
+        <a class="language-link" href="is.html" aria-label="View the site in Icelandic">Íslenska</a>
+        <a class="button button-primary small" href="https://cal.com/kalvex-jaimie/30min" data-umami-event="book_dora" target="_blank" rel="noopener noreferrer">See how Kalvex helps</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Critical Systems QA</p>
+        <h1>Your critical systems changed. Do your tests know that?</h1>
+        <p class="subhead">Kalvex helps fintech and regulated software teams find the QA gaps that make releases, migrations, and ICT changes risky. We review critical flows, regression coverage, release gates, and smoke testing before important changes go live.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://calendar.proton.me/bookings#f5R_HUC-t-e9my4JvFXcOHbZWnV__x5yNJwd1WZcn5g=" data-umami-event="book_dora_hero" target="_blank" rel="noopener noreferrer">Request a fixed-fee QA readiness sprint</a>
+          <a class="button button-secondary" href="#offer">See what the sprint covers</a>
+        </div>
+        <p style="margin-top:20px; color:var(--muted); font-size:0.92rem; max-width:560px;">Book a short scoping call. We confirm the system, service, migration wave, or AI-assisted workflow to review, then agree whether it fits the &euro;750 founding customer sprint.</p>
+      </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section">
+      <div class="shell">
+        <p class="eyebrow">The problem</p>
+        <h2>You know the change shipped. You do not know if the system still holds.</h2>
+        <p style="max-width:660px; margin-bottom:28px; font-size:1.05rem;">Cloud migrations, AI-assisted development, DORA pressure, and critical ICT changes all expose the same weakness: the software changed faster than the verification system around it.</p>
+
+        <ul class="symptom-list">
+          <li>Your migration plan is green, but regression coverage is unclear.</li>
+          <li>Critical flows are still checked manually.</li>
+          <li>Release gates do not reflect business risk.</li>
+          <li>AI-generated code is moving faster than your verification process.</li>
+          <li>Useful proof is buried in Jira, CI, test runs, release notes, and people's heads.</li>
+        </ul>
+
+        <div class="note-panel" style="margin:32px 0;">
+          Kalvex does not interpret DORA for you. We help your engineering team close the software testing and release readiness gaps that DORA pressure exposes.
+        </div>
+      </div>
+    </section>
+
+    <!-- Offer -->
+    <section class="section-wash section" id="offer"><div class="shell">
+        <p class="eyebrow">The offer</p>
+        <h2>Critical Systems QA Readiness Sprint</h2>
+        <p style="max-width:660px; margin-bottom:24px; font-size:1.05rem;">A 5 business day, fixed scope software QA review for one critical system, service, migration wave, or AI-assisted development workflow.</p>
+        <div style="display:flex; gap:32px; flex-wrap:wrap; margin-bottom:36px; color:var(--muted); font-weight:600; font-size:1rem;">
+          <span>5 business days</span>
+          <span>Fixed scope</span>
+          <span>Software QA review</span>
+          <span>Not compliance consulting</span>
+        </div>
+
+        <!-- What we review -->
+        <p style="font-weight:700; color:var(--ink); font-size:1.05rem; margin-bottom:16px;">What the sprint reviews:</p>
+        <div class="card-grid two">
+          <div class="card" style="min-height:auto;">Critical user journeys</div>
+          <div class="card" style="min-height:auto;">API and integration coverage</div>
+          <div class="card" style="min-height:auto;">Manual regression bottlenecks</div>
+          <div class="card" style="min-height:auto;">Automated test gaps</div>
+          <div class="card" style="min-height:auto;">Release gate weakness</div>
+          <div class="card" style="min-height:auto;">Smoke testing before cutover</div>
+          <div class="card" style="min-height:auto;">Rollback and post-release checks</div>
+          <div class="card" style="min-height:auto;">Defect escape patterns</div>
+        </div>
+
+        <!-- What you get -->
+        <p style="font-weight:700; color:var(--ink); font-size:1.05rem; margin-bottom:16px;">What you receive:</p>
+        <p style="max-width:660px; margin-bottom:20px; font-size:0.98rem; color:var(--muted);">You get a practical review of where release safety is weak, which tests matter most, and what should be automated first.</p>
+        <div class="card-grid two">
+          <div class="card" style="min-height:auto;">Critical flow map</div>
+          <div class="card" style="min-height:auto;">Test coverage gap review</div>
+          <div class="card" style="min-height:auto;">Regression risk register</div>
+          <div class="card" style="min-height:auto;">Release gate recommendations</div>
+          <div class="card" style="min-height:auto;">Manual versus automated test split</div>
+          <div class="card" style="min-height:auto;">Smoke test pack for critical changes</div>
+          <div class="card" style="min-height:auto;">30-day QA improvement plan</div>
+        </div>
+
+        <div class="price-card">
+          <p class="price">&euro;750</p>
+          <p class="price-note">Founding customer price. Starter review from &euro;750.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why this matters now -->
+    <section class="section">
+      <div class="shell">
+        <p class="eyebrow">Context</p>
+        <h2>Why this matters now</h2>
+        <p style="max-width:680px; margin-bottom:28px; font-size:1.05rem;">DORA, cloud migration, AI-generated code, and faster release cycles all increase the pressure on engineering teams to show that critical systems still work after change.</p>
+        <p style="max-width:680px; font-size:1.05rem;">But software resilience is not proven by policy documents alone. Teams need to know which critical flows are tested, which integrations are fragile, which release gates matter, and what evidence exists when a critical change goes live.</p>
+        <p style="max-width:680px; font-size:1.05rem;">Kalvex works on that software QA layer. Not the regulation. The verification underneath it.</p>
+      </div>
+    </section>
+
+    <!-- Clear boundaries -->
+    <section class="section">
+      <div class="shell">
+        <p class="eyebrow">Boundaries</p>
+        <h2>Clear boundaries</h2>
+        <p style="max-width:680px; margin-bottom:28px; font-size:1.05rem;">Kalvex does not provide legal advice, certify DORA compliance, or replace your compliance, security, audit, or risk owners.</p>
+        <p style="max-width:680px; font-size:1.05rem;">Kalvex reviews the software QA layer: test coverage, regression risk, release checks, smoke tests, and practical verification before important changes go live.</p>
+      </div>
+    </section>
+
+    <!-- Who this is for -->
+    <section class="section">
+      <div class="shell">
+        <p class="eyebrow">Who this is for</p>
+        <h2>Built for teams that ship critical software under scrutiny.</h2>
+        <div class="card-grid two">
+          <div class="card" style="min-height:auto;">Fintech and payments teams</div>
+          <div class="card" style="min-height:auto;">Financial technology suppliers</div>
+          <div class="card" style="min-height:auto;">Regulated software teams</div>
+          <div class="card" style="min-height:auto;">Cloud migration projects under delivery pressure</div>
+          <div class="card" style="min-height:auto;">UK and EU teams facing operational resilience or DORA-related pressure</div>
+          <div class="card" style="min-height:auto;">Teams using AI-assisted development around critical systems</div>
+          <div class="card" style="min-height:auto;">Engineering, QA, and release leaders who need clearer software verification before important changes go live</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder credibility -->
+    <section class="section">
+      <div class="shell">
+        <p class="eyebrow">Who runs the sprint</p>
+        <h2>A QA and delivery specialist, not a governance consultant.</h2>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <span class="number">16+</span>
+            <span class="label">Years in QA, engineering leadership, and delivery risk.</span>
+          </div>
+          <div class="stat-card">
+            <span class="number">115</span>
+            <span class="label">Services migrated in 90 days through clearer ownership, repeatable checks, and migration flow.</span>
+          </div>
+          <div class="stat-card">
+            <span class="number">Iceland</span>
+            <span class="label">Local presence for Nordic, UK, and European technology teams.</span>
+          </div>
+        </div>
+        <p style="margin-top:24px; max-width:680px; font-size:0.95rem;">Kalvex is based in Iceland and works with Nordic, UK, and European software teams shipping critical systems under delivery and resilience pressure.</p>
+      </div>
+  </section>
+    <section class="final-cta" id="cta"><div class="shell final-cta-inner">
+        <h2>Start with one critical system.</h2>
+        <p>Pick one service, migration wave, or AI-assisted workflow. Book a short scoping call. If the scope fits, Kalvex reviews the QA gaps and returns a practical readiness pack in 5 business days.</p>
+        <a class="button button-light" href="https://calendar.proton.me/bookings#f5R_HUC-t-e9my4JvFXcOHbZWnV__x5yNJwd1WZcn5g=" data-umami-event="book_dora_footer" target="_blank" rel="noopener noreferrer">Request a fixed-fee QA readiness sprint</a>
+        <p style="margin-top:18px; font-size:0.88rem; opacity:0.7;">Founding customer price from &euro;750. Fixed scope. Software QA only.</p>
+      </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+      <div class="shell">
+        <p><strong>Note:</strong> The Critical Systems QA Readiness Sprint is a software quality assurance review. It is not legal advice, not a compliance audit, and not a DORA certification. Kalvex is a software QA and delivery consultancy, not a law firm or a GRC vendor. For legal interpretation of DORA requirements, engage qualified regulatory counsel.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div>
+        <a class="brand footer-brand" href="index.html" aria-label="Kalvex">
+          <img src="static/kalvex-logo.svg" alt="" width="28" height="31">
+          <span>Kalvex</span>
+        </a>
+        <p>Kalvex is an Icelandic technology consultancy. QA automation and delivery leadership for teams that want to ship fast without breaking things.</p>
+      </div>
+      <div>
+        <h2>Our work</h2>
+        <nav aria-label="Our work">
+          <a href="with-you-on-your-side.html">About</a>
+<a href="next-steps.html">Book</a>
+<a href="dora-evidence.html">DORA</a>
+        </nav>
+      </div>
+      <div>
+        <h2>Language</h2>
+        <nav aria-label="Language">
+          <a href="is.html">Íslenska</a>
+          <a href="takta-naesta-skref.html">Icelandic booking page</a>
+          <a href="next-steps.html">Book a meeting</a>
+        </nav>
+      </div>
+      <div>
+        <h2>Privacy</h2>
+        <nav aria-label="Privacy">
+          <a href="privacy-policy.html">Privacy policy</a>
+          <a href="cookies.html">Cookies</a>
+
+        </nav>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <span>© <span id="year"></span> Kalvex.</span>
+      <span>All rights reserved.</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
