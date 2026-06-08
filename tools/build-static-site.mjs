@@ -1052,8 +1052,7 @@ function footer(page) {
           <h2>${l.footerLanguage}</h2>
           <nav aria-label="${l.footerLanguage}">
             <a href="${page.alternate}">${l.lang}</a>
-            <a href="takta-naesta-skref.html">${page.lang === 'is' ? 'Bóka fund á íslensku' : 'Icelandic booking page'}</a>
-            <a href="next-steps.html">${page.lang === 'is' ? 'Bóka fund á ensku' : 'Book a meeting'}</a>
+            <a href="${page.lang === 'is' ? 'takta-naesta-skref.html' : 'next-steps.html'}">${page.lang === 'is' ? 'Bóka fund' : 'Book a meeting'}</a>
           </nav>
         </div>
         <div>
