@@ -145,7 +145,7 @@ const pages = [
     file: 'med-ther-i-lidi.html',
     lang: 'is',
     active: 'about',
-    heroBg: 'assets/img/about-hero.jpg',
+    heroImg: 'assets/img/about-hero.jpg',
     alternate: 'with-you-on-your-side.html',
     title: 'Með þér í liði | Kalvex',
     description:
@@ -337,7 +337,7 @@ const pages = [
     file: 'with-you-on-your-side.html',
     lang: 'en',
     active: 'about',
-    heroBg: 'assets/img/about-hero.jpg',
+    heroImg: 'assets/img/about-hero.jpg',
     alternate: 'med-ther-i-lidi.html',
     title: 'Working With Kalvex | Local Icelandic QA consultancy',
     description:
@@ -968,10 +968,13 @@ function hero(page) {
   const canvasLayer = page.heroCanvas
     ? '<div class="hero-canvas-layer" data-hero-canvas aria-hidden="true"></div>'
     : '';
-  const bgStyle = page.heroBg ? ` style="background-image: url('${page.heroBg}');"` : '';
+  const heroCard = page.heroImg ? `
+      <figure class="hero-card">
+        <img src="${page.heroImg}" alt="" loading="eager" decoding="async">
+      </figure>` : '';
 
   return `
-    <section class="hero shell${page.heroCanvas ? ' hero-with-canvas' : ''}${page.heroBg ? ' hero-with-bg' : ''}"${bgStyle}>
+    <section class="hero shell${page.heroCanvas ? ' hero-with-canvas' : ''}">
       ${canvasLayer}
       <div class="hero-copy">
         <p class="eyebrow">${page.eyebrow}</p>
@@ -982,7 +985,7 @@ function hero(page) {
           ${page.secondaryCta ? button(page.secondaryHref, page.secondaryCta, 'secondary') : ''}
         </div>
       </div>
-      ${page.active === 'home' ? `
+      ${page.heroImg ? heroCard : page.active === 'home' ? `
       <div class="hero-system" aria-label="${page.lang === 'is' ? 'Afhendingarkerfi Kalvex' : 'Kalvex delivery system'}">
         <div class="system-topline">
           <span>Kalvex</span>
