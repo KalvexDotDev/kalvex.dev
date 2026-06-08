@@ -24,18 +24,18 @@
   --ink-soft: #1e2740;
   --muted: #5b6a85;
 
-  /* Surface — pastel wheel-green background */
-  --surface: #F2F8ED;
-  --surface-card: #F6FBF6;
-  --paper: #FFFFFF;
-  --wash: #E0F2E0;
-  --wash-alt: #D4ECD4;
+  /* Surface — continuous green field, cards blend in */
+  --surface: #E8F0E4;
+  --surface-card: #EDF4EA;
+  --paper: #F2F7F0;
+  --wash: #DCE8D6;
+  --wash-alt: #D2E0CA;
 
-  /* Borders — sage green (wheel green, desaturated) */
-  --line: #C8E0C8;
-  --line-strong: #B0D4B0;
-  --line-card: #D0E4D0;
-  --line-accent: #B8D8B8;
+  /* Borders — visible definition since cards match surface */
+  --line: #C4D8C0;
+  --line-strong: #B0C8AC;
+  --line-card: #C8DCC4;
+  --line-accent: #B8D0B4;
 
   /* Spatial scale */
   --space-xs: 4px;
@@ -68,7 +68,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(ellipse 60% 40% at 50% -10%, rgba(200, 230, 200, 0.35), transparent),
+    radial-gradient(ellipse 60% 40% at 50% -10%, rgba(200, 230, 200, 0.40), transparent),
     radial-gradient(ellipse 50% 35% at 85% 90%, rgba(0, 54, 255, 0.02), transparent),
     radial-gradient(ellipse 40% 30% at 15% 50%, rgba(22, 163, 74, 0.02), transparent),
     var(--surface);
@@ -106,7 +106,7 @@ p { color: var(--muted); font-size: 1.0625rem; line-height: 1.7; }
 .site-header {
   position: sticky; top: 0; z-index: 40;
   border-bottom: 1px solid var(--line);
-  background: rgba(235, 245, 235, 0.9);
+  background: rgba(232, 240, 228, 0.92);
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
 }
@@ -168,7 +168,7 @@ p { color: var(--muted); font-size: 1.0625rem; line-height: 1.7; }
   gap: 56px;
   overflow: hidden;
   padding: 120px 0 100px;
-  background: linear-gradient(180deg, rgba(200, 235, 200, 0.45) 0%, rgba(232, 237, 255, 0.25) 40%, transparent 70%);
+  background: linear-gradient(180deg, rgba(210, 235, 210, 0.50) 0%, rgba(232, 237, 255, 0.25) 40%, transparent 70%);
 }
 .hero-with-canvas { border-radius: var(--radius-md); }
 .hero-canvas-layer {
@@ -183,7 +183,7 @@ p { color: var(--muted); font-size: 1.0625rem; line-height: 1.7; }
 .hero-with-bg::before {
   content: '';
   position: absolute; inset: 0; z-index: 0;
-  background: linear-gradient(135deg, rgba(235,245,235,0.93) 0%, rgba(225,240,225,0.84) 50%, rgba(246,251,246,0.72) 100%);
+  background: linear-gradient(135deg, rgba(232,240,228,0.93) 0%, rgba(220,232,214,0.84) 50%, rgba(242,247,240,0.72) 100%);
   pointer-events: none;
 }
 .hero-with-bg > * { position: relative; z-index: 1; }
@@ -205,7 +205,7 @@ p { color: var(--muted); font-size: 1.0625rem; line-height: 1.7; }
 .hero-system {
   border: 1.5px solid var(--line-accent);
   border-radius: var(--radius-lg);
-  background: linear-gradient(155deg, rgba(225,240,225,0.6), rgba(246,251,246,0.9)), var(--surface-card);
+  background: linear-gradient(155deg, rgba(220,232,214,0.6), rgba(237,244,234,0.9)), var(--surface-card);
   box-shadow: var(--shadow-lg);
   min-height: 440px; padding: var(--space-2xl);
 }
