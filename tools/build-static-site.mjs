@@ -1164,6 +1164,91 @@ for (const page of pages) {
 
 console.log(`Generated ${pages.length} static HTML pages in output/.`);
 
+// Generate SEO files from pages data
+writeFileSync(resolve(outputDir, 'robots.txt'), robotsTxt(), 'utf8');
+writeFileSync(resolve(outputDir, 'sitemap.xml'), sitemap(), 'utf8');
+writeFileSync(resolve(outputDir, 'llms.txt'), llmsTxt(), 'utf8');
+console.log('Generated robots.txt, sitemap.xml, llms.txt.');
+
+function robotsTxt() {
+  return `User-agent: *
+Allow: /
+Sitemap: https://kalvex.dev/sitemap.xml
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+`;
+}
+
+function sitemap() {
+  const today = new Date().toISOString().split('T')[0];
+  const priority = (p) => p.active === 'home' ? '1.0' : p.active === 'next' ? '0.8' : p.active === 'about' ? '0.7' : p.active === 'legal' ? '0.3' : '0.5';
+  const freq = (p) => p.active === 'home' ? 'weekly' : p.active === 'legal' ? 'yearly' : 'monthly';
+
+  const urls = pages.map(p => {
+    const url = p.file === 'index.html' ? 'https://kalvex.dev/' : `https://kalvex.dev/${p.file}`;
+    const altUrl = p.alternate === 'index.html' ? 'https://kalvex.dev/' : `https://kalvex.dev/${p.alternate}`;
+    const altLang = p.lang === 'is' ? 'en' : 'is';
+    return `  <url>
+    <loc>${url}</loc>
+    <xhtml:link rel="alternate" hreflang="${p.lang}" href="${url}"/>
+    <xhtml:link rel="alternate" hreflang="${altLang}" href="${altUrl}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kalvex.dev/"/>
+    <lastmod>${today}</lastmod>
+    <changefreq>${freq(p)}</changefreq>
+    <priority>${priority(p)}</priority>
+  </url>`;
+  }).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls}
+</urlset>
+`;
+}
+
+function llmsTxt() {
+  const enPages = pages.filter(p => p.lang === 'en');
+  const pageList = enPages.map(p => {
+    const url = p.file === 'index.html' ? 'https://kalvex.dev/' : `https://kalvex.dev/${p.file}`;
+    return `- [${p.title.replace(' | Kalvex', '')}](${url}): ${p.description}`;
+  }).join('\n');
+
+  return `# Kalvex
+
+> Icelandic technology consultancy — QA, test automation, AI quality guardrails, and project delivery leadership for teams that ship critical software.
+
+Kalvex is based in Iceland and serves Nordic, UK, and European technology companies. Founded in 2024. The company builds deterministic software quality systems including automated test pipelines, release gates, AI verification guardrails, and project governance frameworks for fintech, payments, and regulated software teams.
+
+## Core pages
+
+${pageList}
+
+## Services
+
+Kalvex offers five services: Software quality assurance (QA strategy, test architecture, quality guardrails for critical systems), Test automation (automated pipelines, CI integration, regression coverage), Project management (delivery leadership, risk tracking, execution cadence), AI quality guardrails (verification for AI-assisted development around critical systems), and Critical Systems QA Readiness Sprint (5-day fixed-scope review). All services delivered from Iceland to Nordic, UK, and European clients.
+
+## Contact
+
+Book via cal.com: https://cal.com/kalvex-jaimie/30min
+LinkedIn: https://www.linkedin.com/company/kalvex/
+Email: jaimie@kalvex.dev
+`;
+}
+
 function prepareOutputDir() {
   rmSync(outputDir, { recursive: true, force: true });
   mkdirSync(outputDir, { recursive: true });
