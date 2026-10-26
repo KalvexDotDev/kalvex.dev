@@ -70,15 +70,15 @@ let exitCode = 0;
       console.log("PASS: No HubSpot consent banner");
     }
 
-    // Check 6: Umami tracking script present
+    // Check 6: Retired analytics must not be loaded
     const umamiScript = await page.evaluate(() => {
-      return !!document.querySelector('script[data-website-id="6b09f082-3a32-4605-9abe-8cf6e794cc0a"]');
+      return !!document.querySelector('script[data-website-id], script[src*="web.kalvex.dev/script.js"], [data-umami-event]');
     });
-    if (!umamiScript) {
-      console.error("FAIL: Umami tracking script not found");
+    if (umamiScript) {
+      console.error("FAIL: Retired Umami tracking script found");
       exitCode = 1;
     } else {
-      console.log("PASS: Umami tracking script present");
+      console.log("PASS: No Umami tracking script");
     }
 
     // Check 7: No HubSpot tracking scripts

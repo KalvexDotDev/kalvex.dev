@@ -450,7 +450,7 @@ const pages = [
     secondaryHref: 'vefkokur.html',
     body: `
       <section class="section legal-content">
-        <p><strong>Síðast uppfært:</strong> 26. apríl 2026.</p>
+        <p><strong>Síðast uppfært:</strong> 26. október 2026.</p>
         <h2>Ábyrgðaraðili</h2>
         <p>Kalvex er ábyrgðaraðili þeirrar vinnslu persónuupplýsinga sem fer fram á þessum vef. Fyrir fyrirspurnir um persónuvernd má hafa samband við okkur á <a href="mailto:jaimie@kalvex.dev">jaimie@kalvex.dev</a>.</p>
 
@@ -459,20 +459,20 @@ const pages = [
         <div class="card-grid three">
           ${plainCard('Rekstur vefs', 'Hýsingar- og öryggiskerfi geta unnið IP-tölu, tæki, vafra, tíma heimsóknar og hvaða síður eru sóttar. Tilgangurinn er rekstur, öryggi og bilanagreining.')}
           ${plainCard('Fundabókanir', 'Þegar þú bókar fund í gegnum cal.com vinnast upplýsingar á borð við nafn, netfang, tíma fundar og skilaboð sem þú velur að senda.')}
-          ${plainCard('Vefmælingar', 'Umami mælir heimsóknir án þess að nota vefkökur eða safna persónugreinanlegum upplýsingum. Engin samþykki þarf.')}
+          ${plainCard('Vefmælingar', 'Vefmælingum hefur verið hætt. Vefurinn sendir ekki lengur síðuflettingar eða smelli á bókunarhnappa til vefmælingaþjónustu.')}
         </div>
 
         <h2>Lagagrundvöllur</h2>
-        <p>Rekstur, öryggi og grunnmælingar sem nauðsynlegar eru fyrir vefinn byggja á lögmætum hagsmunum Kalvex af því að reka öruggan og virkan vef. Fundabókanir og samskipti byggja á því að gera ráðstafanir að beiðni þinni áður en mögulegt samningssamband hefst. Vefmælingar með Umami byggja á lögmætum hagsmunum og safna ekki persónugreinanlegum gögnum.</p>
+        <p>Rekstur, öryggi og grunnmælingar sem nauðsynlegar eru fyrir vefinn byggja á lögmætum hagsmunum Kalvex af því að reka öruggan og virkan vef. Fundabókanir og samskipti byggja á því að gera ráðstafanir að beiðni þinni áður en mögulegt samningssamband hefst.</p>
 
         <h2>Þjónustuaðilar</h2>
-        <p>Við notum þjónustuaðila til að hýsa vefinn, birta efni, bóka fundi og greina umferð. Slíkir aðilar vinna upplýsingar samkvæmt eigin skilmálum eða sem vinnsluaðilar eftir því sem við á. Dæmi eru GitHub Pages, Umami, cal.com og Cloudflare.</p>
+        <p>Við notum þjónustuaðila til að hýsa vefinn, birta efni, bóka fundi. Slíkir aðilar vinna upplýsingar samkvæmt eigin skilmálum eða sem vinnsluaðilar eftir því sem við á. Dæmi eru GitHub Pages, cal.com og Cloudflare.</p>
 
         <h2>Varðveisla</h2>
-        <p>Við varðveitum upplýsingar ekki lengur en nauðsynlegt er fyrir tilgang vinnslunnar, nema lög eða málefnalegir hagsmunir krefjist lengri varðveislu. Samþykki fyrir vefkökum er geymt í vafranum þínum þar til þú breytir vali eða hreinsar vafragögn.</p>
+        <p>Við varðveitum upplýsingar ekki lengur en nauðsynlegt er fyrir tilgang vinnslunnar, nema lög eða málefnalegir hagsmunir krefjist lengri varðveislu.</p>
 
         <h2>Réttindi þín</h2>
-        <p>Þú getur óskað eftir aðgangi að upplýsingum um þig, leiðréttingu, eyðingu, takmörkun vinnslu, flutningi gagna eða andmælt vinnslu eftir því sem lög leyfa. Þú getur afturkallað samþykki fyrir valkvæðum vefkökum hvenær sem er með stillingum vefkaka.</p>
+        <p>Þú getur óskað eftir aðgangi að upplýsingum um þig, leiðréttingu, eyðingu, takmörkun vinnslu, flutningi gagna eða andmælt vinnslu eftir því sem lög leyfa.</p>
         <p>Ef þú telur að vinnsla persónuupplýsinga brjóti gegn lögum getur þú sent kvörtun til Persónuverndar, íslensku persónuverndarstofnunarinnar.</p>
       </section>
     `
@@ -488,27 +488,27 @@ const pages = [
     eyebrow: 'Vefkökur',
     h1: 'Vefkökur og samþykki.',
     lead:
-      'Kalvex notar Umami til að mæla heimsóknir án vefkaka. Engar persónugreinanlegar upplýsingar eru safnað.',
+      'Kalvex hefur hætt vefmælingum.',
     primaryCta: 'Bóka ráðgjafafund',
     secondaryCta: 'Persónuverndarstefna',
     secondaryHref: 'personuverndarstefna.html',
     body: `
       <section class="section legal-content">
-        <p><strong>Síðast uppfært:</strong> 26. apríl 2026.</p>
+        <p><strong>Síðast uppfært:</strong> 26. október 2026.</p>
         <h2>Hvernig við notum vefkökur</h2>
-        <p>Vefurinn notar staðbundna vistun í vafranum til að muna hvort þú hefur samþykkt eða hafnað valkvæðum vefmælingum. Þessi vistun er nauðsynleg til að virða valið þitt.</p>
+        <p>Vefurinn notar ekki lengur valkvæðar vefmælingar eða vistar samþykki fyrir þeim.</p>
 
         <div class="card-grid three">
-          ${plainCard('Nauðsynlegt', 'Notað til að muna val þitt um vefkökur og halda vefnum virkum. Þetta er ekki notað til markaðssetningar.')}
-          ${plainCard('Umami', 'Umami mælir heimsóknir án þess að setja vefkökur eða safna persónugreinanlegum upplýsingum. Gögnin eru geymd á eigin þjóni Kalvex.')}
-          ${plainCard('Engin vefkökusamþykki þörf', 'Umami notar ekki vefkökur og krefst því ekki samþykkis. Þú getur skoðað mælingarnar á web.kalvex.dev.')}
+          ${plainCard('Nauðsynlegt', 'Hýsingar- og öryggisþjónustur eru áfram notaðar til að reka vefinn.')}
+          ${plainCard('Vefmælingum hætt', 'Slökkt hefur verið á vefmælingaþjónustunni.')}
+          ${plainCard('Engin vefkökusamþykki þörf', 'Vefurinn hleður ekki inn vefmælingaskriftu.')}
         </div>
 
-        <h2>Umami</h2>
-        <p>Kalvex rekur eigin Umami-þjón á web.kalvex.dev. Umami safnar síðuflettingum, tilvísunum, tækjagerð og landi — engar persónugreinanlegar upplýsingar, engar vefkökur, engin samþykkisskylda.</p>
+        <h2>Vefmælingum hætt</h2>
+        <p>Vefmælingum var hætt 26. október 2026. Vefmælingaskriftan og viðmót fyrir gagnasöfnun hafa verið fjarlægð.</p>
 
         <h2>Breyta vali</h2>
-        <p>Þar sem Umami notar ekki vefkökur er ekkert val að breyta. Þú getur skoðað opnar mælingar á web.kalvex.dev.</p>
+        <p>Ekkert val um vefmælingar er til staðar þar sem þjónustan er ekki lengur notuð.</p>
       </section>
     `
   },
@@ -529,7 +529,7 @@ const pages = [
     secondaryHref: 'cookies.html',
     body: `
       <section class="section legal-content">
-        <p><strong>Last updated:</strong> 26 April 2026.</p>
+        <p><strong>Last updated:</strong> 26 October 2026.</p>
         <h2>Controller</h2>
         <p>Kalvex is the controller for personal data processed on this website. For privacy questions, contact us at <a href="mailto:jaimie@kalvex.dev">jaimie@kalvex.dev</a>.</p>
 
@@ -538,20 +538,20 @@ const pages = [
         <div class="card-grid three">
           ${plainCard('Website operation', 'Hosting and security systems may process IP address, device, browser, request time and pages requested for operations, security and troubleshooting.')}
           ${plainCard('Meeting bookings', 'When you book through cal.com, details such as name, email address, meeting time and any message you provide may be processed.')}
-          ${plainCard('Web analytics', 'Umami measures visits without using cookies or collecting personally identifiable information. No consent is required.')}
+          ${plainCard('Web analytics', 'Website analytics have been retired. The site no longer sends page views or booking-click events to an analytics service.')}
         </div>
 
         <h2>Legal basis</h2>
-        <p>Website operation and security rely on Kalvex's legitimate interests in running a secure and functioning website. Meeting bookings and direct communications rely on steps taken at your request before a possible contract. Web analytics via Umami rely on legitimate interests and do not collect personally identifiable data.</p>
+        <p>Website operation and security rely on Kalvex's legitimate interests in running a secure and functioning website. Meeting bookings and direct communications rely on steps taken at your request before a possible contract.</p>
 
         <h2>Service providers</h2>
-        <p>We use providers to host the site, publish content, arrange meetings and run analytics. These providers process data under their own terms or as processors where applicable. Examples include GitHub Pages, Umami, cal.com and Cloudflare.</p>
+        <p>We use providers to host the site, publish content, arrange meetings. These providers process data under their own terms or as processors where applicable. Examples include GitHub Pages, cal.com and Cloudflare.</p>
 
         <h2>Retention</h2>
-        <p>We do not keep personal data longer than needed for the purpose, unless legal duties or legitimate reasons require longer retention. Cookie consent is stored in your browser until you change your choice or clear browser data.</p>
+        <p>We do not keep personal data longer than needed for the purpose, unless legal duties or legitimate reasons require longer retention.</p>
 
         <h2>Your rights</h2>
-        <p>You can request access, rectification, erasure, restriction, portability or object to processing where the law gives you that right. You can withdraw optional cookie consent at any time through cookie settings.</p>
+        <p>You can request access, rectification, erasure, restriction, portability or object to processing where the law gives you that right.</p>
         <p>If you believe personal data has been processed unlawfully, you can complain to Persónuvernd, the Icelandic Data Protection Authority.</p>
       </section>
     `
@@ -567,27 +567,27 @@ const pages = [
     eyebrow: 'Cookies',
     h1: 'Cookies and consent.',
     lead:
-      'Kalvex uses Umami to measure visits without cookies. No personally identifiable information is collected.',
+      'Kalvex no longer runs website analytics.',
     primaryCta: 'See how Kalvex helps',
     secondaryCta: 'Privacy policy',
     secondaryHref: 'privacy-policy.html',
     body: `
       <section class="section legal-content">
-        <p><strong>Last updated:</strong> 26 April 2026.</p>
+        <p><strong>Last updated:</strong> 26 October 2026.</p>
         <h2>How we use cookies</h2>
-        <p>The site uses local browser storage to remember whether you accepted or rejected optional analytics. This is necessary to respect your choice.</p>
+        <p>The site no longer uses optional analytics or stores an analytics consent preference.</p>
 
         <div class="card-grid three">
-          ${plainCard('Necessary', 'Used to remember your cookie preference and keep the site working. It is not used for marketing.')}
-          ${plainCard('Umami', 'Umami measures visits without cookies or personally identifiable data. All data is stored on Kalvex-owned servers.')}
-          ${plainCard('No consent needed', 'Umami uses no cookies and requires no consent. You can view our public analytics at web.kalvex.dev.')}
+          ${plainCard('Necessary', 'Hosting and security services remain in use to operate the website.')}
+          ${plainCard('Analytics retired', 'The website analytics collector has been shut down.')}
+          ${plainCard('No consent needed', 'No analytics tracking script is loaded by this site.')}
         </div>
 
-        <h2>Umami</h2>
-        <p>Kalvex self-hosts Umami at web.kalvex.dev. Umami collects page views, referrers, device type and country — no personally identifiable information, no cookies, no consent required.</p>
+        <h2>Analytics retired</h2>
+        <p>Website analytics were retired on 26 October 2026. The tracking script and data collection endpoints have been removed.</p>
 
         <h2>Change your choice</h2>
-        <p>Since Umami does not use cookies, there is no choice to change. You can view our open analytics at web.kalvex.dev.</p>
+        <p>There is no website analytics preference to change because the analytics service is no longer used.</p>
       </section>
     `
   }
@@ -930,8 +930,7 @@ function article(type, title, text) {
 
 function button(href, label, variant = 'primary', external = false, eventName = '') {
   const externalAttrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
-  const eventAttr = eventName ? ` data-umami-event="${eventName}"` : '';
-  return `<a class="button button-${variant}" href="${href}"${externalAttrs}${eventAttr}>${label}</a>`;
+  return `<a class="button button-${variant}" href="${href}"${externalAttrs}>${label}</a>`;
 }
 
 function header(page) {
@@ -1143,7 +1142,6 @@ function template(page) {
   <link rel="stylesheet" href="assets/css/custom.css">
   ${page.heroCanvas || pageVisuals[page.active]?.[page.lang] ? '<script defer src="assets/js/hero-canvas.js"></script>' : ''}
   <script type="application/ld+json">${JSON.stringify(schema)}</script>
-  <script async src="https://web.kalvex.dev/script.js" data-website-id="6b09f082-3a32-4605-9abe-8cf6e794cc0a"></script>
 </head>
 <body>
   ${header(page)}
